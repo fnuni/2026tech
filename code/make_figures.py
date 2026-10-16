@@ -64,8 +64,13 @@ fig.tight_layout(w_pad=2);save(fig,'fig_bars_violations')
 traces=json.loads((ROOT/'validation/plot_data.json').read_text())
 r=traces['cs1_nominal'];cfg=json.loads((ROOT/'instances/cs1_nominal_config.json').read_text())
 types={s['id']:s['type'] for s in cfg['samples']}
-fig,ax=plt.subplots(figsize=(7.0,6.4))
-stagecolors={6:'#85a8c1',7:'#9acb9a',8:'#dedede',9:'#a2d29a',10:'#a2d29a',11:'#d5a8b1',12:'#85a8c1',13:'#b7a3cd',14:'#9acb9a'}
+fig,ax=plt.subplots(figsize=(7.0,7.0))
+stagecolors={6:'#80a9c4',7:'#99c998',8:'#dedede',9:'#4e9b8e',
+             10:'#b28abc',11:'#d7a2b2',12:'#b7cbd6',13:'#6580ae',14:'#9c9c9c'}
+stage_names={6:'De-capper, 1000 mL',7:'Dosing (Pipet A)',8:'Stirring',
+             9:'HC extraction (Pipet B)',10:'SVOC extraction (Pipet C)',
+             11:'Concentration',12:'De-capper, centrifuge',13:'Centrifugation',
+             14:'GC-vial transfer (Pipet D)'}
 ids=sorted(r['operations'],key=lambda x:int(x[1:]))
 for i,sid in enumerate(ids):
     for op in r['operations'][sid]:
@@ -80,12 +85,14 @@ for i,sid in enumerate(ids):
         ax.plot(task['delivery_s']/3600,i,marker='d',ms=2.5,color='#245a81',zorder=4)
 ax.set_yticks(range(len(ids)),[f'{s} ({types[s]})' for s in ids],fontsize=8.5)
 ax.invert_yaxis();ax.set_xlabel('Time (h)');ax.grid(axis='x',alpha=.2)
-ax.legend(handles=[Patch(facecolor='#dedede',edgecolor='#555',label='Stirring'),
+ax.legend(handles=[Patch(facecolor=stagecolors[k],edgecolor='#555',label=stage_names[k])
+                   for k in sorted(stage_names)]+[
                    Patch(facecolor='#ffdf66',edgecolor='#caaa44',label='Waiting: at most 300 s'),
                    Patch(facecolor='#ffdf66',edgecolor='#b22222',linewidth=1.8,label='Waiting: more than 300 s'),
                    Line2D([],[],color='#245a81',marker='d',linestyle='None',markersize=4,label='Loaded delivery')],
-          loc='lower center',bbox_to_anchor=(.5,1.01),ncol=2,fontsize=8,frameon=False)
-ax.set_title('CS1, LB-ROLL: processing, pickup waiting and deliveries',fontsize=10,pad=45)
+          loc='lower center',bbox_to_anchor=(.5,1.01),ncol=3,fontsize=7.6,
+          columnspacing=1.0,handlelength=1.6,handletextpad=.5,frameon=False)
+ax.set_title('CS1, LB-ROLL: processing, pickup waiting and deliveries',fontsize=10,pad=75)
 fig.tight_layout();save(fig,'fig_gantt_cs1')
 
 r=traces['cs6_fullday'];end=r['kpi']['makespan_s'];times=np.arange(0,end+600,600)

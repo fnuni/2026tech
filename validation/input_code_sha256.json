@@ -8,7 +8,7 @@
   "instances/cs7_pipc480_config.json": "97bdbd78416a7566aa83a6c26ed8e2a5a5521b6067c173017596e7dbfe687233",
   "code/cell_model.py": "ea20e5f2cf8d624cd136db3d2969db86d9dd9d80f4e6cd49df0f279b400d0797",
   "code/exact_study.py": "097b2dc762b954ed3b701301a421e59c7a9463b196c084cecdcb3db729683b03",
-  "code/make_figures.py": "f8f1eda6f3b8c41e46e4451c140b968fba593bf527a09558465dcece384e9ffe",
+  "code/make_figures.py": "7e0ca2ce261a9a5e8a564d4636959b27e69d152f5c439ce3a0f1fc7e1419f716",
   "code/original/cpr_la_solver.py": "3745d01fa3bdb7c79bb223bc6827470a14ee134fb42aa0289978dd6aaa154118",
   "code/original/greedy_solver.py": "a5906c82a25255ac4b48fb20923009169353ab470be2546acebe2bac7a8b8379",
   "code/original/lower_bound.py": "eeddde463af4c65a0473a502bf4bf6899c329f76cb9a847969cbce4525091634",
