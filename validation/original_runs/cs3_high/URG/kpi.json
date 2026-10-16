@@ -1,0 +1,19 @@
+{
+  "instance_id": "ppla_s010_seed42",
+  "solver": "greedy_solver.py",
+  "n_samples": 23,
+  "n_completed": 23,
+  "makespan_s": 10691.8,
+  "n_violations": 27,
+  "max_wait_s": 4379.2,
+  "mean_wait_s": 399.0,
+  "n_robot_tasks": 167,
+  "n_solver_calls": 51,
+  "mean_solve_ms": 31.9,
+  "robot_loaded_s": 2479.4,
+  "robot_empty_s": 2389.3,
+  "robot_idle_s": 5823.0,
+  "robot_util_pct": 45.5,
+  "mean_flow_s": 6220.7,
+  "max_flow_s": 9551.8
+}

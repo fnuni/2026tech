@@ -1,0 +1,49 @@
+{
+  "_comment": "policy3_lb_rollout - optimisation metadata.",
+  "instance_id": "ppla_s020_seed42",
+  "epoch": "tau_114",
+  "t_s": 14865.68,
+  "solver": "policy3_lb_rollout",
+  "status": "FEASIBLE",
+  "solve_time_s": 8e-05,
+  "n_feasible_actions": 2,
+  "parameters": {
+    "gamma_qc": 1.0,
+    "delta_qc": 3,
+    "w_viol": 600.0,
+    "w_over": 120.0,
+    "rollout_band": 1000000.0,
+    "rollout_enabled": 1
+  },
+  "diagnostics": {
+    "tier": "pending",
+    "rollout": {
+      "n_candidates": 2,
+      "selected": {
+        "sample": "s44",
+        "dest": "v24",
+        "z": 2291.4,
+        "lb_after": 1200.0,
+        "nv": 0,
+        "ov": 8.843,
+        "bottleneck": 10
+      },
+      "top5": [
+        {
+          "sample": "s44",
+          "dest": "v24",
+          "z": 2291.4
+        },
+        {
+          "sample": "s46",
+          "dest": "v24",
+          "z": 2483.4
+        }
+      ]
+    }
+  },
+  "selected_task_id": "l320_s44_v24",
+  "selected_sample": "s44",
+  "selected_dest": "v24",
+  "generated_at": "2026-10-16T11:03:08"
+}

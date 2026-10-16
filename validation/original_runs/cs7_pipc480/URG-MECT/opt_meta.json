@@ -1,0 +1,49 @@
+{
+  "_comment": "CPR-LA v2 \u2013 optimisation metadata.",
+  "instance_id": "ppla_s010_seed42_pc480",
+  "epoch": "tau_60",
+  "t_s": 8565.97,
+  "solver": "cpr_la_v2",
+  "status": "FEASIBLE",
+  "solve_time_s": 0.000384,
+  "n_feasible_actions": 2,
+  "parameters": {
+    "gamma_qc": 1.0,
+    "delta_qc": 3,
+    "lookahead_band": 0
+  },
+  "diagnostics": {
+    "rho_QC": 9,
+    "B": 10,
+    "qc_anticipation_active": true,
+    "tier": "pending",
+    "pending_scores": {
+      "s18": {
+        "w_s": 226.3,
+        "slack": 73.69999999999999,
+        "dur": 30.71
+      },
+      "s22": {
+        "w_s": 31.2,
+        "slack": 268.8,
+        "dur": 30.25
+      }
+    },
+    "mect": {
+      "sample": "s18",
+      "mect_dest": "v26",
+      "mect_dur": 30.71,
+      "greedy_dest": "v26",
+      "greedy_dur": 30.71,
+      "override_applied": true
+    }
+  },
+  "selected_task_id": "l160_s18_v26",
+  "selected_sample": "s18",
+  "selected_dest": "v26",
+  "state_at_next_epoch": {
+    "epoch": "tau_61",
+    "t_s": 8596.679999999998
+  },
+  "generated_at": "2026-10-16T11:03:25"
+}

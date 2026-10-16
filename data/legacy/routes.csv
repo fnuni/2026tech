@@ -1,0 +1,51 @@
+sample_type,stage,station_type_k,module,processing_time_s
+HC,1,1,HC/SVOC entry,0
+HC,2,6,De-capper 1000 mL,300
+HC,3,7,Pipet A (dosing),180
+HC,4,8,Stirrer,1800
+HC,5,9,Pipet B (extraction M1),300
+HC,6,11,Concentrator,600
+HC,7,14,Pipet D (GC-vial),180
+HC,8,5,Sample exit,0
+SVOC,1,1,HC/SVOC entry,0
+SVOC,2,6,De-capper 1000 mL,300
+SVOC,3,7,Pipet A (dosing),180
+SVOC,4,8,Stirrer,60
+SVOC,5,10,Pipet C (extraction M2),600
+SVOC,6,11,Concentrator,1800
+SVOC,7,14,Pipet D (GC-vial),180
+SVOC,8,5,Sample exit,0
+SVOC_E,1,1,HC/SVOC entry,0
+SVOC_E,2,6,De-capper 1000 mL,300
+SVOC_E,3,7,Pipet A (dosing),180
+SVOC_E,4,8,Stirrer,60
+SVOC_E,5,12,De-capper centrifuge vessel,300
+SVOC_E,6,13,Centrifuge,300
+SVOC_E,7,10,Pipet C (extraction M2),600
+SVOC_E,8,11,Concentrator,1800
+SVOC_E,9,14,Pipet D (GC-vial),180
+SVOC_E,10,5,Sample exit,0
+QC1,1,2,QC1 entry,0
+QC1,2,6,De-capper 1000 mL,300
+QC1,3,7,Pipet A (dosing),180
+QC1,4,8,Stirrer,1800
+QC1,5,9,Pipet B (extraction M1),300
+QC1,6,11,Concentrator,600
+QC1,7,14,Pipet D (GC-vial),180
+QC1,8,5,Sample exit,0
+QC2,1,3,QC2 entry,0
+QC2,2,6,De-capper 1000 mL,300
+QC2,3,7,Pipet A (dosing),180
+QC2,4,8,Stirrer,60
+QC2,5,10,Pipet C (extraction M2),600
+QC2,6,11,Concentrator,1800
+QC2,7,14,Pipet D (GC-vial),180
+QC2,8,5,Sample exit,0
+Blank,1,4,Blank entry,0
+Blank,2,6,De-capper 1000 mL,300
+Blank,3,7,Pipet A (dosing),180
+Blank,4,8,Stirrer,1800
+Blank,5,9,Pipet B (extraction M1),300
+Blank,6,11,Concentrator,600
+Blank,7,14,Pipet D (GC-vial),180
+Blank,8,5,Sample exit,0

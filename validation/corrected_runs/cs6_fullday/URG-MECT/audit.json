@@ -1,0 +1,8 @@
+{
+  "precedence": true,
+  "robot_capacity": true,
+  "position_capacity": true,
+  "releases": true,
+  "all_samples_completed": true,
+  "hard_wait_feasible": false
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "policy3_lb_rollout solver - next action decision.",
+  "instance_id": "ppla_s100_seed42",
+  "epoch": "tau_377",
+  "t_s": 74441.74999999999,
+  "solver": "policy3_lb_rollout",
+  "selected_action": {
+    "task_id": "l1630_s226_v24",
+    "type": "loaded",
+    "sample_id": "s226",
+    "origin": "v23",
+    "pickup": "v22",
+    "destination": "v24",
+    "start_s": 74441.74999999999,
+    "duration_s": 28.95,
+    "end_s": 74470.69999999998
+  }
+}

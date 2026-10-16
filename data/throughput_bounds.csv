@@ -1,0 +1,7 @@
+sample_type,x_star_units_per_24h,bottleneck_k,bottleneck_module,horizon_s
+HC,288.0,9,Pipet B (extraction M1),86400
+SVOC,144.0,10,Pipet C (extraction M2),86400
+SVOC_E,144.0,10,Pipet C (extraction M2),86400
+QC1,288.0,9,Pipet B (extraction M1),86400
+QC2,144.0,10,Pipet C (extraction M2),86400
+Blank,288.0,9,Pipet B (extraction M1),86400

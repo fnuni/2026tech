@@ -1,0 +1,11 @@
+k,module,m_k,R_k_s,rho_pct,horizon_s
+6,De-capper 1000 mL,2,69000,39.9,86400
+7,Pipet A (dosing),1,41400,47.9,86400
+8,Stirrer,10,222600,25.8,86400
+9,Pipet B (extraction M1),1,36000,41.7,86400
+10,Pipet C (extraction M2),1,66000,76.4,86400
+11,Concentrator,10,270000,31.3,86400
+12,De-capper centrifuge vessel,1,9000,10.4,86400
+13,Centrifuge,1,9000,10.4,86400
+14,Pipet D (GC-vial),1,41400,47.9,86400
+0,Robot (sample transfers),1,50100,58.0,86400

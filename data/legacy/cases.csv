@@ -1,0 +1,8 @@
+case_id,label,scale,interval_s,seed,pipc_s,n_samples,regime
+CS1,cs1_nominal,0.1,375,42,600,23,nominal flow
+CS2,cs2_medium,0.1,180,42,600,23,medium load
+CS3,cs3_high,0.1,60,42,600,23,burst arrivals
+CS4,cs4_medium_s99,0.1,180,99,600,23,medium load alternative seed
+CS5,cs5_double,0.2,150,42,600,46,double volume
+CS6,cs6_fullday,1.0,375,42,600,230,full design day
+CS7,cs7_pipc480,0.1,180,42,480,23,bottleneck sensitivity

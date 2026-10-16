@@ -1,0 +1,34 @@
+station_id,module,station_type_k,x_m,y_m
+v1,Stirrer #1,8,0.142,0.121
+v2,Stirrer #2,8,0.325,0.121
+v3,Stirrer #3,8,0.508,0.121
+v4,Stirrer #4,8,0.142,0.264
+v5,Stirrer #5,8,0.325,0.264
+v6,Stirrer #6,8,0.508,0.264
+v7,Stirrer #7,8,0.142,0.406
+v8,Stirrer #8,8,0.325,0.406
+v9,Stirrer #9,8,0.508,0.406
+v10,Stirrer #10,8,0.142,0.549
+v11,Concentrator #1,11,0.792,0.121
+v12,Concentrator #2,11,0.975,0.121
+v13,Concentrator #3,11,1.158,0.121
+v14,Concentrator #4,11,0.792,0.264
+v15,Concentrator #5,11,0.975,0.264
+v16,Concentrator #6,11,1.158,0.264
+v17,Concentrator #7,11,0.792,0.406
+v18,Concentrator #8,11,0.975,0.406
+v19,Concentrator #9,11,1.158,0.406
+v20,Concentrator #10,11,0.792,0.549
+v21,De-capper centrifuge #1,12,1.425,0.175
+v22,Centrifuge #1,13,1.425,0.425
+v23,Pipet B (extr. M1) #1,9,1.675,0.175
+v24,Pipet C (extr. M2) #1,10,1.675,0.425
+v25,Pipet A (dosing) #1,7,1.925,0.175
+v26,Pipet D (GC-vial) #1,14,1.925,0.425
+v27,De-capper 1000mL #1,6,2.300,0.215
+v28,De-capper 1000mL #2,6,2.300,0.405
+v29,HC/SVOC Entry #1,1,2.900,0.090
+v30,QC1 Entry #1,2,2.900,0.210
+v31,QC2 Entry #1,3,2.900,0.330
+v32,Blank Entry #1,4,2.900,0.450
+v33,Sample Exit #1,5,2.900,0.570

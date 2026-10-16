@@ -1,0 +1,64 @@
+{
+  "_comment": "policy3_lb_rollout - optimisation metadata.",
+  "instance_id": "ppla_s100_seed42",
+  "epoch": "tau_377",
+  "t_s": 74441.74999999999,
+  "solver": "policy3_lb_rollout",
+  "status": "FEASIBLE",
+  "solve_time_s": 0.000448,
+  "n_feasible_actions": 2,
+  "parameters": {
+    "gamma_qc": 1.0,
+    "delta_qc": 3,
+    "w_viol": 600.0,
+    "w_over": 120.0,
+    "rollout_band": 1000000.0,
+    "rollout_enabled": 1
+  },
+  "diagnostics": {
+    "tier": "pending",
+    "rollout": {
+      "n_candidates": 9,
+      "selected": {
+        "sample": "s226",
+        "dest": "v24",
+        "z": 1857.9,
+        "lb_after": 1829.0,
+        "nv": 0,
+        "ov": 0.0,
+        "bottleneck": 14
+      },
+      "top5": [
+        {
+          "sample": "s226",
+          "dest": "v24",
+          "z": 1857.9
+        },
+        {
+          "sample": "s228",
+          "dest": "v9",
+          "z": 1859.3
+        },
+        {
+          "sample": "s228",
+          "dest": "v2",
+          "z": 1859.6
+        },
+        {
+          "sample": "s228",
+          "dest": "v5",
+          "z": 1859.6
+        },
+        {
+          "sample": "s228",
+          "dest": "v8",
+          "z": 1859.6
+        }
+      ]
+    }
+  },
+  "selected_task_id": "l1630_s226_v24",
+  "selected_sample": "s226",
+  "selected_dest": "v24",
+  "generated_at": "2026-10-16T11:03:23"
+}

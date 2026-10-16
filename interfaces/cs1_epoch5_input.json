@@ -1,0 +1,458 @@
+{
+  "_comment": "Decision epoch tau_5 at t=915.0s",
+  "instance_id": "ppla_s010_seed42",
+  "epoch": "tau_5",
+  "t_s": 915.0,
+  "X_rob": {
+    "location": "v27",
+    "status": "idle"
+  },
+  "X_st": {
+    "v1": {
+      "b_i": 1,
+      "r_i_s": 1425.0,
+      "sample_id": "s1"
+    },
+    "v2": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v3": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v4": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v5": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v6": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v7": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v8": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v9": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v10": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v11": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v12": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v13": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v14": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v15": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v16": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v17": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v18": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v19": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v20": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v21": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v22": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v23": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v24": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v25": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": "s2"
+    },
+    "v26": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v27": {
+      "b_i": 1,
+      "r_i_s": 165.0,
+      "sample_id": "s3"
+    },
+    "v28": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v29": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v30": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v31": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v32": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    },
+    "v33": {
+      "b_i": 0,
+      "r_i_s": 0.0,
+      "sample_id": null
+    }
+  },
+  "X_sam": {
+    "s1": {
+      "stage_j": 4,
+      "station": "v1",
+      "status": "processing",
+      "type": "HC",
+      "w_s": 0.0,
+      "completed_ops": [
+        {
+          "j": 1,
+          "station": "v29",
+          "S_s": 0.0,
+          "C_s": 0.0
+        },
+        {
+          "j": 2,
+          "station": "v27",
+          "S_s": 15.0,
+          "C_s": 315.0
+        },
+        {
+          "j": 3,
+          "station": "v25",
+          "S_s": 330.0,
+          "C_s": 510.0
+        },
+        {
+          "j": 4,
+          "station": "v1",
+          "S_s": 540.0,
+          "C_s": 2340.0
+        }
+      ],
+      "pending_ops": [
+        {
+          "j": 5,
+          "type_k": 9
+        },
+        {
+          "j": 6,
+          "type_k": 11
+        },
+        {
+          "j": 7,
+          "type_k": 14
+        },
+        {
+          "j": 8,
+          "type_k": 5
+        }
+      ]
+    },
+    "s2": {
+      "stage_j": 3,
+      "station": "v25",
+      "status": "waiting_robot",
+      "type": "SVOC_E",
+      "w_s": 0.0,
+      "completed_ops": [
+        {
+          "j": 1,
+          "station": "v29",
+          "S_s": 375.0,
+          "C_s": 375.0
+        },
+        {
+          "j": 2,
+          "station": "v27",
+          "S_s": 405.0,
+          "C_s": 705.0
+        },
+        {
+          "j": 3,
+          "station": "v25",
+          "S_s": 735.0,
+          "C_s": 915.0
+        }
+      ],
+      "pending_ops": [
+        {
+          "j": 4,
+          "type_k": 8
+        },
+        {
+          "j": 5,
+          "type_k": 12
+        },
+        {
+          "j": 6,
+          "type_k": 13
+        },
+        {
+          "j": 7,
+          "type_k": 10
+        },
+        {
+          "j": 8,
+          "type_k": 11
+        },
+        {
+          "j": 9,
+          "type_k": 14
+        },
+        {
+          "j": 10,
+          "type_k": 5
+        }
+      ]
+    },
+    "s3": {
+      "stage_j": 2,
+      "station": "v27",
+      "status": "processing",
+      "type": "HC",
+      "w_s": 0.0,
+      "completed_ops": [
+        {
+          "j": 1,
+          "station": "v29",
+          "S_s": 750.0,
+          "C_s": 750.0
+        },
+        {
+          "j": 2,
+          "station": "v27",
+          "S_s": 780.0,
+          "C_s": 1080.0
+        }
+      ],
+      "pending_ops": [
+        {
+          "j": 3,
+          "type_k": 7
+        },
+        {
+          "j": 4,
+          "type_k": 8
+        },
+        {
+          "j": 5,
+          "type_k": 9
+        },
+        {
+          "j": 6,
+          "type_k": 11
+        },
+        {
+          "j": 7,
+          "type_k": 14
+        },
+        {
+          "j": 8,
+          "type_k": 5
+        }
+      ]
+    }
+  },
+  "X_qc": {
+    "N_HC": 0,
+    "N_QC1": 0,
+    "N_QC2": 0,
+    "N_Blank": 0
+  },
+  "completed_tasks": [
+    "l1",
+    "l2",
+    "l3",
+    "l4",
+    "l5",
+    "l6"
+  ],
+  "feasible_actions": [
+    {
+      "task_id": "l7_s2_v10",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v10",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v2",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v2",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v3",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v3",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v4",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v4",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v5",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v5",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v6",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v6",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v7",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v7",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v8",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v8",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    },
+    {
+      "task_id": "l7_s2_v9",
+      "type": "loaded",
+      "sample_id": "s2",
+      "origin": "v27",
+      "pickup": "v25",
+      "destination": "v9",
+      "earliest_start_s": 915.0,
+      "duration_s": 30,
+      "t_empty_s": 15,
+      "t_loaded_s": 15
+    }
+  ]
+}

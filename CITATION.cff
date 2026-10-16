@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Please cite this versioned replication package and the associated article when available."
+title: "Replication package for Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment"
+type: software
+version: "2.0.0"
+date-released: "2026-10-16"
+url: "https://github.com/fnuni/2026apsc"
+repository-code: "https://github.com/fnuni/2026apsc"
+license: MIT
+authors:
+  - family-names: Nucci
+    given-names: Francesco
+    orcid: "https://orcid.org/0000-0003-4228-119X"
+    affiliation: "University of Salento"
+  - family-names: Ghiani
+    given-names: Gianpaolo
+    orcid: "https://orcid.org/0000-0002-5243-1799"
+    affiliation: "University of Salento"
+  - family-names: Elia
+    given-names: Gianluca
+    orcid: "https://orcid.org/0000-0002-7317-981X"
+    affiliation: "University of Salento"
+  - family-names: Rossetti
+    given-names: Fabio
+    affiliation: "LabAnalysis Group"
+  - family-names: de Clercq
+    given-names: Thomas
+    affiliation: "Alsys International B.V."

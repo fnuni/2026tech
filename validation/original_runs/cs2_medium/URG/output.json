@@ -1,0 +1,18 @@
+{
+  "_comment": "Greedy solver \u2013 next action decision.",
+  "instance_id": "ppla_s010_seed42",
+  "epoch": "tau_41",
+  "t_s": 8228.33,
+  "solver": "greedy_min_remaining_wait",
+  "selected_action": {
+    "task_id": "l153_s23_v24",
+    "type": "loaded",
+    "sample_id": "s23",
+    "origin": "v15",
+    "pickup": "v1",
+    "destination": "v24",
+    "start_s": 8228.33,
+    "duration_s": 30.15,
+    "end_s": 8258.48
+  }
+}

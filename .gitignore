@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+validation/original_runs/*/*/*.py
+validation/original_runs/*/*/simulation.log
+validation/original_runs/*/*/stdout.log

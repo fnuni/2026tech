@@ -1,0 +1,61 @@
+{
+  "_comment": "Greedy solver \u2013 optimisation metadata.",
+  "instance_id": "ppla_s010_seed42_pc480",
+  "epoch": "tau_60",
+  "t_s": 8565.97,
+  "solver": "greedy_min_remaining_wait",
+  "status": "FEASIBLE",
+  "solve_time_s": 0.000379,
+  "n_feasible_actions": 2,
+  "urgency_scores": {
+    "s18": {
+      "w_s": 226.3,
+      "remaining_w": 73.7,
+      "type": "SVOC",
+      "stage": 6
+    },
+    "s22": {
+      "w_s": 31.2,
+      "remaining_w": 268.8,
+      "type": "HC",
+      "stage": 6
+    }
+  },
+  "selected_task_id": "l160_s18_v26",
+  "selected_sample": "s18",
+  "selected_destination": "v26",
+  "selection_rationale": {
+    "rule": "min(W_max - w_s)",
+    "W_max": 300.0,
+    "w_s_selected": 226.3
+  },
+  "all_actions_ranked": [
+    {
+      "task_id": "l160_s18_v26",
+      "sample_id": "s18",
+      "type": "SVOC",
+      "w_s": 226.3,
+      "remaining_w": 73.69999999999999,
+      "duration_s": 30.71,
+      "destination": "v26"
+    },
+    {
+      "task_id": "l160_s22_v26",
+      "sample_id": "s22",
+      "type": "HC",
+      "w_s": 31.2,
+      "remaining_w": 268.8,
+      "duration_s": 30.25,
+      "destination": "v26"
+    }
+  ],
+  "state_at_next_epoch": {
+    "epoch": "tau_61",
+    "t_s": 8596.679999999998,
+    "X_rob": {
+      "location": "v26",
+      "status": "idle"
+    }
+  },
+  "generated_at": "2026-10-16T11:03:25"
+}

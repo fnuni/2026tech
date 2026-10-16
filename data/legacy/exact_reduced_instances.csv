@@ -1,0 +1,6 @@
+instance,n,mix,pacing_s,lb_cap_path_s,lb_certificate_s,opt_makespan_s,urg_makespan_s,certificate_slack_pct,urg_excess_pct,solver,milp_status,solve_time_s,n_variables,n_constraints
+R1,3,"2 M1, 1 M2",375,4214.32,4214.32,4214.32,4289.38,0.0,1.78,SCIP,Optimal,0.25,371,1118
+R2,3,"1 M1, 1 M2, 1 M2E",375,4603.08,4603.08,4603.08,4677.93,0.0,1.63,SCIP,Optimal,0.25,424,1256
+R3,4,"2 M1, 2 M2",180,3824.32,4124.39,4604.39,5383.2,10.42,16.91,SCIP,Optimal,2.82,611,1924
+R4,4,"2 M1, 1 M2, 1 M2E",375,4603.08,4603.08,4799.39,4993.13,4.09,4.04,SCIP,Optimal,2.02,678,2102
+R5,5,"2 M1, 2 M2, 1 M2E",180,4213.08,4904.39,5384.39,6147.88,8.91,14.18,SCIP,Optimal,19.31,991,3166

@@ -1,0 +1,8 @@
+case,capacity_lb_s,release_path_lb_s,headtail_lb_s,headtail_type_k,head_s,work_per_unit_s,tail_s,certificate_lb_s,best_makespan_s,best_policy,certified_gap_pct,previous_gap_pct,dominant_term
+cs1_nominal,6600.0,10348.8,10227.52,10,1603.19,6600.0,2024.33,10348.8,11106.4,URG,7.32,7.32,release_path
+cs2_medium,6600.0,6703.8,10032.52,10,1408.19,6600.0,2024.33,10032.52,10909.0,LB-ROLL,8.74,62.73,head_tail
+cs3_high,6600.0,4543.8,9523.8,10,899.47,6600.0,2024.33,9523.8,10633.3,LB-ROLL,11.65,61.11,head_tail
+cs4_medium_s99,6600.0,7272.52,9403.8,10,779.47,6600.0,2024.33,9403.8,10262.9,URG,9.14,41.12,head_tail
+cs5_double,13200.0,9163.8,16273.8,10,1049.47,13200.0,2024.33,16273.8,18201.1,URG,11.84,37.89,head_tail
+cs6_fullday,66000.0,77848.8,69627.52,10,1603.19,66000.0,2024.33,77848.8,78472.9,URG,0.8,0.8,release_path
+cs7_pipc480,5280.0,6703.8,8712.52,10,1408.19,5280.0,2024.33,8712.52,9609.7,LB-ROLL,10.3,43.35,head_tail

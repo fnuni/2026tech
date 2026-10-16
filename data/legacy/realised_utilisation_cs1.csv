@@ -1,0 +1,11 @@
+k,module,m_k,busy_s,rho_realised_pct,policy,horizon_s
+6,De-capper 1000 mL,2,6900,30.8,LB-ROLL,11184.9
+7,Pipet A (dosing),1,4140,37.0,LB-ROLL,11184.9
+8,Stirrer,10,22260,19.9,LB-ROLL,11184.9
+9,Pipet B (extraction M1),1,3600,32.2,LB-ROLL,11184.9
+10,Pipet C (extraction M2),1,6600,59.0,LB-ROLL,11184.9
+11,Concentrator,10,27000,24.1,LB-ROLL,11184.9
+12,De-capper centrifuge vessel,1,900,8.0,LB-ROLL,11184.9
+13,Centrifuge,1,900,8.0,LB-ROLL,11184.9
+14,Pipet D (GC-vial),1,4140,37.0,LB-ROLL,11184.9
+0,Robot (loaded+empty),1,4814,43.0,LB-ROLL,11184.9

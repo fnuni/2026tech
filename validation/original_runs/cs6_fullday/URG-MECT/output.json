@@ -1,0 +1,18 @@
+{
+  "_comment": "CPR-LA v2 solver \u2013 next action decision.",
+  "instance_id": "ppla_s100_seed42",
+  "epoch": "tau_415",
+  "t_s": 75189.14999999998,
+  "solver": "cpr_la_v2",
+  "selected_action": {
+    "task_id": "l1643_s225_v23",
+    "type": "loaded",
+    "sample_id": "s225",
+    "origin": "v33",
+    "pickup": "v2",
+    "destination": "v23",
+    "start_s": 75189.14999999998,
+    "duration_s": 31.189999999999998,
+    "end_s": 75220.33999999998
+  }
+}

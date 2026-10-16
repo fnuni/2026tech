@@ -1,0 +1,19 @@
+{
+  "instance_id": "ppla_s010_seed99",
+  "solver": "policy3_solver.py",
+  "n_samples": 23,
+  "n_completed": 23,
+  "makespan_s": 10273.8,
+  "n_violations": 25,
+  "max_wait_s": 2075.5,
+  "mean_wait_s": 225.3,
+  "n_robot_tasks": 167,
+  "n_solver_calls": 48,
+  "mean_solve_ms": 33.6,
+  "robot_loaded_s": 2480.0,
+  "robot_empty_s": 2372.5,
+  "robot_idle_s": 5421.3,
+  "robot_util_pct": 47.2,
+  "mean_flow_s": 4959.7,
+  "max_flow_s": 6853.8
+}

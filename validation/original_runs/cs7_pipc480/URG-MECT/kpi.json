@@ -1,0 +1,19 @@
+{
+  "instance_id": "ppla_s010_seed42_pc480",
+  "solver": "cpr_la_solver.py",
+  "n_samples": 23,
+  "n_completed": 23,
+  "makespan_s": 9645.4,
+  "n_violations": 31,
+  "max_wait_s": 2011.4,
+  "mean_wait_s": 244.2,
+  "n_robot_tasks": 167,
+  "n_solver_calls": 60,
+  "mean_solve_ms": 31.5,
+  "robot_loaded_s": 2480.7,
+  "robot_empty_s": 2349.4,
+  "robot_idle_s": 4815.3,
+  "robot_util_pct": 50.1,
+  "mean_flow_s": 5039.4,
+  "max_flow_s": 6255.3
+}
