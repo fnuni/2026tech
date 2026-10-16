@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite this versioned replication package and the associated article when available."
 title: "Replication package for Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment"
 type: software
-version: "2.0.0"
+version: "2.0.1"
 date-released: "2026-10-16"
 url: "https://github.com/fnuni/2026apsc"
 repository-code: "https://github.com/fnuni/2026apsc"
@@ -22,7 +22,7 @@ authors:
     affiliation: "University of Salento"
   - family-names: Rossetti
     given-names: Fabio
-    affiliation: "LabAnalysis Group"
+    affiliation: "LabAnalysis Environmental Science S.r.l."
   - family-names: de Clercq
     given-names: Thomas
     affiliation: "Alsys International B.V."

@@ -1,16 +1,23 @@
 """Generate publication figures from the corrected CSVs and audited traces."""
 import csv
 import json
+import argparse
 from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
+from matplotlib.patches import Patch
+from matplotlib.lines import Line2D
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'figures'
 OUT.mkdir(exist_ok=True)
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--only', choices=['fig_bars_makespan','fig_bars_violations',
+                                     'fig_gantt_cs1','fig_wip_cs6'])
+args=parser.parse_args()
 plt.rcParams.update({'font.size':9,'font.family':'DejaVu Sans','pdf.fonttype':42,
                      'axes.spines.top':False,'axes.spines.right':False})
 COLORS={'URG':'#245a81','URG-MECT':'#d17a20','LB-ROLL':'#257343'}
@@ -20,6 +27,9 @@ data={(r['case'],r['policy']):r for r in rows}
 policies=list(COLORS)
 
 def save(fig,name):
+    if args.only and args.only != name:
+        plt.close(fig)
+        return
     fig.savefig(OUT/(name+'.pdf'),bbox_inches='tight')
     fig.savefig(OUT/(name+'.png'),dpi=180,bbox_inches='tight')
     plt.close(fig)
@@ -54,8 +64,8 @@ fig.tight_layout(w_pad=2);save(fig,'fig_bars_violations')
 traces=json.loads((ROOT/'validation/plot_data.json').read_text())
 r=traces['cs1_nominal'];cfg=json.loads((ROOT/'instances/cs1_nominal_config.json').read_text())
 types={s['id']:s['type'] for s in cfg['samples']}
-fig,ax=plt.subplots(figsize=(8.2,6.2))
-stagecolors={6:'#85a8c1',7:'#9acb9a',8:'#e7c78c',9:'#a2d29a',10:'#a2d29a',11:'#d5a8b1',12:'#85a8c1',13:'#b7a3cd',14:'#9acb9a'}
+fig,ax=plt.subplots(figsize=(7.0,6.4))
+stagecolors={6:'#85a8c1',7:'#9acb9a',8:'#dedede',9:'#a2d29a',10:'#a2d29a',11:'#d5a8b1',12:'#85a8c1',13:'#b7a3cd',14:'#9acb9a'}
 ids=sorted(r['operations'],key=lambda x:int(x[1:]))
 for i,sid in enumerate(ids):
     for op in r['operations'][sid]:
@@ -66,11 +76,16 @@ for i,sid in enumerate(ids):
         if task['from_stage']>0:
             prev=r['operations'][sid][task['from_stage']-1]['completion_s']
             wait=task['pickup_s']-prev
-            if wait>1e-6:ax.barh(i,wait/3600,left=prev/3600,height=.5,color='#ffdf66',edgecolor='#b22222' if wait>300 else '#caaa44',lw=.8)
-        ax.plot(task['delivery_s']/3600,i,marker='d',ms=2.2,color='#245a81')
-ax.set_yticks(range(len(ids)),[f'{s} ({types[s]})' for s in ids],fontsize=7)
+            if wait>1e-6:ax.barh(i,wait/3600,left=prev/3600,height=.5,color='#ffdf66',edgecolor='#b22222' if wait>300 else '#caaa44',lw=1.8 if wait>300 else .6,zorder=3)
+        ax.plot(task['delivery_s']/3600,i,marker='d',ms=2.5,color='#245a81',zorder=4)
+ax.set_yticks(range(len(ids)),[f'{s} ({types[s]})' for s in ids],fontsize=8.5)
 ax.invert_yaxis();ax.set_xlabel('Time (h)');ax.grid(axis='x',alpha=.2)
-ax.set_title('CS1, LB-ROLL: processing, pickup waiting and deliveries',fontsize=10)
+ax.legend(handles=[Patch(facecolor='#dedede',edgecolor='#555',label='Stirring'),
+                   Patch(facecolor='#ffdf66',edgecolor='#caaa44',label='Waiting: at most 300 s'),
+                   Patch(facecolor='#ffdf66',edgecolor='#b22222',linewidth=1.8,label='Waiting: more than 300 s'),
+                   Line2D([],[],color='#245a81',marker='d',linestyle='None',markersize=4,label='Loaded delivery')],
+          loc='lower center',bbox_to_anchor=(.5,1.01),ncol=2,fontsize=8,frameon=False)
+ax.set_title('CS1, LB-ROLL: processing, pickup waiting and deliveries',fontsize=10,pad=45)
 fig.tight_layout();save(fig,'fig_gantt_cs1')
 
 r=traces['cs6_fullday'];end=r['kpi']['makespan_s'];times=np.arange(0,end+600,600)
@@ -89,4 +104,4 @@ other.set(ylabel='Robot utilisation (%)',ylim=(0,105));ax.xaxis.set_major_locato
 ax.grid(alpha=.2);fig.legend(loc='upper center',ncol=2,frameon=False,fontsize=8)
 fig.tight_layout(rect=[0,0,1,.92]);save(fig,'fig_wip_cs6')
 
-print('Generated four vector figures and PNG previews in',OUT)
+print('Generated',args.only or 'four vector figures and PNG previews','in',OUT)

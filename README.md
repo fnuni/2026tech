@@ -1,6 +1,6 @@
 # Robotic water-sample preparation cell: replication package
 
-Version **2.0.0**, 16 October 2026, for *Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment*, prepared for Applied Sciences.
+Version **2.0.1**, 16 October 2026, for *Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment*, prepared for Applied Sciences.
 
 Repository: https://github.com/fnuni/2026apsc
 
@@ -77,3 +77,7 @@ The runner uses isolated directories and the original subprocess interface, allo
 ## Licence and citation
 
 Data retain CC BY 4.0 (`LICENSE`). Code uses MIT (`LICENSE-CODE`). `CITATION.cff` supplies the real five authors and versioned repository reference. Confidential source documents, instrument records, credentials and manuscript backups are not distributed.
+
+## Version 2.0.1
+
+The author affiliation is LabAnalysis Environmental Science S.r.l. The CS1 Gantt plot uses light grey for stirring, yellow for waiting, thicker red outlines for waits above 300 s, and an explicit legend. These presentation changes leave every numerical result unchanged.
