@@ -1,0 +1,34 @@
+\begin{table}[!htbp]
+\begin{adjustwidth}{-\extralength}{0cm}
+\caption{Score ablations. Local changes compare counterfactual actions at the full-score states; sequence changes compare the independently executed action sequences by epoch. Both counts include sample and destination choices.\label{tab:ablations}}
+\centering
+\footnotesize
+\begin{tabular}{llrrrrr}
+\toprule
+Case & Variant & $C_{\max}$ (s) & Events & Affected & Local changes & Sequence changes\\
+\midrule
+CS2 & Full score & 10,909.04 & 10 & 10 & 0 & 0\\
+CS2 & No starvation & 10,908.82 & 10 & 10 & 1 & 11\\
+CS2 & $w_{viol}=0$ & 10,909.04 & 10 & 10 & 0 & 0\\
+CS2 & $w_{over}=0$ & 10,912.42 & 10 & 10 & 5 & 61\\
+CS2 & Both wait weights zero & 10,912.42 & 10 & 10 & 5 & 61\\
+CS2 & Slack band removed & 10,881.41 & 10 & 10 & 2 & 43\\
+CS2 & Selected-wait penalty & 10,907.89 & 10 & 10 & 3 & 31\\
+CS6 & Full score & 78,487.14 & 113 & 99 & 0 & 0\\
+CS6 & No starvation & 78,458.37 & 113 & 99 & 2 & 11\\
+CS6 & $w_{viol}=0$ & 78,487.14 & 113 & 99 & 0 & 0\\
+CS6 & $w_{over}=0$ & 78,448.44 & 96 & 92 & 48 & 1208\\
+CS6 & Both wait weights zero & 78,448.44 & 96 & 92 & 51 & 1208\\
+CS6 & Slack band removed & 78,433.70 & 111 & 98 & 3 & 514\\
+CS6 & Selected-wait penalty & 78,517.65 & 101 & 95 & 23 & 1256\\
+CS9 & Full score & 76,510.14 & 284 & 164 & 0 & 0\\
+CS9 & No starvation & 76,510.14 & 284 & 164 & 0 & 0\\
+CS9 & $w_{viol}=0$ & 76,509.00 & 286 & 165 & 3 & 106\\
+CS9 & $w_{over}=0$ & 76,840.13 & 251 & 162 & 145 & 1497\\
+CS9 & Both wait weights zero & 76,826.70 & 248 & 161 & 146 & 1497\\
+CS9 & Slack band removed & 76,670.34 & 287 & 168 & 7 & 906\\
+CS9 & Selected-wait penalty & 76,720.69 & 258 & 164 & 92 & 1469\\
+\bottomrule
+\end{tabular}
+\end{adjustwidth}
+\end{table}

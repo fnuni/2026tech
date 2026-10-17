@@ -1,7 +1,15 @@
 {
-  "corrected_runs": 21,
-  "operational_audits_passed": 21,
-  "hard_wait_feasible_runs": 0,
-  "proven_optima": 5,
-  "original_runs": 21
+  "primary_runs": 75,
+  "distinct_policy_scenario_pairs": 60,
+  "equivalent_urg_controls": 15,
+  "ablations": 21,
+  "physical_sensitivity_runs": 44,
+  "threshold_sensitivity_runs": 24,
+  "admission_sensitivity_runs": 8,
+  "audited_simulation_traces": 172,
+  "operational_optima": 5,
+  "reduced_hard_wait_incumbents": 3,
+  "reduced_hard_wait_optima": 2,
+  "cs6_urg_violations_before_pipet_c": 100,
+  "cs6_urg_violations": 114
 }

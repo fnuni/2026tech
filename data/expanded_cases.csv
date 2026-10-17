@@ -1,0 +1,16 @@
+case,n_samples,interval_s,order,mix,pipc_s
+cs1_nominal,23,375.0,released-input,standard,600.0
+cs2_medium,23,180.0,released-input,standard,600.0
+cs3_high,23,60.0,released-input,standard,600.0
+cs4_medium_s99,23,180.0,released-input,standard,600.0
+cs5_double,46,150.0,released-input,standard,600.0
+cs6_fullday,230,375.0,released-input,standard,600.0
+cs7_pipc480,23,180.0,released-input,standard,480.0
+cs8_day180,230,180.0,alternating,standard,600.0
+cs9_day60,230,60.0,alternating,standard,600.0
+cs10_m2first,230,180.0,M2-first,standard,600.0
+cs11_hcfirst,230,180.0,HC-first,standard,600.0
+cs12_m2heavy,230,180.0,alternating,M2-heavy,600.0
+cs13_day480,230,375.0,alternating,standard,480.0
+cs14_day180_480,230,180.0,alternating,standard,480.0
+cs15_tiled180,230,180.0,tiled-CS2,standard,600.0

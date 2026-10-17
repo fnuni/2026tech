@@ -1,8 +1,1 @@
-{
-  "precedence": true,
-  "robot_capacity": true,
-  "position_capacity": true,
-  "releases": true,
-  "all_samples_completed": true,
-  "hard_wait_feasible": false
-}
+{"timestamp_reconstruction":"passed","recomputed_kpi":{"n_samples":23,"makespan_s":10912.690000000002,"violations":10,"affected_samples":10,"budget_compliant_samples":13,"max_wait_s":2204.2000000000007,"mean_wait_s":152.64451388888898,"mean_flow_s":5212.116521739131,"robot_loaded_s":2481.9700000000003,"robot_empty_s":2408.690000000002,"robot_util_pct":44.816264367447445,"robot_tasks":167,"hard_wait_feasible":false}}

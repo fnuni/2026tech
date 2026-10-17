@@ -1,0 +1,4 @@
+instance,n_samples,status,incumbent_s,dual_bound_s,gap,max_wait_s,audited_primal,hard_wait_feasible
+HW3,3,optimal,4603.080000000001,4603.080000000001,0.0,300.0,True,True
+HW5,5,optimal,5384.390000000003,5384.390000000003,0.0,300.0,True,True
+HW8,8,timelimit,10377.970000000045,5151.414071190745,1.0145866468080649,300.0,True,True

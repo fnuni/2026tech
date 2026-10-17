@@ -1,0 +1,893 @@
+presolving:
+(round 1, fast)       143 del vars, 276 del conss, 0 add conss, 168 chg bounds, 2920 chg sides, 5830 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 2, fast)       143 del vars, 276 del conss, 0 add conss, 175 chg bounds, 3038 chg sides, 6036 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 3, fast)       143 del vars, 276 del conss, 0 add conss, 180 chg bounds, 3348 chg sides, 6646 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 4, fast)       143 del vars, 276 del conss, 0 add conss, 183 chg bounds, 3376 chg sides, 6714 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 5, fast)       143 del vars, 276 del conss, 0 add conss, 186 chg bounds, 3681 chg sides, 7334 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 6, fast)       143 del vars, 276 del conss, 0 add conss, 189 chg bounds, 3771 chg sides, 7527 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 7, fast)       143 del vars, 276 del conss, 0 add conss, 192 chg bounds, 3955 chg sides, 7887 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 8, fast)       143 del vars, 276 del conss, 0 add conss, 193 chg bounds, 4006 chg sides, 7980 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 9, fast)       143 del vars, 276 del conss, 0 add conss, 194 chg bounds, 4044 chg sides, 8046 chg coeffs, 0 upgd conss, 0 impls, 40 clqs
+(round 10, medium)     163 del vars, 276 del conss, 0 add conss, 194 chg bounds, 4044 chg sides, 8046 chg coeffs, 0 upgd conss, 0 impls, 0 clqs
+(round 11, fast)       163 del vars, 376 del conss, 0 add conss, 194 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 0 impls, 0 clqs
+(round 12, exhaustive) 163 del vars, 408 del conss, 0 add conss, 194 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 0 impls, 0 clqs
+(round 13, exhaustive) 188 del vars, 408 del conss, 0 add conss, 195 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 3099 impls, 0 clqs
+(round 14, fast)       188 del vars, 433 del conss, 0 add conss, 195 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 3099 impls, 0 clqs
+   (0.1s) probing: 656/750 (87.5%) - 28 fixings, 0 aggregations, 3392 implications, 1 bound changes
+   (0.1s) probing aborted: 50/50 successive totally useless probings
+(round 15, exhaustive) 191 del vars, 433 del conss, 0 add conss, 195 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 3392 impls, 0 clqs
+(round 16, fast)       191 del vars, 436 del conss, 0 add conss, 195 chg bounds, 4054 chg sides, 8066 chg coeffs, 0 upgd conss, 3392 impls, 0 clqs
+   (0.1s) probing: 661/750 (88.1%) - 28 fixings, 0 aggregations, 3392 implications, 1 bound changes
+   (0.1s) probing aborted: 50/50 successive totally useless probings
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.00)
+presolving (17 rounds: 17 fast, 5 medium, 4 exhaustive):
+ 191 deleted vars, 436 deleted constraints, 0 added constraints, 195 tightened bounds, 0 added holes, 4054 changed sides, 8066 changed coefficients
+ 3392 implications, 0 cliques
+presolved problem has 780 variables (722 bin, 0 int, 0 impl, 58 cont) and 2759 constraints
+   2759 constraints of type <linear>
+Presolving Time: 0.09
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+p 0.1s|     1 |     0 |     0 |     - |   locks|   0 | 780 |2759 |2759 |   0 |  0 |   0 |   0 | 4.544390e+03 | 1.728980e+04 | 280.46%| unknown
+  0.1s|     1 |     0 |   200 |     - |    24M |   0 | 780 |2759 |2759 |   0 |  0 |   0 |   0 | 4.544390e+03 | 1.728980e+04 | 280.46%| unknown
+  0.1s|     1 |     0 |   429 |     - |    26M |   0 | 780 |2759 |2901 | 143 |  1 |   0 |   0 | 4.544390e+03 | 1.728980e+04 | 280.46%| unknown
+  0.1s|     1 |     0 |  1101 |     - |    27M |   0 | 780 |2759 |2933 | 175 |  2 |   0 |   0 | 4.544390e+03 | 1.728980e+04 | 280.46%| unknown
+  0.2s|     1 |     0 |  2156 |     - |    29M |   0 | 780 |2759 |2969 | 211 |  3 |   0 |   0 | 4.544390e+03 | 1.728980e+04 | 280.46%| unknown
+  0.2s|     1 |     0 |  3099 |     - |    29M |   0 | 780 |2759 |2996 | 238 |  4 |   0 |   0 | 4.556850e+03 | 1.728980e+04 | 279.42%| unknown
+  0.2s|     1 |     0 |  3907 |     - |    30M |   0 | 780 |2759 |3032 | 274 |  5 |   0 |   0 | 4.557979e+03 | 1.728980e+04 | 279.33%| unknown
+  0.3s|     1 |     0 |  5049 |     - |    31M |   0 | 780 |2759 |3069 | 311 |  6 |   0 |   0 | 4.565089e+03 | 1.728980e+04 | 278.74%| unknown
+  0.3s|     1 |     0 |  5944 |     - |    31M |   0 | 780 |2759 |3099 | 341 |  7 |   0 |   0 | 4.585104e+03 | 1.728980e+04 | 277.09%| unknown
+  0.4s|     1 |     0 |  7141 |     - |    32M |   0 | 780 |2759 |3132 | 374 |  8 |   0 |   0 | 4.585104e+03 | 1.728980e+04 | 277.09%| unknown
+  0.4s|     1 |     0 |  8319 |     - |    33M |   0 | 780 |2759 |3169 | 411 |  9 |   0 |   0 | 4.589446e+03 | 1.728980e+04 | 276.73%| unknown
+  0.4s|     1 |     0 |  9404 |     - |    34M |   0 | 780 |2759 |3197 | 439 | 10 |   0 |   0 | 4.589446e+03 | 1.728980e+04 | 276.73%| unknown
+  0.5s|     1 |     0 | 10779 |     - |    35M |   0 | 780 |2759 |3253 | 495 | 11 |   0 |   0 | 4.589768e+03 | 1.728980e+04 | 276.70%| unknown
+  0.6s|     1 |     0 | 11788 |     - |    35M |   0 | 780 |2759 |3285 | 527 | 12 |   0 |   0 | 4.601158e+03 | 1.728980e+04 | 275.77%| unknown
+  0.6s|     1 |     0 | 13316 |     - |    36M |   0 | 780 |2759 |3313 | 555 | 13 |   0 |   0 | 4.601158e+03 | 1.728980e+04 | 275.77%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.7s|     1 |     0 | 14739 |     - |    36M |   0 | 780 |2759 |3345 | 587 | 14 |   0 |   0 | 4.601158e+03 | 1.728980e+04 | 275.77%| unknown
+  0.7s|     1 |     0 | 16447 |     - |    38M |   0 | 780 |2759 |3367 | 609 | 15 |   0 |   0 | 4.601158e+03 | 1.728980e+04 | 275.77%| unknown
+  0.8s|     1 |     0 | 17742 |     - |    39M |   0 | 780 |2759 |3112 | 641 | 16 |   0 |   0 | 4.602776e+03 | 1.728980e+04 | 275.64%| unknown
+  0.9s|     1 |     0 | 19239 |     - |    40M |   0 | 780 |2759 |3135 | 667 | 17 |   0 |   0 | 4.602776e+03 | 1.728980e+04 | 275.64%| unknown
+  0.9s|     1 |     0 | 20924 |     - |    41M |   0 | 780 |2759 |3161 | 693 | 18 |   0 |   0 | 4.608620e+03 | 1.728980e+04 | 275.16%| unknown
+  1.0s|     1 |     0 | 23018 |     - |    41M |   0 | 780 |2759 |3186 | 720 | 19 |   0 |   0 | 4.610657e+03 | 1.728980e+04 | 275.00%| unknown
+  1.1s|     1 |     0 | 25556 |     - |    42M |   0 | 780 |2759 |3215 | 749 | 20 |   0 |   0 | 4.610657e+03 | 1.728980e+04 | 275.00%| unknown
+  1.1s|     1 |     0 | 27856 |     - |    43M |   0 | 780 |2759 |3236 | 770 | 21 |   0 |   0 | 4.614663e+03 | 1.728980e+04 | 274.67%| unknown
+  1.2s|     1 |     0 | 30420 |     - |    43M |   0 | 780 |2759 |3058 | 795 | 22 |   0 |   0 | 4.614879e+03 | 1.728980e+04 | 274.65%| unknown
+  1.3s|     1 |     0 | 32486 |     - |    44M |   0 | 780 |2759 |3084 | 821 | 23 |   0 |   0 | 4.614879e+03 | 1.728980e+04 | 274.65%| unknown
+  1.3s|     1 |     0 | 34408 |     - |    44M |   0 | 780 |2759 |3110 | 847 | 24 |   0 |   0 | 4.614896e+03 | 1.728980e+04 | 274.65%| unknown
+  1.4s|     1 |     0 | 37300 |     - |    44M |   0 | 780 |2759 |3138 | 875 | 25 |   0 |   0 | 4.614896e+03 | 1.728980e+04 | 274.65%| unknown
+  1.5s|     1 |     0 | 38996 |     - |    44M |   0 | 780 |2759 |3173 | 910 | 26 |   0 |   0 | 4.617224e+03 | 1.728980e+04 | 274.46%| unknown
+  1.6s|     1 |     0 | 41065 |     - |    45M |   0 | 780 |2759 |3201 | 938 | 27 |   0 |   0 | 4.617224e+03 | 1.728980e+04 | 274.46%| unknown
+  1.7s|     1 |     0 | 44526 |     - |    45M |   0 | 780 |2759 |3059 | 967 | 28 |   0 |   0 | 4.617224e+03 | 1.728980e+04 | 274.46%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  1.8s|     1 |     0 | 46393 |     - |    46M |   0 | 780 |2759 |3086 | 994 | 29 |   0 |   0 | 4.617224e+03 | 1.728980e+04 | 274.46%| unknown
+  1.9s|     1 |     0 | 48896 |     - |    46M |   0 | 780 |2759 |3114 |1022 | 30 |   0 |   0 | 4.620990e+03 | 1.728980e+04 | 274.16%| unknown
+  2.0s|     1 |     0 | 51641 |     - |    47M |   0 | 780 |2759 |3143 |1051 | 31 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.1s|     1 |     0 | 54086 |     - |    47M |   0 | 780 |2759 |3171 |1079 | 32 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.2s|     1 |     0 | 56645 |     - |    48M |   0 | 780 |2759 |3196 |1104 | 33 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.2s|     1 |     0 | 58260 |     - |    49M |   0 | 780 |2759 |3076 |1133 | 34 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.3s|     1 |     0 | 60875 |     - |    49M |   0 | 780 |2759 |3113 |1170 | 35 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.4s|     1 |     0 | 63242 |     - |    50M |   0 | 780 |2759 |3145 |1202 | 36 |   0 |   0 | 4.633447e+03 | 1.728980e+04 | 273.15%| unknown
+  2.5s|     1 |     0 | 65394 |     - |    50M |   0 | 780 |2759 |3173 |1232 | 37 |   0 |   0 | 4.635298e+03 | 1.728980e+04 | 273.00%| unknown
+  2.6s|     1 |     0 | 68585 |     - |    50M |   0 | 780 |2759 |3196 |1255 | 38 |   0 |   0 | 4.640263e+03 | 1.728980e+04 | 272.60%| unknown
+  2.7s|     1 |     0 | 70369 |     - |    51M |   0 | 780 |2759 |3219 |1280 | 39 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+  2.8s|     1 |     0 | 72209 |     - |    51M |   0 | 780 |2759 |3083 |1305 | 40 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+  2.9s|     1 |     0 | 75815 |     - |    53M |   0 | 780 |2759 |3106 |1328 | 41 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+  3.0s|     1 |     0 | 77906 |     - |    53M |   0 | 780 |2759 |3136 |1358 | 42 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+  3.1s|     1 |     0 | 80482 |     - |    54M |   0 | 780 |2759 |3166 |1388 | 43 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  3.2s|     1 |     0 | 82806 |     - |    54M |   0 | 780 |2759 |3191 |1413 | 44 |   0 |   0 | 4.640302e+03 | 1.728980e+04 | 272.60%| unknown
+  3.3s|     1 |     0 | 84323 |     - |    54M |   0 | 780 |2759 |3221 |1443 | 45 |   0 |   0 | 4.640617e+03 | 1.728980e+04 | 272.58%| unknown
+  3.4s|     1 |     0 | 86288 |     - |    54M |   0 | 780 |2759 |3087 |1471 | 46 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.4s|     1 |     0 | 88703 |     - |    54M |   0 | 780 |2759 |3115 |1499 | 47 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.5s|     1 |     0 | 90141 |     - |    54M |   0 | 780 |2759 |3140 |1524 | 48 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.6s|     1 |     0 | 92076 |     - |    56M |   0 | 780 |2759 |3168 |1552 | 49 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.7s|     1 |     0 | 93936 |     - |    56M |   0 | 780 |2759 |3193 |1577 | 50 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.8s|     1 |     0 | 95242 |     - |    56M |   0 | 780 |2759 |3221 |1605 | 51 |   0 |   0 | 4.644064e+03 | 1.728980e+04 | 272.30%| unknown
+  3.9s|     1 |     0 | 97370 |     - |    57M |   0 | 780 |2759 |3099 |1635 | 52 |   0 |   0 | 4.644156e+03 | 1.728980e+04 | 272.29%| unknown
+  4.0s|     1 |     0 | 99358 |     - |    58M |   0 | 780 |2759 |3129 |1665 | 53 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+  4.1s|     1 |     0 |101216 |     - |    58M |   0 | 780 |2759 |3160 |1696 | 54 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+  4.1s|     1 |     0 |103317 |     - |    58M |   0 | 780 |2759 |3184 |1720 | 55 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+  4.2s|     1 |     0 |105209 |     - |    58M |   0 | 780 |2759 |3216 |1752 | 56 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+  4.3s|     1 |     0 |107337 |     - |    58M |   0 | 780 |2759 |3237 |1773 | 57 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+  4.4s|     1 |     0 |109242 |     - |    59M |   0 | 780 |2759 |3123 |1809 | 58 |   0 |   0 | 4.644816e+03 | 1.728980e+04 | 272.24%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  4.5s|     1 |     0 |111610 |     - |    59M |   0 | 780 |2759 |3152 |1838 | 59 |   0 |   0 | 4.644817e+03 | 1.728980e+04 | 272.24%| unknown
+  4.6s|     1 |     0 |113912 |     - |    59M |   0 | 780 |2759 |3175 |1861 | 60 |   0 |   0 | 4.644817e+03 | 1.728980e+04 | 272.24%| unknown
+  4.7s|     1 |     0 |115811 |     - |    60M |   0 | 780 |2759 |3203 |1889 | 61 |   0 |   0 | 4.644817e+03 | 1.728980e+04 | 272.24%| unknown
+  4.8s|     1 |     0 |118327 |     - |    60M |   0 | 780 |2759 |3237 |1923 | 62 |   0 |   0 | 4.644817e+03 | 1.728980e+04 | 272.24%| unknown
+  4.9s|     1 |     0 |120688 |     - |    60M |   0 | 780 |2759 |3140 |1953 | 63 |   0 |   0 | 4.650163e+03 | 1.728980e+04 | 271.81%| unknown
+  5.0s|     1 |     0 |122649 |     - |    60M |   0 | 780 |2759 |3161 |1974 | 64 |   0 |   0 | 4.651978e+03 | 1.728980e+04 | 271.67%| unknown
+  5.0s|     1 |     0 |125132 |     - |    60M |   0 | 780 |2759 |3192 |2005 | 65 |   0 |   0 | 4.651978e+03 | 1.728980e+04 | 271.67%| unknown
+  5.1s|     1 |     0 |127159 |     - |    60M |   0 | 780 |2759 |3209 |2022 | 66 |   0 |   0 | 4.651978e+03 | 1.728980e+04 | 271.67%| unknown
+  5.2s|     1 |     0 |129636 |     - |    61M |   0 | 780 |2759 |3234 |2047 | 67 |   0 |   0 | 4.651987e+03 | 1.728980e+04 | 271.66%| unknown
+  5.3s|     1 |     0 |131841 |     - |    61M |   0 | 780 |2759 |3261 |2074 | 68 |   0 |   0 | 4.651987e+03 | 1.728980e+04 | 271.66%| unknown
+  5.4s|     1 |     0 |134767 |     - |    61M |   0 | 780 |2759 |3284 |2097 | 69 |   0 |   0 | 4.654746e+03 | 1.728980e+04 | 271.44%| unknown
+  5.5s|     1 |     0 |137243 |     - |    61M |   0 | 780 |2759 |3319 |2132 | 70 |   0 |   0 | 4.654798e+03 | 1.728980e+04 | 271.44%| unknown
+  5.5s|     1 |     0 |139642 |     - |    61M |   0 | 780 |2759 |3344 |2157 | 71 |   0 |   0 | 4.654798e+03 | 1.728980e+04 | 271.44%| unknown
+  5.7s|     1 |     0 |143287 |     - |    61M |   0 | 780 |2759 |3374 |2187 | 72 |   0 |   0 | 4.655126e+03 | 1.728980e+04 | 271.41%| unknown
+  5.8s|     1 |     0 |145975 |     - |    62M |   0 | 780 |2759 |3170 |2216 | 73 |   0 |   0 | 4.655126e+03 | 1.728980e+04 | 271.41%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  5.8s|     1 |     0 |148359 |     - |    62M |   0 | 780 |2759 |3193 |2239 | 74 |   0 |   0 | 4.655513e+03 | 1.728980e+04 | 271.38%| unknown
+  5.9s|     1 |     0 |150564 |     - |    63M |   0 | 780 |2759 |3223 |2269 | 75 |   0 |   0 | 4.655513e+03 | 1.728980e+04 | 271.38%| unknown
+  6.1s|     1 |     0 |152815 |     - |    63M |   0 | 780 |2759 |3257 |2303 | 76 |   0 |   0 | 4.658774e+03 | 1.728980e+04 | 271.12%| unknown
+  6.2s|     1 |     0 |155541 |     - |    64M |   0 | 780 |2759 |3291 |2337 | 77 |   0 |   0 | 4.659831e+03 | 1.728980e+04 | 271.04%| unknown
+  6.3s|     1 |     0 |160557 |     - |    64M |   0 | 780 |2759 |3315 |2361 | 78 |   0 |   0 | 4.659831e+03 | 1.728980e+04 | 271.04%| unknown
+  6.4s|     1 |     0 |162789 |     - |    64M |   0 | 780 |2759 |3230 |2398 | 79 |   0 |   0 | 4.660290e+03 | 1.728980e+04 | 271.00%| unknown
+  6.6s|     1 |     0 |165320 |     - |    64M |   0 | 780 |2759 |3259 |2427 | 80 |   0 |   0 | 4.660603e+03 | 1.728980e+04 | 270.98%| unknown
+  6.7s|     1 |     0 |168350 |     - |    65M |   0 | 780 |2759 |3290 |2458 | 81 |   0 |   0 | 4.660603e+03 | 1.728980e+04 | 270.98%| unknown
+  6.8s|     1 |     0 |170500 |     - |    65M |   0 | 780 |2759 |3309 |2477 | 82 |   0 |   0 | 4.660603e+03 | 1.728980e+04 | 270.98%| unknown
+  6.9s|     1 |     0 |173468 |     - |    66M |   0 | 780 |2759 |3331 |2499 | 83 |   0 |   0 | 4.660747e+03 | 1.728980e+04 | 270.97%| unknown
+  7.0s|     1 |     0 |175747 |     - |    66M |   0 | 780 |2759 |3352 |2520 | 84 |   0 |   0 | 4.660867e+03 | 1.728980e+04 | 270.96%| unknown
+  7.1s|     1 |     0 |178104 |     - |    66M |   0 | 780 |2759 |3226 |2550 | 85 |   0 |   0 | 4.661085e+03 | 1.728980e+04 | 270.94%| unknown
+  7.2s|     1 |     0 |180437 |     - |    66M |   0 | 780 |2759 |3247 |2571 | 86 |   0 |   0 | 4.661085e+03 | 1.728980e+04 | 270.94%| unknown
+  7.3s|     1 |     0 |183211 |     - |    66M |   0 | 780 |2759 |3273 |2597 | 87 |   0 |   0 | 4.661085e+03 | 1.728980e+04 | 270.94%| unknown
+L 7.4s|     1 |     0 |185395 |     - |    alns|   0 | 780 |2754 |3273 |2597 | 87 |   0 |   0 | 4.661085e+03 | 1.716351e+04 | 268.23%| unknown
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  7.4s|     1 |     0 |185395 |     - |    66M |   0 | 780 |2754 |3273 |2597 | 87 |   0 |   0 | 4.661085e+03 | 1.716351e+04 | 268.23%| unknown
+  7.6s|     1 |     0 |188231 |     - |    66M |   0 | 780 |2754 |3296 |2620 | 88 |   0 |   0 | 4.661269e+03 | 1.716351e+04 | 268.22%| unknown
+  7.6s|     1 |     0 |191130 |     - |    66M |   0 | 780 |2754 |3214 |2645 | 89 |   0 |   0 | 4.662002e+03 | 1.716351e+04 | 268.16%| unknown
+  8.3s|     1 |     0 |191182 |     - |    66M |   0 | 780 |2753 |3214 |2645 | 89 |   2 |  38 | 4.662002e+03 | 1.716351e+04 | 268.16%| unknown
+  8.3s|     1 |     0 |193666 |     - |    66M |   0 | 780 |2753 |3233 |2664 | 90 |   2 |  38 | 4.662002e+03 | 1.716351e+04 | 268.16%| unknown
+  8.4s|     1 |     0 |197258 |     - |    66M |   0 | 780 |2753 |3259 |2690 | 91 |   2 |  38 | 4.662002e+03 | 1.716351e+04 | 268.16%| unknown
+  9.2s|     1 |     2 |197305 |     - |    66M |   0 | 780 |2753 |3259 |2690 | 91 |   2 |  73 | 4.662002e+03 | 1.716351e+04 | 268.16%| unknown
+ 10.5s|   100 |    81 |270128 | 758.6 |    68M |  17 | 780 |2806 |2965 |3280 |  5 |  55 |  73 | 4.664033e+03 | 1.716351e+04 | 268.00%|   0.44%
+L11.4s|   186 |   132 |321255 | 682.3 |    alns|  20 | 780 |2846 |2926 |4359 |  3 |  95 |  73 | 4.664033e+03 | 1.703852e+04 | 265.32%|   0.70%
+L11.4s|   186 |   132 |321255 | 682.3 |    alns|  20 | 780 |2846 |2926 |4359 |  3 |  95 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   0.70%
+ 11.6s|   200 |   142 |329658 | 676.6 |    70M |  21 | 780 |2848 |2850 |4530 |  1 |  97 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   0.72%
+ 12.4s|   300 |   196 |364939 | 568.3 |    70M |  21 | 780 |2875 |2816 |5308 |  1 | 124 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   2.02%
+ 13.7s|   400 |   248 |426113 | 579.2 |    70M |  21 | 780 |2882 |2856 |6521 |  0 | 132 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   2.49%
+ 14.7s|   500 |   306 |476251 | 563.6 |    71M |  21 | 780 |2898 |2838 |7293 |  1 | 148 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   3.38%
+ 15.5s|   600 |   357 |516534 | 536.7 |    71M |  21 | 780 |2914 |2848 |8232 |  1 | 164 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   4.13%
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+ 16.3s|   700 |   402 |555773 | 516.1 |    71M |  21 | 780 |2944 |2816 |9088 |  1 | 194 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   5.80%
+ 17.2s|   800 |   460 |597261 | 503.4 |    72M |  21 | 780 |2966 |2895 |9795 |  1 | 218 |  73 | 4.664033e+03 | 1.651087e+04 | 254.00%|   6.11%
+o17.9s|   875 |   507 |629458 | 497.1 |objpscos|  25 | 780 |2974 |2897 |  10k|  2 | 232 |  73 | 4.664033e+03 | 8.052150e+03 |  72.64%|   8.08%
+ 18.5s|   900 |   528 |662215 | 519.7 |    72M |  25 | 780 |2976 |2823 |  11k|  1 | 236 |  73 | 4.664033e+03 | 8.052150e+03 |  72.64%|   8.13%
+ 19.4s|  1000 |   590 |706713 | 512.2 |    73M |  25 | 780 |2978 |2838 |  12k|  1 | 241 |  73 | 4.664033e+03 | 8.052150e+03 |  72.64%|   8.29%
+ 20.7s|  1100 |   638 |781224 | 533.4 |    73M |  25 | 780 |2992 |   0 |  13k|  0 | 263 |  73 | 4.664033e+03 | 8.052150e+03 |  72.64%|   9.37%
+d21.1s|  1122 |   634 |801902 | 541.4 |distribu|  25 | 780 |2995 |2818 |   0 |  1 | 269 |  73 | 4.664033e+03 | 6.464860e+03 |  38.61%|  10.87%
+ 22.0s|  1200 |   684 |854428 | 550.0 |    74M |  25 | 780 |2891 |2857 |  14k|  1 | 281 |  73 | 4.664033e+03 | 6.464860e+03 |  38.61%|  11.43%
+d23.1s|  1284 |   713 |913572 | 560.1 |distribu|  25 | 780 |2898 |2845 |   0 |  1 | 294 |  73 | 4.664089e+03 | 5.864630e+03 |  25.74%|  12.47%
+ 23.2s|  1300 |   725 |917474 | 556.2 |    75M |  25 | 780 |2899 |2845 |  15k|  1 | 295 |  73 | 4.664089e+03 | 5.864630e+03 |  25.74%|  12.48%
+ 23.8s|  1400 |   761 |952495 | 541.4 |    75M |  25 | 780 |2902 |2841 |  15k|  1 | 300 |  73 | 4.664273e+03 | 5.864630e+03 |  25.74%|  14.40%
+ 24.6s|  1500 |   814 |996120 | 534.4 |    76M |  25 | 780 |2907 |2816 |  16k|  1 | 308 |  73 | 4.664416e+03 | 5.864630e+03 |  25.73%|  15.78%
+d25.0s|  1541 |   778 |  1016k| 533.2 |guideddi|  25 | 780 |2907 |2848 |   0 |  1 | 310 |  73 | 4.664458e+03 | 5.533080e+03 |  18.62%|  16.94%
+ 25.5s|  1600 |   809 |  1043k| 530.5 |    77M |  25 | 780 |2907 |   0 |  18k|  0 | 310 |  73 | 4.664464e+03 | 5.533080e+03 |  18.62%|  17.65%
+ 25.8s|  1700 |   835 |  1061k| 509.7 |    78M |  34 | 780 |2911 |   0 |  18k|  0 | 317 |  73 | 4.664483e+03 | 5.533080e+03 |  18.62%|  18.26%
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+ 26.2s|  1800 |   866 |  1078k| 490.9 |    78M |  34 | 780 |2913 |2845 |  18k|  1 | 320 |  73 | 4.664484e+03 | 5.533080e+03 |  18.62%|  19.23%
+ 26.7s|  1900 |   884 |  1103k| 478.2 |    79M |  34 | 780 |2914 |2866 |  19k|  1 | 322 |  73 | 4.664628e+03 | 5.533080e+03 |  18.62%|  21.47%
+ 27.0s|  2000 |   908 |  1117k| 461.3 |    79M |  34 | 780 |2914 |   0 |  19k|  0 | 322 |  73 | 4.664629e+03 | 5.533080e+03 |  18.62%|  21.78%
+ 27.2s|  2100 |   920 |  1126k| 444.0 |    80M |  36 | 780 |2914 |2859 |  20k|  1 | 322 |  73 | 4.666737e+03 | 5.533080e+03 |  18.56%|  22.16%
+ 27.5s|  2200 |   926 |  1140k| 430.1 |    81M |  36 | 780 |2916 |   0 |  20k|  0 | 325 |  73 | 4.666737e+03 | 5.533080e+03 |  18.56%|  22.58%
+ 27.7s|  2300 |   948 |  1151k| 416.1 |    81M |  36 | 780 |2916 |2843 |  21k|  1 | 325 |  73 | 4.667258e+03 | 5.533080e+03 |  18.55%|  22.94%
+ 27.9s|  2400 |   962 |  1157k| 401.3 |    81M |  36 | 780 |2917 |   0 |  21k|  0 | 327 |  73 | 4.667536e+03 | 5.533080e+03 |  18.54%|  23.08%
+ 28.0s|  2500 |   972 |  1166k| 388.7 |    82M |  36 | 780 |2917 |2831 |  21k|  1 | 327 |  73 | 4.668074e+03 | 5.533080e+03 |  18.53%|  23.69%
+ 28.2s|  2600 |   967 |  1173k| 376.5 |    82M |  36 | 780 |2917 |   0 |  21k|  0 | 327 |  73 | 4.668074e+03 | 5.533080e+03 |  18.53%|  23.99%
+ 28.3s|  2700 |   980 |  1179k| 364.8 |    82M |  36 | 780 |2917 |   0 |  21k|  0 | 327 |  73 | 4.669068e+03 | 5.533080e+03 |  18.51%|  24.98%
+ 28.5s|  2800 |   996 |  1185k| 353.7 |    82M |  36 | 780 |2921 |2859 |  21k|  1 | 334 |  73 | 4.670337e+03 | 5.533080e+03 |  18.47%|  25.23%
+ 28.6s|  2900 |  1017 |  1187k| 342.4 |    82M |  36 | 780 |2924 |2831 |  22k|  1 | 337 |  73 | 4.671525e+03 | 5.533080e+03 |  18.44%|  25.46%
+ 28.6s|  3000 |  1025 |  1192k| 332.6 |    82M |  36 | 780 |2932 |   0 |  22k|  0 | 345 |  73 | 4.671525e+03 | 5.533080e+03 |  18.44%|  25.46%
+Restart triggered after 50 consecutive estimations that the remaining tree will be large
+(run 1, node 3007) performing user restart
+
+(restart) converted 65 cuts from the global cut pool into linear constraints
+
+presolving:
+(round 1, fast)       79 del vars, 129 del conss, 0 add conss, 19 chg bounds, 2778 chg sides, 5481 chg coeffs, 0 upgd conss, 3392 impls, 56 clqs
+(round 2, fast)       81 del vars, 133 del conss, 0 add conss, 51 chg bounds, 4604 chg sides, 8761 chg coeffs, 0 upgd conss, 3392 impls, 56 clqs
+(round 3, fast)       81 del vars, 133 del conss, 0 add conss, 61 chg bounds, 4989 chg sides, 9460 chg coeffs, 0 upgd conss, 3392 impls, 56 clqs
+(round 4, fast)       83 del vars, 168 del conss, 0 add conss, 70 chg bounds, 5496 chg sides, 10472 chg coeffs, 0 upgd conss, 3392 impls, 69 clqs
+(round 5, fast)       97 del vars, 252 del conss, 0 add conss, 88 chg bounds, 6006 chg sides, 11187 chg coeffs, 0 upgd conss, 3392 impls, 106 clqs
+(round 6, fast)       120 del vars, 422 del conss, 0 add conss, 101 chg bounds, 6604 chg sides, 12007 chg coeffs, 0 upgd conss, 3392 impls, 110 clqs
+(round 7, fast)       162 del vars, 604 del conss, 0 add conss, 111 chg bounds, 7000 chg sides, 12550 chg coeffs, 0 upgd conss, 3392 impls, 85 clqs
+(round 8, fast)       188 del vars, 764 del conss, 0 add conss, 127 chg bounds, 7366 chg sides, 13055 chg coeffs, 0 upgd conss, 3392 impls, 122 clqs
+(round 9, fast)       225 del vars, 897 del conss, 0 add conss, 139 chg bounds, 7658 chg sides, 13407 chg coeffs, 0 upgd conss, 3392 impls, 114 clqs
+(round 10, fast)       250 del vars, 972 del conss, 0 add conss, 146 chg bounds, 7815 chg sides, 13584 chg coeffs, 0 upgd conss, 3392 impls, 96 clqs
+(round 11, fast)       266 del vars, 1008 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13630 chg coeffs, 0 upgd conss, 3392 impls, 70 clqs
+(round 12, fast)       269 del vars, 1014 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13630 chg coeffs, 0 upgd conss, 3392 impls, 64 clqs
+(round 13, medium)     282 del vars, 1014 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13630 chg coeffs, 0 upgd conss, 3411 impls, 35 clqs
+(round 14, fast)       282 del vars, 1059 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13632 chg coeffs, 0 upgd conss, 3411 impls, 35 clqs
+(round 15, exhaustive) 282 del vars, 1065 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13632 chg coeffs, 0 upgd conss, 3411 impls, 35 clqs
+(round 16, exhaustive) 282 del vars, 1065 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13632 chg coeffs, 91 upgd conss, 3411 impls, 35 clqs
+(round 17, fast)       282 del vars, 1102 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13632 chg coeffs, 91 upgd conss, 3411 impls, 35 clqs
+(round 18, exhaustive) 282 del vars, 1102 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13632 chg coeffs, 93 upgd conss, 3411 impls, 35 clqs
+(round 19, exhaustive) 282 del vars, 1137 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13659 chg coeffs, 93 upgd conss, 3411 impls, 35 clqs
+(round 20, fast)       286 del vars, 1140 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13659 chg coeffs, 93 upgd conss, 3411 impls, 38 clqs
+(round 21, exhaustive) 286 del vars, 1142 del conss, 0 add conss, 147 chg bounds, 7854 chg sides, 13659 chg coeffs, 93 upgd conss, 3411 impls, 38 clqs
+presolving (22 rounds: 22 fast, 7 medium, 6 exhaustive):
+ 286 deleted vars, 1142 deleted constraints, 0 added constraints, 147 tightened bounds, 0 added holes, 7854 changed sides, 13660 changed coefficients
+ 3411 implications, 38 cliques
+presolved problem has 494 variables (438 bin, 0 int, 0 impl, 56 cont) and 1855 constraints
+     35 constraints of type <setppc>
+   1678 constraints of type <linear>
+    125 constraints of type <logicor>
+     17 constraints of type <bounddisjunction>
+Presolving Time: 0.10
+transformed 1/8 original solutions to the transformed problem space
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+ 28.7s|     1 |     0 |  1194k|     - |    70M |   0 | 494 |1856 |1720 |   0 |  0 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.7s|     1 |     0 |  1194k|     - |    70M |   0 | 494 |1856 |1766 |  46 |  1 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.7s|     1 |     0 |  1195k|     - |    71M |   0 | 494 |1856 |1800 |  80 |  2 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.8s|     1 |     0 |  1196k|     - |    72M |   0 | 494 |1856 |1832 | 112 |  3 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.8s|     1 |     0 |  1197k|     - |    72M |   0 | 494 |1856 |1860 | 140 |  4 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.8s|     1 |     0 |  1198k|     - |    72M |   0 | 494 |1856 |1892 | 172 |  5 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.9s|     1 |     0 |  1200k|     - |    72M |   0 | 494 |1856 |1921 | 201 |  6 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 28.9s|     1 |     0 |  1201k|     - |    73M |   0 | 494 |1856 |1947 | 227 |  7 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 29.0s|     1 |     0 |  1203k|     - |    74M |   0 | 494 |1856 |1974 | 254 |  8 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 29.0s|     1 |     0 |  1204k|     - |    74M |   0 | 494 |1856 |2004 | 284 |  9 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 29.1s|     1 |     0 |  1206k|     - |    74M |   0 | 494 |1856 |2031 | 311 | 10 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 29.2s|     1 |     0 |  1208k|     - |    74M |   0 | 494 |1856 |1990 | 338 | 11 | 345 |  73 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+ 29.8s|     1 |     2 |  1209k|     - |    74M |   0 | 494 |1858 |1990 | 338 | 11 | 347 | 117 | 4.672121e+03 | 5.533080e+03 |  18.43%| unknown
+d30.0s|    50 |    33 |  1223k| 331.6 |guideddi|  12 | 494 |1867 |1700 |   0 |  1 | 356 | 117 | 4.672121e+03 | 5.472490e+03 |  17.13%|   1.75%
+d30.1s|    90 |    43 |  1229k| 329.4 |distribu|  15 | 494 |1869 |1708 |   0 |  1 | 358 | 117 | 4.672775e+03 | 5.428760e+03 |  16.18%|   8.94%
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+ 30.1s|   100 |    47 |  1230k| 328.4 |    76M |  20 | 494 |1870 |1726 | 485 |  3 | 359 | 117 | 4.672775e+03 | 5.428760e+03 |  16.18%|  14.84%
+*30.1s|   132 |    54 |  1230k| 325.2 |    LP  |  38 | 494 |1873 |1722 | 488 |  1 | 362 | 117 | 4.672775e+03 | 5.428520e+03 |  16.17%|  20.74%
+*30.1s|   139 |    53 |  1230k| 324.5 |    LP  |  38 | 494 |1875 |1722 | 488 |  1 | 364 | 117 | 4.672775e+03 | 5.399250e+03 |  15.55%|  20.74%
+ 30.1s|   200 |    43 |  1230k| 318.4 |    76M |  38 | 494 |1902 |   0 | 545 |  0 | 395 | 117 | 4.693080e+03 | 5.399250e+03 |  15.05%|  35.98%
+*30.1s|   247 |    40 |  1231k| 314.0 |    LP  |  38 | 494 |1911 |1713 | 563 |  1 | 404 | 117 | 4.693080e+03 | 5.384390e+03 |  14.73%|  36.96%
+ 30.2s|   300 |    49 |  1232k| 309.3 |    76M |  38 | 494 |1912 |1708 | 569 |  1 | 405 | 117 | 4.693080e+03 | 5.384390e+03 |  14.73%|  49.83%
+ 30.2s|   400 |    37 |  1236k| 301.3 |    76M |  38 | 494 |1927 |   0 | 620 |  0 | 422 | 117 | 4.693100e+03 | 5.384390e+03 |  14.73%|  60.87%
+ 30.4s|   500 |    14 |  1242k| 294.4 |    78M |  38 | 494 |1955 |   0 | 839 |  0 | 450 | 117 | 5.204390e+03 | 5.384390e+03 |   3.46%|  87.18%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 30.44
+Solving Nodes      : 584 (total of 3591 nodes in 2 runs)
+Primal Bound       : +5.38439000000000e+03 (13 solutions)
+Dual Bound         : +5.38439000000000e+03
+Gap                : 0.00 %
+objective value:                              5384.39
+dl_s11_s12                                          1 	(obj:0)
+dl_s11_s13                                          1 	(obj:0)
+dl_s11_s14                                          1 	(obj:0)
+dl_s11_s15                                          1 	(obj:0)
+dl_s11_s16                                          1 	(obj:0)
+dl_s11_s17                                          1 	(obj:0)
+dl_s11_s25                                          1 	(obj:0)
+dl_s11_s26                                          1 	(obj:0)
+dl_s11_s27                                          1 	(obj:0)
+dl_s11_s33                                          1 	(obj:0)
+dl_s11_s34                                          1 	(obj:0)
+dl_s11_s35                                          1 	(obj:0)
+dl_s11_s36                                          1 	(obj:0)
+dl_s11_s37                                          1 	(obj:0)
+dl_s11_s38                                          1 	(obj:0)
+dl_s11_s39                                          1 	(obj:0)
+dl_s11_s41                                          1 	(obj:0)
+dl_s11_s42                                          1 	(obj:0)
+dl_s11_s43                                          1 	(obj:0)
+dl_s11_s44                                          1 	(obj:0)
+dl_s11_s45                                          1 	(obj:0)
+dl_s11_s46                                          1 	(obj:0)
+dl_s11_s47                                          1 	(obj:0)
+dl_s11_s52                                          1 	(obj:0)
+dl_s11_s53                                          1 	(obj:0)
+dl_s11_s54                                          1 	(obj:0)
+dl_s11_s55                                          1 	(obj:0)
+dl_s11_s56                                          1 	(obj:0)
+dl_s11_s57                                          1 	(obj:0)
+dl_s12_s13                                          1 	(obj:0)
+dl_s12_s14                                          1 	(obj:0)
+dl_s12_s15                                          1 	(obj:0)
+dl_s12_s16                                          1 	(obj:0)
+dl_s12_s17                                          1 	(obj:0)
+dl_s12_s26                                          1 	(obj:0)
+dl_s12_s27                                          1 	(obj:0)
+dl_s12_s35                                          1 	(obj:0)
+dl_s12_s36                                          1 	(obj:0)
+dl_s12_s37                                          1 	(obj:0)
+dl_s12_s38                                          1 	(obj:0)
+dl_s12_s39                                          1 	(obj:0)
+dl_s12_s42                                          1 	(obj:0)
+dl_s12_s43                                          1 	(obj:0)
+dl_s12_s44                                          1 	(obj:0)
+dl_s12_s45                                          1 	(obj:0)
+dl_s12_s46                                          1 	(obj:0)
+dl_s12_s47                                          1 	(obj:0)
+dl_s12_s55                                          1 	(obj:0)
+dl_s12_s56                                          1 	(obj:0)
+dl_s12_s57                                          1 	(obj:0)
+dl_s13_s14                                          1 	(obj:0)
+dl_s13_s15                                          1 	(obj:0)
+dl_s13_s16                                          1 	(obj:0)
+dl_s13_s17                                          1 	(obj:0)
+dl_s13_s26                                          1 	(obj:0)
+dl_s13_s27                                          1 	(obj:0)
+dl_s13_s36                                          1 	(obj:0)
+dl_s13_s37                                          1 	(obj:0)
+dl_s13_s38                                          1 	(obj:0)
+dl_s13_s39                                          1 	(obj:0)
+dl_s13_s42                                          1 	(obj:0)
+dl_s13_s43                                          1 	(obj:0)
+dl_s13_s44                                          1 	(obj:0)
+dl_s13_s45                                          1 	(obj:0)
+dl_s13_s46                                          1 	(obj:0)
+dl_s13_s47                                          1 	(obj:0)
+dl_s13_s55                                          1 	(obj:0)
+dl_s13_s56                                          1 	(obj:0)
+dl_s13_s57                                          1 	(obj:0)
+dl_s14_s15                                          1 	(obj:0)
+dl_s14_s16                                          1 	(obj:0)
+dl_s14_s17                                          1 	(obj:0)
+dl_s14_s27                                          1 	(obj:0)
+dl_s14_s38                                          1 	(obj:0)
+dl_s14_s39                                          1 	(obj:0)
+dl_s14_s44                                          1 	(obj:0)
+dl_s14_s45                                          1 	(obj:0)
+dl_s14_s46                                          1 	(obj:0)
+dl_s14_s47                                          1 	(obj:0)
+dl_s14_s56                                          1 	(obj:0)
+dl_s14_s57                                          1 	(obj:0)
+dl_s15_s16                                          1 	(obj:0)
+dl_s15_s17                                          1 	(obj:0)
+dl_s15_s38                                          1 	(obj:0)
+dl_s15_s39                                          1 	(obj:0)
+dl_s15_s44                                          1 	(obj:0)
+dl_s15_s45                                          1 	(obj:0)
+dl_s15_s46                                          1 	(obj:0)
+dl_s15_s47                                          1 	(obj:0)
+dl_s15_s56                                          1 	(obj:0)
+dl_s15_s57                                          1 	(obj:0)
+dl_s16_s17                                          1 	(obj:0)
+dl_s16_s38                                          1 	(obj:0)
+dl_s16_s39                                          1 	(obj:0)
+dl_s16_s46                                          1 	(obj:0)
+dl_s16_s47                                          1 	(obj:0)
+dl_s17_s38                                          1 	(obj:0)
+dl_s17_s39                                          1 	(obj:0)
+dl_s17_s46                                          1 	(obj:0)
+dl_s17_s47                                          1 	(obj:0)
+dl_s21_s22                                          1 	(obj:0)
+dl_s21_s23                                          1 	(obj:0)
+dl_s21_s24                                          1 	(obj:0)
+dl_s21_s25                                          1 	(obj:0)
+dl_s21_s26                                          1 	(obj:0)
+dl_s21_s27                                          1 	(obj:0)
+dl_s21_s31                                          1 	(obj:0)
+dl_s21_s32                                          1 	(obj:0)
+dl_s21_s33                                          1 	(obj:0)
+dl_s21_s34                                          1 	(obj:0)
+dl_s21_s35                                          1 	(obj:0)
+dl_s21_s36                                          1 	(obj:0)
+dl_s21_s37                                          1 	(obj:0)
+dl_s21_s38                                          1 	(obj:0)
+dl_s21_s39                                          1 	(obj:0)
+dl_s21_s41                                          1 	(obj:0)
+dl_s21_s42                                          1 	(obj:0)
+dl_s21_s43                                          1 	(obj:0)
+dl_s21_s44                                          1 	(obj:0)
+dl_s21_s45                                          1 	(obj:0)
+dl_s21_s46                                          1 	(obj:0)
+dl_s21_s47                                          1 	(obj:0)
+dl_s21_s51                                          1 	(obj:0)
+dl_s21_s52                                          1 	(obj:0)
+dl_s21_s53                                          1 	(obj:0)
+dl_s21_s54                                          1 	(obj:0)
+dl_s21_s55                                          1 	(obj:0)
+dl_s21_s56                                          1 	(obj:0)
+dl_s21_s57                                          1 	(obj:0)
+dl_s22_s23                                          1 	(obj:0)
+dl_s22_s24                                          1 	(obj:0)
+dl_s22_s25                                          1 	(obj:0)
+dl_s22_s26                                          1 	(obj:0)
+dl_s22_s27                                          1 	(obj:0)
+dl_s22_s31                          0.999999999999992 	(obj:0)
+dl_s22_s32                                          1 	(obj:0)
+dl_s22_s33                                          1 	(obj:0)
+dl_s22_s34                                          1 	(obj:0)
+dl_s22_s35                                          1 	(obj:0)
+dl_s22_s36                                          1 	(obj:0)
+dl_s22_s37                                          1 	(obj:0)
+dl_s22_s38                                          1 	(obj:0)
+dl_s22_s39                                          1 	(obj:0)
+dl_s22_s41                                          1 	(obj:0)
+dl_s22_s42                                          1 	(obj:0)
+dl_s22_s43                                          1 	(obj:0)
+dl_s22_s44                                          1 	(obj:0)
+dl_s22_s45                                          1 	(obj:0)
+dl_s22_s46                                          1 	(obj:0)
+dl_s22_s47                                          1 	(obj:0)
+dl_s22_s51                                          1 	(obj:0)
+dl_s22_s52                                          1 	(obj:0)
+dl_s22_s53                                          1 	(obj:0)
+dl_s22_s54                                          1 	(obj:0)
+dl_s22_s55                                          1 	(obj:0)
+dl_s22_s56                                          1 	(obj:0)
+dl_s22_s57                                          1 	(obj:0)
+dl_s23_s24                                          1 	(obj:0)
+dl_s23_s25                                          1 	(obj:0)
+dl_s23_s26                                          1 	(obj:0)
+dl_s23_s27                                          1 	(obj:0)
+dl_s23_s32                                          1 	(obj:0)
+dl_s23_s33                                          1 	(obj:0)
+dl_s23_s34                                          1 	(obj:0)
+dl_s23_s35                                          1 	(obj:0)
+dl_s23_s36                                          1 	(obj:0)
+dl_s23_s37                                          1 	(obj:0)
+dl_s23_s38                                          1 	(obj:0)
+dl_s23_s39                                          1 	(obj:0)
+dl_s23_s41                                          1 	(obj:0)
+dl_s23_s42                                          1 	(obj:0)
+dl_s23_s43                                          1 	(obj:0)
+dl_s23_s44                                          1 	(obj:0)
+dl_s23_s45                                          1 	(obj:0)
+dl_s23_s46                                          1 	(obj:0)
+dl_s23_s47                                          1 	(obj:0)
+dl_s23_s51                                          1 	(obj:0)
+dl_s23_s52                                          1 	(obj:0)
+dl_s23_s53                                          1 	(obj:0)
+dl_s23_s54                                          1 	(obj:0)
+dl_s23_s55                                          1 	(obj:0)
+dl_s23_s56                                          1 	(obj:0)
+dl_s23_s57                                          1 	(obj:0)
+dl_s24_s25                                          1 	(obj:0)
+dl_s24_s26                                          1 	(obj:0)
+dl_s24_s27                                          1 	(obj:0)
+dl_s24_s32                                          1 	(obj:0)
+dl_s24_s33                                          1 	(obj:0)
+dl_s24_s34                                          1 	(obj:0)
+dl_s24_s35                                          1 	(obj:0)
+dl_s24_s36                           0.99999999999967 	(obj:0)
+dl_s24_s37                          0.999999999999988 	(obj:0)
+dl_s24_s38                                          1 	(obj:0)
+dl_s24_s39                                          1 	(obj:0)
+dl_s24_s41                                          1 	(obj:0)
+dl_s24_s42                                          1 	(obj:0)
+dl_s24_s43                                          1 	(obj:0)
+dl_s24_s44                                          1 	(obj:0)
+dl_s24_s45                                          1 	(obj:0)
+dl_s24_s46                                          1 	(obj:0)
+dl_s24_s47                                          1 	(obj:0)
+dl_s24_s51                                          1 	(obj:0)
+dl_s24_s52                                          1 	(obj:0)
+dl_s24_s53                                          1 	(obj:0)
+dl_s24_s54                                          1 	(obj:0)
+dl_s24_s55                                          1 	(obj:0)
+dl_s24_s56                                          1 	(obj:0)
+dl_s24_s57                                          1 	(obj:0)
+dl_s25_s26                                          1 	(obj:0)
+dl_s25_s27                                          1 	(obj:0)
+dl_s25_s35                                          1 	(obj:0)
+dl_s25_s36                                          1 	(obj:0)
+dl_s25_s37                                          1 	(obj:0)
+dl_s25_s38                                          1 	(obj:0)
+dl_s25_s39                                          1 	(obj:0)
+dl_s25_s41                                          1 	(obj:0)
+dl_s25_s42                                          1 	(obj:0)
+dl_s25_s43                                          1 	(obj:0)
+dl_s25_s44                                          1 	(obj:0)
+dl_s25_s45                                          1 	(obj:0)
+dl_s25_s46                                          1 	(obj:0)
+dl_s25_s47                                          1 	(obj:0)
+dl_s25_s54                                          1 	(obj:0)
+dl_s25_s55                                          1 	(obj:0)
+dl_s25_s56                                          1 	(obj:0)
+dl_s25_s57                                          1 	(obj:0)
+dl_s26_s27                                          1 	(obj:0)
+dl_s26_s38                                          1 	(obj:0)
+dl_s26_s39                                          1 	(obj:0)
+dl_s26_s44                                          1 	(obj:0)
+dl_s26_s45                                          1 	(obj:0)
+dl_s26_s46                                          1 	(obj:0)
+dl_s26_s47                                          1 	(obj:0)
+dl_s26_s56                                          1 	(obj:0)
+dl_s26_s57                                          1 	(obj:0)
+dl_s27_s38                                          1 	(obj:0)
+dl_s27_s39                                          1 	(obj:0)
+dl_s27_s44                                          1 	(obj:0)
+dl_s27_s45                                          1 	(obj:0)
+dl_s27_s46                                          1 	(obj:0)
+dl_s27_s47                                          1 	(obj:0)
+dl_s27_s56                                          1 	(obj:0)
+dl_s27_s57                                          1 	(obj:0)
+dl_s31_s32                                          1 	(obj:0)
+dl_s31_s33                                          1 	(obj:0)
+dl_s31_s34                                          1 	(obj:0)
+dl_s31_s35                                          1 	(obj:0)
+dl_s31_s36                                          1 	(obj:0)
+dl_s31_s37                                          1 	(obj:0)
+dl_s31_s38                                          1 	(obj:0)
+dl_s31_s39                                          1 	(obj:0)
+dl_s31_s41                                          1 	(obj:0)
+dl_s31_s42                                          1 	(obj:0)
+dl_s31_s43                                          1 	(obj:0)
+dl_s31_s44                                          1 	(obj:0)
+dl_s31_s45                                          1 	(obj:0)
+dl_s31_s46                                          1 	(obj:0)
+dl_s31_s47                                          1 	(obj:0)
+dl_s31_s51                                          1 	(obj:0)
+dl_s31_s52                                          1 	(obj:0)
+dl_s31_s53                                          1 	(obj:0)
+dl_s31_s54                                          1 	(obj:0)
+dl_s31_s55                                          1 	(obj:0)
+dl_s31_s56                                          1 	(obj:0)
+dl_s31_s57                                          1 	(obj:0)
+dl_s32_s33                                          1 	(obj:0)
+dl_s32_s34                                          1 	(obj:0)
+dl_s32_s35                                          1 	(obj:0)
+dl_s32_s36                                          1 	(obj:0)
+dl_s32_s37                                          1 	(obj:0)
+dl_s32_s38                                          1 	(obj:0)
+dl_s32_s39                                          1 	(obj:0)
+dl_s32_s41                                          1 	(obj:0)
+dl_s32_s42                                          1 	(obj:0)
+dl_s32_s43                                          1 	(obj:0)
+dl_s32_s44                                          1 	(obj:0)
+dl_s32_s45                                          1 	(obj:0)
+dl_s32_s46                                          1 	(obj:0)
+dl_s32_s47                                          1 	(obj:0)
+dl_s32_s52                                          1 	(obj:0)
+dl_s32_s53                                          1 	(obj:0)
+dl_s32_s54                                          1 	(obj:0)
+dl_s32_s55                                          1 	(obj:0)
+dl_s32_s56                                          1 	(obj:0)
+dl_s32_s57                                          1 	(obj:0)
+dl_s33_s34                                          1 	(obj:0)
+dl_s33_s35                                          1 	(obj:0)
+dl_s33_s36                                          1 	(obj:0)
+dl_s33_s37                                          1 	(obj:0)
+dl_s33_s38                                          1 	(obj:0)
+dl_s33_s39                                          1 	(obj:0)
+dl_s33_s41                                          1 	(obj:0)
+dl_s33_s42                                          1 	(obj:0)
+dl_s33_s43                                          1 	(obj:0)
+dl_s33_s44                                          1 	(obj:0)
+dl_s33_s45                                          1 	(obj:0)
+dl_s33_s46                                          1 	(obj:0)
+dl_s33_s47                                          1 	(obj:0)
+dl_s33_s53                                          1 	(obj:0)
+dl_s33_s54                                          1 	(obj:0)
+dl_s33_s55                                          1 	(obj:0)
+dl_s33_s56                                          1 	(obj:0)
+dl_s33_s57                                          1 	(obj:0)
+dl_s34_s35                                          1 	(obj:0)
+dl_s34_s36                                          1 	(obj:0)
+dl_s34_s37                                          1 	(obj:0)
+dl_s34_s38                                          1 	(obj:0)
+dl_s34_s39                                          1 	(obj:0)
+dl_s34_s41                                          1 	(obj:0)
+dl_s34_s42                                          1 	(obj:0)
+dl_s34_s43                                          1 	(obj:0)
+dl_s34_s44                                          1 	(obj:0)
+dl_s34_s45                                          1 	(obj:0)
+dl_s34_s46                                          1 	(obj:0)
+dl_s34_s47                                          1 	(obj:0)
+dl_s34_s53                                          1 	(obj:0)
+dl_s34_s54                                          1 	(obj:0)
+dl_s34_s55                                          1 	(obj:0)
+dl_s34_s56                                          1 	(obj:0)
+dl_s34_s57                                          1 	(obj:0)
+dl_s35_s36                                          1 	(obj:0)
+dl_s35_s37                                          1 	(obj:0)
+dl_s35_s38                                          1 	(obj:0)
+dl_s35_s39                                          1 	(obj:0)
+dl_s35_s42                                          1 	(obj:0)
+dl_s35_s43                                          1 	(obj:0)
+dl_s35_s44                                          1 	(obj:0)
+dl_s35_s45                                          1 	(obj:0)
+dl_s35_s46                                          1 	(obj:0)
+dl_s35_s47                                          1 	(obj:0)
+dl_s35_s55                                          1 	(obj:0)
+dl_s35_s56                                          1 	(obj:0)
+dl_s35_s57                                          1 	(obj:0)
+dl_s36_s37                                          1 	(obj:0)
+dl_s36_s38                                          1 	(obj:0)
+dl_s36_s39                                          1 	(obj:0)
+dl_s36_s44                                          1 	(obj:0)
+dl_s36_s45                                          1 	(obj:0)
+dl_s36_s46                                          1 	(obj:0)
+dl_s36_s47                                          1 	(obj:0)
+dl_s36_s56                                          1 	(obj:0)
+dl_s36_s57                                          1 	(obj:0)
+dl_s37_s38                                          1 	(obj:0)
+dl_s37_s39                                          1 	(obj:0)
+dl_s37_s44                                          1 	(obj:0)
+dl_s37_s45                                          1 	(obj:0)
+dl_s37_s46                                          1 	(obj:0)
+dl_s37_s47                                          1 	(obj:0)
+dl_s37_s56                                          1 	(obj:0)
+dl_s37_s57                                          1 	(obj:0)
+dl_s38_s39                                          1 	(obj:0)
+dl_s38_s46                                          1 	(obj:0)
+dl_s38_s47                                          1 	(obj:0)
+dl_s39_s47                                          1 	(obj:0)
+dl_s41_s42                                          1 	(obj:0)
+dl_s41_s43                                          1 	(obj:0)
+dl_s41_s44                                          1 	(obj:0)
+dl_s41_s45                                          1 	(obj:0)
+dl_s41_s46                                          1 	(obj:0)
+dl_s41_s47                                          1 	(obj:0)
+dl_s41_s55                                          1 	(obj:0)
+dl_s41_s56                                          1 	(obj:0)
+dl_s41_s57                                          1 	(obj:0)
+dl_s42_s43                                          1 	(obj:0)
+dl_s42_s44                                          1 	(obj:0)
+dl_s42_s45                                          1 	(obj:0)
+dl_s42_s46                                          1 	(obj:0)
+dl_s42_s47                                          1 	(obj:0)
+dl_s42_s56                                          1 	(obj:0)
+dl_s42_s57                                          1 	(obj:0)
+dl_s43_s44                                          1 	(obj:0)
+dl_s43_s45                                          1 	(obj:0)
+dl_s43_s46                                          1 	(obj:0)
+dl_s43_s47                                          1 	(obj:0)
+dl_s43_s56                                          1 	(obj:0)
+dl_s43_s57                                          1 	(obj:0)
+dl_s44_s45                                          1 	(obj:0)
+dl_s44_s46                                          1 	(obj:0)
+dl_s44_s47                                          1 	(obj:0)
+dl_s44_s57                                          1 	(obj:0)
+dl_s45_s46                                          1 	(obj:0)
+dl_s45_s47                                          1 	(obj:0)
+dl_s46_s47                                          1 	(obj:0)
+dl_s51_s52                                          1 	(obj:0)
+dl_s51_s53                                          1 	(obj:0)
+dl_s51_s54                                          1 	(obj:0)
+dl_s51_s55                                          1 	(obj:0)
+dl_s51_s56                                          1 	(obj:0)
+dl_s51_s57                                          1 	(obj:0)
+dl_s52_s53                                          1 	(obj:0)
+dl_s52_s54                                          1 	(obj:0)
+dl_s52_s55                                          1 	(obj:0)
+dl_s52_s56                                          1 	(obj:0)
+dl_s52_s57                                          1 	(obj:0)
+dl_s53_s54                                          1 	(obj:0)
+dl_s53_s55                                          1 	(obj:0)
+dl_s53_s56                                          1 	(obj:0)
+dl_s53_s57                                          1 	(obj:0)
+dl_s54_s55                                          1 	(obj:0)
+dl_s54_s56                                          1 	(obj:0)
+dl_s54_s57                                          1 	(obj:0)
+dl_s55_s56                                          1 	(obj:0)
+dl_s55_s57                                          1 	(obj:0)
+dl_s56_s57                                          1 	(obj:0)
+pi_v11_s15_s25                                      1 	(obj:0)
+pi_v11_s15_s45                                      1 	(obj:0)
+pi_v11_s25_s37                                      1 	(obj:0)
+pi_v11_s25_s55                                      1 	(obj:0)
+pi_v12_s15_s37                                      1 	(obj:0)
+pi_v12_s15_s55                                      1 	(obj:0)
+pi_v12_s25_s37                                      1 	(obj:0)
+pi_v12_s25_s45                                      1 	(obj:0)
+pi_v12_s25_s55                                      1 	(obj:0)
+pi_v12_s37_s45                                      1 	(obj:0)
+pi_v1_s13_s43                                       1 	(obj:0)
+pi_v1_s13_s53                                       1 	(obj:0)
+pi_v1_s23_s33                                       1 	(obj:0)
+pi_v1_s23_s43                                       1 	(obj:0)
+pi_v1_s23_s53                                       1 	(obj:0)
+pi_v1_s33_s43                                       1 	(obj:0)
+pi_v1_s33_s53                                       1 	(obj:0)
+pi_v23_s14_s44                                      1 	(obj:0)
+pi_v24_s24_s36                                      1 	(obj:0)
+pi_v24_s24_s54                                      1 	(obj:0)
+pi_v25_s12_s42                                      1 	(obj:0)
+pi_v25_s22_s32                                      1 	(obj:0)
+pi_v25_s22_s42                                      1 	(obj:0)
+pi_v25_s22_s52                                      1 	(obj:0)
+pi_v25_s32_s42                                      1 	(obj:0)
+pi_v25_s32_s52                                      1 	(obj:0)
+pi_v26_s16_s38                                      1 	(obj:0)
+pi_v26_s16_s46                                      1 	(obj:0)
+pi_v26_s26_s38                                      1 	(obj:0)
+pi_v26_s26_s46                                      1 	(obj:0)
+pi_v26_s26_s56                                      1 	(obj:0)
+pi_v26_s38_s46                                      1 	(obj:0)
+pi_v27_s11_s41                                      1 	(obj:0)
+pi_v27_s21_s31                                      1 	(obj:0)
+pi_v27_s21_s41                                      1 	(obj:0)
+pi_v27_s21_s51                                      1 	(obj:0)
+pi_v27_s31_s41                                      1 	(obj:0)
+pi_v27_s31_s51                                      1 	(obj:0)
+pi_v2_s13_s23                                       1 	(obj:0)
+pi_v2_s13_s43                                       1 	(obj:0)
+pi_v2_s23_s33                                       1 	(obj:0)
+pi_v2_s23_s43                                       1 	(obj:0)
+pi_v2_s23_s53                                       1 	(obj:0)
+pi_v2_s33_s43                                       1 	(obj:0)
+pi_v2_s33_s53                                       1 	(obj:0)
+y_s1_0_v29                                          1 	(obj:0)
+y_s1_1_v27                                          1 	(obj:0)
+y_s1_2_v25                                          1 	(obj:0)
+y_s1_3_v1                                           1 	(obj:0)
+y_s1_4_v23                                          1 	(obj:0)
+y_s1_5_v11                                          1 	(obj:0)
+y_s1_6_v26                                          1 	(obj:0)
+y_s1_7_v33                                          1 	(obj:0)
+y_s2_0_v29                                          1 	(obj:0)
+y_s2_1_v27                                          1 	(obj:0)
+y_s2_2_v25                                          1 	(obj:0)
+y_s2_3_v2                                           1 	(obj:0)
+y_s2_4_v24                                          1 	(obj:0)
+y_s2_5_v12                                          1 	(obj:0)
+y_s2_6_v26                                          1 	(obj:0)
+y_s2_7_v33                                          1 	(obj:0)
+y_s3_0_v29                                          1 	(obj:0)
+y_s3_1_v27                                          1 	(obj:0)
+y_s3_2_v25                                          1 	(obj:0)
+y_s3_3_v2                                           1 	(obj:0)
+y_s3_4_v21                                          1 	(obj:0)
+y_s3_5_v22                                          1 	(obj:0)
+y_s3_6_v24                                          1 	(obj:0)
+y_s3_7_v12                                          1 	(obj:0)
+y_s3_8_v26                                          1 	(obj:0)
+y_s3_9_v33                                          1 	(obj:0)
+y_s4_0_v29                                          1 	(obj:0)
+y_s4_1_v27                                          1 	(obj:0)
+y_s4_2_v25                                          1 	(obj:0)
+y_s4_3_v2                                           1 	(obj:0)
+y_s4_4_v23                                          1 	(obj:0)
+y_s4_5_v11                                          1 	(obj:0)
+y_s4_6_v26                                          1 	(obj:0)
+y_s4_7_v33                                          1 	(obj:0)
+y_s5_0_v29                                          1 	(obj:0)
+y_s5_1_v27                                          1 	(obj:0)
+y_s5_2_v25                                          1 	(obj:0)
+y_s5_3_v2                                           1 	(obj:0)
+y_s5_4_v24                                          1 	(obj:0)
+y_s5_5_v11                                          1 	(obj:0)
+y_s5_6_v26                                          1 	(obj:0)
+y_s5_7_v33                                          1 	(obj:0)
+z_s1_1_v29_v27                                      1 	(obj:0)
+z_s1_2_v27_v25                                      1 	(obj:0)
+z_s1_3_v25_v1                                       1 	(obj:0)
+z_s1_4_v1_v23                                       1 	(obj:0)
+z_s1_5_v23_v11                                      1 	(obj:0)
+z_s1_6_v11_v26                                      1 	(obj:0)
+z_s1_7_v26_v33                                      1 	(obj:0)
+z_s2_1_v29_v27                                      1 	(obj:0)
+z_s2_2_v27_v25                                      1 	(obj:0)
+z_s2_3_v25_v2                                       1 	(obj:0)
+z_s2_4_v2_v24                                       1 	(obj:0)
+z_s2_5_v24_v12                                      1 	(obj:0)
+z_s2_6_v12_v26                                      1 	(obj:0)
+z_s2_7_v26_v33                                      1 	(obj:0)
+z_s3_1_v29_v27                                      1 	(obj:0)
+z_s3_2_v27_v25                                      1 	(obj:0)
+z_s3_3_v25_v2                                       1 	(obj:0)
+z_s3_4_v2_v21                                       1 	(obj:0)
+z_s3_5_v21_v22                                      1 	(obj:0)
+z_s3_6_v22_v24                                      1 	(obj:0)
+z_s3_7_v24_v12                                      1 	(obj:0)
+z_s3_8_v12_v26                                      1 	(obj:0)
+z_s3_9_v26_v33                                      1 	(obj:0)
+z_s4_1_v29_v27                                      1 	(obj:0)
+z_s4_2_v27_v25                                      1 	(obj:0)
+z_s4_3_v25_v2                                       1 	(obj:0)
+z_s4_4_v2_v23                                       1 	(obj:0)
+z_s4_5_v23_v11                                      1 	(obj:0)
+z_s4_6_v11_v26                                      1 	(obj:0)
+z_s4_7_v26_v33                                      1 	(obj:0)
+z_s5_1_v29_v27                                      1 	(obj:0)
+z_s5_2_v27_v25                                      1 	(obj:0)
+z_s5_3_v25_v2                                       1 	(obj:0)
+z_s5_4_v2_v24                                       1 	(obj:0)
+z_s5_5_v24_v11                                      1 	(obj:0)
+z_s5_6_v11_v26                                      1 	(obj:0)
+z_s5_7_v26_v33                                      1 	(obj:0)
+d_s5_3                               1349.20000000002 	(obj:0)
+d_s5_4                                        1543.86 	(obj:0)
+d_s5_5                                        2159.06 	(obj:0)
+d_s5_6                                         3974.4 	(obj:0)
+d_s5_7                                        4274.05 	(obj:0)
+C_s1_0                               1140.00000000002 	(obj:0)
+C_s1_1                               1454.68000000002 	(obj:0)
+C_s1_2                                        1828.78 	(obj:0)
+C_s1_3                                        3644.24 	(obj:0)
+C_s1_4                                        3959.54 	(obj:0)
+C_s1_5                                         4574.4 	(obj:0)
+C_s1_6                                        4769.46 	(obj:0)
+C_s1_7                               4978.93000000001 	(obj:0)
+C_s2_0                                            180 	(obj:0)
+C_s2_1                                         494.68 	(obj:0)
+C_s2_2                               689.200000000021 	(obj:0)
+C_s2_3                               764.540000000021 	(obj:0)
+C_s2_4                               1379.74000000002 	(obj:0)
+C_s2_5                               3194.52000000002 	(obj:0)
+C_s2_6                               3389.46000000002 	(obj:0)
+C_s2_7                                        3688.98 	(obj:0)
+C_s3_0                               524.129999999999 	(obj:0)
+C_s3_1                               838.809999999999 	(obj:0)
+C_s3_2                                        1033.33 	(obj:0)
+C_s3_3                               1244.54000000002 	(obj:0)
+C_s3_4                               1559.55000000002 	(obj:0)
+C_s3_5                               2114.13000000001 	(obj:0)
+C_s3_6                               3028.57000000001 	(obj:0)
+C_s3_7                                        4994.52 	(obj:0)
+C_s3_8                                        5189.46 	(obj:0)
+C_s3_9                                        5204.39 	(obj:0)
+C_s4_0                               1619.58000000002 	(obj:0)
+C_s4_1                               1934.26000000002 	(obj:0)
+C_s4_2                                        2383.76 	(obj:0)
+C_s4_3                                         4199.1 	(obj:0)
+C_s4_4                                        4559.54 	(obj:0)
+C_s4_5                                         5174.4 	(obj:0)
+C_s4_6                                        5369.46 	(obj:0)
+C_s4_7                                        5384.39 	(obj:0)
+C_s5_0                                         824.13 	(obj:0)
+C_s5_1                                        1138.81 	(obj:0)
+C_s5_2                               1349.20000000002 	(obj:0)
+C_s5_3                               1424.54000000002 	(obj:0)
+C_s5_4                                        2159.06 	(obj:0)
+C_s5_5                                        3973.96 	(obj:0)
+C_s5_6                                        4169.46 	(obj:0)
+C_s5_7                                        4288.98 	(obj:0)
+Cmax                                          5384.39 	(obj:1)
+S_s1_0                               1140.00000000002 	(obj:0)
+S_s1_1                               1154.68000000002 	(obj:0)
+S_s1_2                                        1648.78 	(obj:0)
+S_s1_3                                        1844.24 	(obj:0)
+S_s1_4                                        3659.54 	(obj:0)
+S_s1_5                                         3974.4 	(obj:0)
+S_s1_6                                        4589.46 	(obj:0)
+S_s1_7                               4978.93000000001 	(obj:0)
+S_s2_0                                            180 	(obj:0)
+S_s2_1                                         194.68 	(obj:0)
+S_s2_2                               509.200000000021 	(obj:0)
+S_s2_3                               704.540000000021 	(obj:0)
+S_s2_4                               779.740000000021 	(obj:0)
+S_s2_5                               1394.52000000002 	(obj:0)
+S_s2_6                               3209.46000000002 	(obj:0)
+S_s2_7                                        3688.98 	(obj:0)
+S_s3_0                               524.129999999999 	(obj:0)
+S_s3_1                               538.809999999999 	(obj:0)
+S_s3_2                                         853.33 	(obj:0)
+S_s3_3                               1184.54000000002 	(obj:0)
+S_s3_4                               1259.55000000002 	(obj:0)
+S_s3_5                               1814.13000000001 	(obj:0)
+S_s3_6                               2428.57000000001 	(obj:0)
+S_s3_7                                        3194.52 	(obj:0)
+S_s3_8                                        5009.46 	(obj:0)
+S_s3_9                                        5204.39 	(obj:0)
+S_s4_0                               1619.58000000002 	(obj:0)
+S_s4_1                               1634.26000000002 	(obj:0)
+S_s4_2                                        2203.76 	(obj:0)
+S_s4_3                                         2399.1 	(obj:0)
+S_s4_4                                        4259.54 	(obj:0)
+S_s4_5                                         4574.4 	(obj:0)
+S_s4_6                                        5189.46 	(obj:0)
+S_s4_7                                        5384.39 	(obj:0)
+S_s5_0                                         824.13 	(obj:0)
+S_s5_1                                         838.81 	(obj:0)
+S_s5_2                               1169.20000000002 	(obj:0)
+S_s5_3                               1364.54000000002 	(obj:0)
+S_s5_4                                        1559.06 	(obj:0)
+S_s5_5                                        2173.96 	(obj:0)
+S_s5_6                                        3989.46 	(obj:0)
+S_s5_7                                        4288.98 	(obj:0)
+d_s1_1                               1140.00000000002 	(obj:0)
+d_s1_2                                        1634.26 	(obj:0)
+d_s1_3                                        1828.78 	(obj:0)
+d_s1_4                                        3644.24 	(obj:0)
+d_s1_5                                        3959.54 	(obj:0)
+d_s1_6                                         4574.4 	(obj:0)
+d_s1_7                               4964.00000000001 	(obj:0)
+d_s2_1                                            180 	(obj:0)
+d_s2_2                               494.680000000021 	(obj:0)
+d_s2_3                               689.200000000021 	(obj:0)
+d_s2_4                               764.540000000021 	(obj:0)
+d_s2_5                               1379.74000000002 	(obj:0)
+d_s2_6                               3194.52000000002 	(obj:0)
+d_s2_7                                        3674.05 	(obj:0)
+d_s3_1                               524.129999999999 	(obj:0)
+d_s3_2                                         838.81 	(obj:0)
+d_s3_3                               1169.20000000002 	(obj:0)
+d_s3_4                               1244.54000000002 	(obj:0)
+d_s3_5                               1799.69000000001 	(obj:0)
+d_s3_6                               2414.13000000001 	(obj:0)
+d_s3_7                                        3179.74 	(obj:0)
+d_s3_8                                        4994.52 	(obj:0)
+d_s3_9                                        5189.46 	(obj:0)
+d_s4_1                               1619.58000000002 	(obj:0)
+d_s4_2                                        2189.24 	(obj:0)
+d_s4_3                                        2383.76 	(obj:0)
+d_s4_4                                        4244.37 	(obj:0)
+d_s4_5                                        4559.54 	(obj:0)
+d_s4_6                                         5174.4 	(obj:0)
+d_s4_7                                        5369.46 	(obj:0)
+d_s5_1                                         824.13 	(obj:0)
+d_s5_2                               1154.68000000002 	(obj:0)

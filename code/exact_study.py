@@ -111,7 +111,9 @@ class CompositeBound(Bound):
 class ExactModel:
     """Static operational model; technological waiting limits are relaxed."""
 
-    def __init__(self, inst: Instance, horizon: float | None = None):
+    def __init__(self, inst: Instance, horizon: float | None = None, *, hard_wait=False, wait_budget=300.):
+        self.hard_wait=hard_wait
+        self.wait_budget=wait_budget
         self.inst = inst
         n_tasks = sum(len(s.seq) - 1 for s in inst.samples)
         max_move = max(
@@ -123,8 +125,9 @@ class ExactModel:
         )
 
     def solve(self, time_limit: int = 900, threads: int = 4,
-              solver_name: str = "cbc"):
+              solver_name: str = "cbc", export_prefix=None, require_optimal=True):
         inst, cell, H = self.inst, self.inst.cell, self.H
+        bigM = H + 2 * max(cell.m(u,v) for u in cell.stations for v in cell.stations)
         prob = pulp.LpProblem("cell", pulp.LpMinimize)
         ops = [(s.sid, j) for s in inst.samples for j in range(len(s.seq))]
         smap = {s.sid: s for s in inst.samples}
@@ -135,11 +138,11 @@ class ExactModel:
             for sid, j in ops
             for i in cand[(sid, j)]
         }
-        S = {o: pulp.LpVariable(f"S_{o[0]}_{o[1]}", 0) for o in ops}
-        C = {o: pulp.LpVariable(f"C_{o[0]}_{o[1]}", 0) for o in ops}
+        S = {o: pulp.LpVariable(f"S_{o[0]}_{o[1]}", 0, H) for o in ops}
+        C = {o: pulp.LpVariable(f"C_{o[0]}_{o[1]}", 0, H) for o in ops}
         tasks = [(sid, j) for sid, j in ops if j >= 1]
-        d = {t: pulp.LpVariable(f"d_{t[0]}_{t[1]}", 0) for t in tasks}
-        Cmax = pulp.LpVariable("Cmax", 0)
+        d = {t: pulp.LpVariable(f"d_{t[0]}_{t[1]}", 0, H) for t in tasks}
+        Cmax = pulp.LpVariable("Cmax", 0, H)
         prob += Cmax
 
         # (C1) assignment, (C2) processing
@@ -173,8 +176,12 @@ class ExactModel:
         for t in tasks:
             sid, j = t
             prob += d[t] >= C[(sid, j - 1)]
-            prob += d[t] >= min(cell.m(cell.initial_robot, u) for u in cand[(sid, j - 1)])
+            prob += d[t] >= min(cell.empty(cell.initial_robot, u) for u in cand[(sid, j - 1)])
             prob += S[t] == d[t] + loaded[t]
+
+        if self.hard_wait:
+            for sid,j in tasks:
+                if j>=2: prob += d[(sid,j)]-C[(sid,j-1)] <= self.wait_budget
 
         # (C5) single-position station capacity (delivery -> pick-up)
         def release_time(sid, j):
@@ -182,15 +189,16 @@ class ExactModel:
             return d[(sid, j + 1)] if (sid, j + 1) in d else C[(sid, j)]
 
         for k, sts in cell.by_k.items():
+            if k<6: continue
             k_ops = [(sid, j) for sid, j in ops if smap[sid].seq[j] == k]
             for i in sts:
                 for (a, b) in itertools.combinations(k_ops, 2):
                     if a[0] == b[0]:
                         continue
                     pi = pulp.LpVariable(f"pi_{i}_{a[0]}{a[1]}_{b[0]}{b[1]}", cat="Binary")
-                    prob += S[b] >= release_time(*a) - H * (
+                    prob += S[b] >= release_time(*a) - bigM * (
                         3 - pi - y[(a[0], a[1], i)] - y[(b[0], b[1], i)])
-                    prob += S[a] >= release_time(*b) - H * (
+                    prob += S[a] >= release_time(*b) - bigM * (
                         2 + pi - y[(a[0], a[1], i)] - y[(b[0], b[1], i)])
 
         # (C6) robot capacity with assignment-dependent empty legs.
@@ -202,18 +210,28 @@ class ExactModel:
             for o1 in cand[(t1[0], t1[1] - 1)]:
                 for f1 in cand[t1]:
                     for o2 in cand[(t2[0], t2[1] - 1)]:
-                        prob += d[t2] >= d[t1] + cell.m(o1, f1) + cell.m(f1, o2) - H * (
+                        prob += d[t2] >= d[t1] + cell.m(o1, f1) + cell.empty(f1, o2) - bigM * (
                             3 - delta - z[(t1[0], t1[1], o1, f1)]
                             - y[(t2[0], t2[1] - 1, o2)])
             for o2 in cand[(t2[0], t2[1] - 1)]:
                 for f2 in cand[t2]:
                     for o1 in cand[(t1[0], t1[1] - 1)]:
-                        prob += d[t1] >= d[t2] + cell.m(o2, f2) + cell.m(f2, o1) - H * (
+                        prob += d[t1] >= d[t2] + cell.m(o2, f2) + cell.empty(f2, o1) - bigM * (
                             2 + delta - z[(t2[0], t2[1], o2, f2)]
                             - y[(t1[0], t1[1] - 1, o1)])
 
+        if export_prefix:
+            export_prefix=Path(export_prefix)
+            export_prefix.parent.mkdir(parents=True,exist_ok=True)
+            prob.writeLP(str(export_prefix)+'.lp')
+            Path(str(export_prefix)+'_input.json').write_text(json.dumps({
+                'samples':[{'id':ss.sid,'type':ss.stype,'release_s':ss.release} for ss in inst.samples],
+                'multiplicities':{k:len(vs) for k,vs in cell.by_k.items()},
+                'horizon_s':H,'hard_wait':self.hard_wait,'wait_budget_s':self.wait_budget},indent=2)+'\n')
         if solver_name == "scip":
-            solver = pulp.SCIP_PY(msg=False, timeLimit=time_limit, threads=threads)
+            solver = pulp.SCIP_PY(msg=bool(export_prefix), timeLimit=time_limit, threads=threads,
+                       logPath=str(export_prefix)+'.log' if export_prefix else None,
+                       options=['numerics/feastol=1e-8'])
         elif solver_name == "gurobi":
             solver = pulp.GUROBI(msg=False, timeLimit=time_limit, threads=threads)
         else:
@@ -221,12 +239,51 @@ class ExactModel:
         prob.solve(solver)
         if solver_name == "scip":
             model = prob.solverModel
-            if str(model.getStatus()) != "optimal":
+            if require_optimal and str(model.getStatus()) != "optimal":
                 raise RuntimeError(f"SCIP did not prove optimality: {model.getStatus()}")
             self.proof = {"status": str(model.getStatus()),
                           "primal_bound": model.getPrimalbound(),
                           "dual_bound": model.getDualbound(),
-                          "gap": model.getGap()}
+                          "gap": model.getGap(),"solutions":model.getNSols(),
+                          "horizon_s":H,"big_M_s":bigM,"hard_wait":self.hard_wait,
+                          "time_limit_s":time_limit,"threads":threads}
+            if model.getNSols()>0:
+                chosen={(sid,j):next(i for i in cand[(sid,j)] if y[sid,j,i].varValue>.5)
+                        for sid,j in ops}
+                transfers=[];operations={ss.sid:[] for ss in inst.samples};completions={}
+                for sid,j in tasks:
+                    delivery=float(S[sid,j].varValue);pickup=float(d[sid,j].varValue)
+                    transfers.append({'sample':sid,'from_stage':j-1,'to_stage':j,
+                                      'origin':chosen[sid,j-1],'destination':chosen[sid,j],
+                                      'pickup_s':pickup,'delivery_s':delivery})
+                transfers.sort(key=lambda a:(a['pickup_s'],a['sample'],a['to_stage']))
+                robot=cell.initial_robot
+                for a in transfers:
+                    sid=a['sample'];j=a['to_stage'];ss=smap[sid]
+                    empty=cell.empty(robot,a['origin']);loaded=cell.m(a['origin'],a['destination'])
+                    a.update({'start_s':a['pickup_s']-empty,'empty_s':empty,'loaded_s':loaded,
+                              'auxiliary_s':0.,'technological_wait_s':
+                                a['pickup_s']-float(C[sid,j-1].varValue) if j>1 else 0.,
+                              'external_wait_s':a['pickup_s']-ss.release if j==1 else 0.})
+                    operations[sid].append({'stage':j,'type_k':ss.seq[j],
+                          'station':a['destination'],'start_s':a['delivery_s'],
+                          'completion_s':float(C[sid,j].varValue),
+                          'clearance_s':float(d[sid,j+1].varValue) if (sid,j+1) in d else float(C[sid,j].varValue)})
+                    robot=a['destination']
+                for ss in inst.samples:
+                    operations[ss.sid].sort(key=lambda o:o['stage'])
+                    completions[ss.sid]=operations[ss.sid][-1]['completion_s']
+                self.trace={'tasks':transfers,'operations':operations,'completions':completions,
+                            'parameters':{'wait_budget_s':self.wait_budget}}
+                from cell_model import audit
+                self.trace['kpi']=audit(inst,self.trace)
+                assert not self.hard_wait or self.trace['kpi']['max_wait_s']<=self.wait_budget+1e-5
+                if export_prefix:
+                    model.writeSol(model.getBestSol(),str(export_prefix)+'.sol')
+                    Path(str(export_prefix)+'_trace.json').write_text(json.dumps(self.trace,indent=2)+'\n')
+                    Path(str(export_prefix)+'_variables.json').write_text(json.dumps({v.name:v.varValue for v in prob.variables()},indent=2)+'\n')
+            if export_prefix:
+                Path(str(export_prefix)+'_status.json').write_text(json.dumps(self.proof,indent=2)+'\n')
         else:
             self.proof = {"status": pulp.LpStatus[prob.status]}
         status = pulp.LpStatus[prob.status]
@@ -303,13 +360,16 @@ def main():
         lb0, lb1 = cert.value(inst), ht.value(inst)
         heur = urg.simulate(inst)
         started = time.perf_counter()
+        proof_dir = args.output.parent.parent / "validation" / "exact"
+        proof_dir.mkdir(parents=True, exist_ok=True)
         exact_model = ExactModel(inst)
         status, solution_status, opt, _, nv, nc = exact_model.solve(
-            time_limit=args.time_limit, threads=args.threads, solver_name=args.solver)
+            time_limit=args.time_limit, threads=args.threads, solver_name=args.solver,
+            export_prefix=proof_dir/name)
         elapsed = time.perf_counter() - started
         proof_dir = args.output.parent.parent / "validation" / "exact"
         proof_dir.mkdir(parents=True, exist_ok=True)
-        (proof_dir / f"{name}_proof.json").write_text(json.dumps(exact_model.proof, indent=2)+"\n")
+        (proof_dir / f"{name}_status.json").write_text(json.dumps(exact_model.proof, indent=2)+"\n")
         if solution_status != "Optimal Solution Found":
             raise RuntimeError(
                 f"{name}: {args.solver.upper()} returned {status}/{solution_status}, "

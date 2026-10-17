@@ -1,0 +1,518 @@
+{
+  "tasks": [
+    {
+      "sample": "s1",
+      "from_stage": 0,
+      "to_stage": 1,
+      "origin": "v29",
+      "destination": "v27",
+      "pickup_s": 149.74999999998983,
+      "delivery_s": 164.42999999998983,
+      "start_s": 149.74999999998983,
+      "empty_s": 0.0,
+      "loaded_s": 14.68,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 149.74999999998983
+    },
+    {
+      "sample": "s2",
+      "from_stage": 0,
+      "to_stage": 1,
+      "origin": "v29",
+      "destination": "v27",
+      "pickup_s": 449.74999999998937,
+      "delivery_s": 464.4299999999894,
+      "start_s": 435.06999999998936,
+      "empty_s": 14.68,
+      "loaded_s": 14.68,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 74.74999999998937
+    },
+    {
+      "sample": "s1",
+      "from_stage": 1,
+      "to_stage": 2,
+      "origin": "v27",
+      "destination": "v25",
+      "pickup_s": 464.42999999998983,
+      "delivery_s": 478.9499999999898,
+      "start_s": 464.42999999998983,
+      "empty_s": 0.0,
+      "loaded_s": 14.52,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s1",
+      "from_stage": 2,
+      "to_stage": 3,
+      "origin": "v25",
+      "destination": "v1",
+      "pickup_s": 658.9499999999898,
+      "delivery_s": 674.4099999999899,
+      "start_s": 658.9499999999898,
+      "empty_s": 0.0,
+      "loaded_s": 15.46,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 0,
+      "to_stage": 1,
+      "origin": "v29",
+      "destination": "v27",
+      "pickup_s": 750.0000000000007,
+      "delivery_s": 764.6800000000006,
+      "start_s": 733.8900000000007,
+      "empty_s": 16.11,
+      "loaded_s": 14.68,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 6.821210263296962e-13
+    },
+    {
+      "sample": "s2",
+      "from_stage": 1,
+      "to_stage": 2,
+      "origin": "v27",
+      "destination": "v25",
+      "pickup_s": 764.6800000000007,
+      "delivery_s": 779.2000000000007,
+      "start_s": 764.6800000000007,
+      "empty_s": 0.0,
+      "loaded_s": 14.52,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.2500000000113687,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 1,
+      "to_stage": 2,
+      "origin": "v27",
+      "destination": "v25",
+      "pickup_s": 1064.6800000000007,
+      "delivery_s": 1079.2000000000007,
+      "start_s": 1050.1600000000008,
+      "empty_s": 14.52,
+      "loaded_s": 14.52,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s2",
+      "from_stage": 2,
+      "to_stage": 3,
+      "origin": "v25",
+      "destination": "v2",
+      "pickup_s": 1079.200000000001,
+      "delivery_s": 1094.5400000000009,
+      "start_s": 1079.200000000001,
+      "empty_s": 0.0,
+      "loaded_s": 15.34,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 120.00000000000023,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 2,
+      "to_stage": 3,
+      "origin": "v25",
+      "destination": "v2",
+      "pickup_s": 1259.2000000000007,
+      "delivery_s": 1274.5400000000004,
+      "start_s": 1243.8600000000008,
+      "empty_s": 15.34,
+      "loaded_s": 15.34,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s2",
+      "from_stage": 3,
+      "to_stage": 4,
+      "origin": "v2",
+      "destination": "v24",
+      "pickup_s": 1274.540000000003,
+      "delivery_s": 1289.740000000003,
+      "start_s": 1274.540000000003,
+      "empty_s": 0.0,
+      "loaded_s": 15.2,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 120.00000000000205,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s2",
+      "from_stage": 4,
+      "to_stage": 5,
+      "origin": "v24",
+      "destination": "v11",
+      "pickup_s": 1889.740000000003,
+      "delivery_s": 1904.640000000003,
+      "start_s": 1889.740000000003,
+      "empty_s": 0.0,
+      "loaded_s": 14.9,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s1",
+      "from_stage": 3,
+      "to_stage": 4,
+      "origin": "v1",
+      "destination": "v23",
+      "pickup_s": 2474.40999999999,
+      "delivery_s": 2489.70999999999,
+      "start_s": 2459.69999999999,
+      "empty_s": 14.71,
+      "loaded_s": 15.3,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s1",
+      "from_stage": 4,
+      "to_stage": 5,
+      "origin": "v23",
+      "destination": "v12",
+      "pickup_s": 2789.70999999999,
+      "delivery_s": 2804.44999999999,
+      "start_s": 2789.70999999999,
+      "empty_s": 0.0,
+      "loaded_s": 14.74,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 3,
+      "to_stage": 4,
+      "origin": "v2",
+      "destination": "v23",
+      "pickup_s": 3074.5400000000004,
+      "delivery_s": 3089.7100000000005,
+      "start_s": 3059.8300000000004,
+      "empty_s": 14.71,
+      "loaded_s": 15.17,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 4,
+      "to_stage": 5,
+      "origin": "v23",
+      "destination": "v12",
+      "pickup_s": 3389.7100000000005,
+      "delivery_s": 3404.4500000000007,
+      "start_s": 3389.7100000000005,
+      "empty_s": 0.0,
+      "loaded_s": 14.74,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s1",
+      "from_stage": 5,
+      "to_stage": 6,
+      "origin": "v12",
+      "destination": "v26",
+      "pickup_s": 3404.44999999999,
+      "delivery_s": 3419.38999999999,
+      "start_s": 3404.44999999999,
+      "empty_s": 0.0,
+      "loaded_s": 14.94,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s1",
+      "from_stage": 6,
+      "to_stage": 7,
+      "origin": "v26",
+      "destination": "v33",
+      "pickup_s": 3599.38999999999,
+      "delivery_s": 3614.3199999999897,
+      "start_s": 3599.38999999999,
+      "empty_s": 0.0,
+      "loaded_s": 14.93,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s2",
+      "from_stage": 5,
+      "to_stage": 6,
+      "origin": "v11",
+      "destination": "v26",
+      "pickup_s": 3704.640000000003,
+      "delivery_s": 3719.700000000003,
+      "start_s": 3688.930000000003,
+      "empty_s": 15.71,
+      "loaded_s": 15.06,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s2",
+      "from_stage": 6,
+      "to_stage": 7,
+      "origin": "v26",
+      "destination": "v33",
+      "pickup_s": 3899.700000000003,
+      "delivery_s": 3914.630000000003,
+      "start_s": 3899.700000000003,
+      "empty_s": 0.0,
+      "loaded_s": 14.93,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 5,
+      "to_stage": 6,
+      "origin": "v12",
+      "destination": "v26",
+      "pickup_s": 4004.4500000000007,
+      "delivery_s": 4019.390000000001,
+      "start_s": 3988.8600000000006,
+      "empty_s": 15.59,
+      "loaded_s": 14.94,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    },
+    {
+      "sample": "s3",
+      "from_stage": 6,
+      "to_stage": 7,
+      "origin": "v26",
+      "destination": "v33",
+      "pickup_s": 4199.390000000001,
+      "delivery_s": 4214.3200000000015,
+      "start_s": 4199.390000000001,
+      "empty_s": 0.0,
+      "loaded_s": 14.93,
+      "auxiliary_s": 0.0,
+      "technological_wait_s": 0.0,
+      "external_wait_s": 0.0
+    }
+  ],
+  "operations": {
+    "s1": [
+      {
+        "stage": 1,
+        "type_k": 6,
+        "station": "v27",
+        "start_s": 164.42999999998983,
+        "completion_s": 464.42999999998983,
+        "clearance_s": 464.42999999998983
+      },
+      {
+        "stage": 2,
+        "type_k": 7,
+        "station": "v25",
+        "start_s": 478.9499999999898,
+        "completion_s": 658.9499999999898,
+        "clearance_s": 658.9499999999898
+      },
+      {
+        "stage": 3,
+        "type_k": 8,
+        "station": "v1",
+        "start_s": 674.4099999999899,
+        "completion_s": 2474.40999999999,
+        "clearance_s": 2474.40999999999
+      },
+      {
+        "stage": 4,
+        "type_k": 9,
+        "station": "v23",
+        "start_s": 2489.70999999999,
+        "completion_s": 2789.70999999999,
+        "clearance_s": 2789.70999999999
+      },
+      {
+        "stage": 5,
+        "type_k": 11,
+        "station": "v12",
+        "start_s": 2804.44999999999,
+        "completion_s": 3404.44999999999,
+        "clearance_s": 3404.44999999999
+      },
+      {
+        "stage": 6,
+        "type_k": 14,
+        "station": "v26",
+        "start_s": 3419.38999999999,
+        "completion_s": 3599.38999999999,
+        "clearance_s": 3599.38999999999
+      },
+      {
+        "stage": 7,
+        "type_k": 5,
+        "station": "v33",
+        "start_s": 3614.3199999999897,
+        "completion_s": 3614.3199999999897,
+        "clearance_s": 3614.3199999999897
+      }
+    ],
+    "s2": [
+      {
+        "stage": 1,
+        "type_k": 6,
+        "station": "v27",
+        "start_s": 464.4299999999894,
+        "completion_s": 764.4299999999894,
+        "clearance_s": 764.6800000000007
+      },
+      {
+        "stage": 2,
+        "type_k": 7,
+        "station": "v25",
+        "start_s": 779.2000000000007,
+        "completion_s": 959.2000000000007,
+        "clearance_s": 1079.200000000001
+      },
+      {
+        "stage": 3,
+        "type_k": 8,
+        "station": "v2",
+        "start_s": 1094.5400000000009,
+        "completion_s": 1154.5400000000009,
+        "clearance_s": 1274.540000000003
+      },
+      {
+        "stage": 4,
+        "type_k": 10,
+        "station": "v24",
+        "start_s": 1289.740000000003,
+        "completion_s": 1889.740000000003,
+        "clearance_s": 1889.740000000003
+      },
+      {
+        "stage": 5,
+        "type_k": 11,
+        "station": "v11",
+        "start_s": 1904.640000000003,
+        "completion_s": 3704.640000000003,
+        "clearance_s": 3704.640000000003
+      },
+      {
+        "stage": 6,
+        "type_k": 14,
+        "station": "v26",
+        "start_s": 3719.700000000003,
+        "completion_s": 3899.700000000003,
+        "clearance_s": 3899.700000000003
+      },
+      {
+        "stage": 7,
+        "type_k": 5,
+        "station": "v33",
+        "start_s": 3914.630000000003,
+        "completion_s": 3914.630000000003,
+        "clearance_s": 3914.630000000003
+      }
+    ],
+    "s3": [
+      {
+        "stage": 1,
+        "type_k": 6,
+        "station": "v27",
+        "start_s": 764.6800000000006,
+        "completion_s": 1064.6800000000007,
+        "clearance_s": 1064.6800000000007
+      },
+      {
+        "stage": 2,
+        "type_k": 7,
+        "station": "v25",
+        "start_s": 1079.2000000000007,
+        "completion_s": 1259.2000000000007,
+        "clearance_s": 1259.2000000000007
+      },
+      {
+        "stage": 3,
+        "type_k": 8,
+        "station": "v2",
+        "start_s": 1274.5400000000004,
+        "completion_s": 3074.5400000000004,
+        "clearance_s": 3074.5400000000004
+      },
+      {
+        "stage": 4,
+        "type_k": 9,
+        "station": "v23",
+        "start_s": 3089.7100000000005,
+        "completion_s": 3389.7100000000005,
+        "clearance_s": 3389.7100000000005
+      },
+      {
+        "stage": 5,
+        "type_k": 11,
+        "station": "v12",
+        "start_s": 3404.4500000000007,
+        "completion_s": 4004.4500000000007,
+        "clearance_s": 4004.4500000000007
+      },
+      {
+        "stage": 6,
+        "type_k": 14,
+        "station": "v26",
+        "start_s": 4019.390000000001,
+        "completion_s": 4199.390000000001,
+        "clearance_s": 4199.390000000001
+      },
+      {
+        "stage": 7,
+        "type_k": 5,
+        "station": "v33",
+        "start_s": 4214.3200000000015,
+        "completion_s": 4214.3200000000015,
+        "clearance_s": 4214.3200000000015
+      }
+    ]
+  },
+  "completions": {
+    "s1": 3614.3199999999897,
+    "s2": 3914.630000000003,
+    "s3": 4214.3200000000015
+  },
+  "parameters": {
+    "wait_budget_s": 300.0
+  },
+  "kpi": {
+    "n_samples": 3,
+    "makespan_s": 4214.3200000000015,
+    "violations": 0,
+    "affected_samples": 0,
+    "budget_compliant_samples": 3,
+    "max_wait_s": 120.00000000000205,
+    "mean_wait_s": 13.34722222222298,
+    "mean_flow_s": 3539.423333333331,
+    "robot_loaded_s": 313.52,
+    "robot_empty_s": 121.37000000000003,
+    "robot_util_pct": 10.319339774862845,
+    "robot_tasks": 21,
+    "hard_wait_feasible": true
+  }
+}

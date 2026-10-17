@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\begin{adjustwidth}{-\extralength}{0cm}
+\caption{Physical-time stress tests under LB-LA. Event / affected counts use 300 s. Motion variants use separately reconstructed dwell-plus-traverse matrices; auxiliary variants retain the archived matrix and add robot occupation before each pickup. These are uncalibrated scenarios.\label{tab:physical}}
+\centering
+\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+Timing scenario & CS6 (h) & CS6 events / affected & CS8 (h) & CS8 events / affected\\
+\midrule
+Separate nominal matrices & 21.79 & 113 / 99 & 21.27 & 248 / 146\\
+Empty dwell 0 s & 21.73 & 68 / 68 & 20.22 & 213 / 144\\
+Empty dwell 7.135 s & 21.77 & 85 / 84 & 20.71 & 216 / 138\\
+Loaded dwell $-20\%$ & 21.77 & 91 / 86 & 21.04 & 223 / 135\\
+Loaded dwell $+20\%$ & 21.82 & 140 / 115 & 21.53 & 279 / 164\\
+Traverse speed 0.75 m/s & 21.80 & 106 / 96 & 21.33 & 269 / 157\\
+Traverse speed 3 m/s & 21.80 & 101 / 96 & 21.28 & 241 / 141\\
+Auxiliary 5 s/transfer & 21.90 & 156 / 124 & 21.68 & 278 / 167\\
+Auxiliary 10 s/transfer & 22.66 & 236 / 160 & 22.47 & 261 / 174\\
+Auxiliary 15 s/transfer & 23.15 & 259 / 180 & 23.30 & 325 / 199\\
+Auxiliary 30 s/transfer & 28.91 & 242 / 165 & 28.75 & 260 / 181\\
+\bottomrule
+\end{tabular}
+\end{adjustwidth}
+\end{table}

@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\begin{adjustwidth}{-\extralength}{0cm}
+\caption{Reduced hard-wait checks with a 120 s SCIP limit. Every reported incumbent passes the timestamp and physical-capacity audit. A time limit leaves optimality unresolved; it does not imply infeasibility.\label{tab:hardwait}}
+\centering
+\footnotesize
+\begin{tabular}{lrlrrr}
+\toprule
+Instance & Jobs & Solver status & Incumbent (s) & Dual bound (s) & Max wait (s)\\
+\midrule
+HW3 & 3 & optimal & 4,603.08 & 4,603.08 & 300.00\\
+HW5 & 5 & optimal & 5,384.39 & 5,384.39 & 300.00\\
+HW8 & 8 & timelimit & 10,377.97 & 5,151.41 & 300.00\\
+\bottomrule
+\end{tabular}
+\end{adjustwidth}
+\end{table}

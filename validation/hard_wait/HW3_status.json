@@ -1,0 +1,12 @@
+{
+  "status": "optimal",
+  "primal_bound": 4603.080000000001,
+  "dual_bound": 4603.080000000001,
+  "gap": 0.0,
+  "solutions": 7,
+  "horizon_s": 11692.44,
+  "big_M_s": 11724.720000000001,
+  "hard_wait": true,
+  "time_limit_s": 120,
+  "threads": 1
+}
