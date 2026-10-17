@@ -18,7 +18,7 @@ def save(fig,name):
     plt.close(fig)
 def csvrows(n):return list(csv.DictReader((ROOT/'data'/n).open()))
 def trace(case,policy):return json.loads((ROOT/'validation/corrected_runs'/case/policy/'trace.json').read_text())
-COLORS={'URG':'#245a81','SRPT':'#257343','BNA':'#ff0000','LB-LA':'#d17a20'}
+COLORS={'URG':'#245a81','SRPT':'#00c000','BNA':'#ff0000','LB-LA':'#ffff00'}
 stagecolors={6:'#80a9c4',7:'#99c998',8:'#dedede',9:'#4e9b8e',10:'#b28abc',11:'#d7a2b2',12:'#b7cbd6',13:'#6580ae',14:'#9c9c9c'}
 stagenames={6:'De-capper, 1000 mL',7:'Dosing (Pipet A)',8:'Stirring',9:'HC extraction (Pipet B)',10:'SVOC extraction (Pipet C)',11:'Concentration',12:'De-capper, centrifuge',13:'Centrifugation',14:'GC-vial transfer (Pipet D)'}
 r=trace('cs1_nominal','LB-LA');cfg=json.loads((ROOT/'instances/cs1_nominal_config.json').read_text());types={s['id']:s['type'] for s in cfg['samples']}
@@ -76,7 +76,7 @@ with plt.rc_context({'font.size':13,'axes.labelsize':13,'axes.titlesize':14,
         for p,marker,size,filled in [('URG','s',190,False),('SRPT','^',170,False),('LB-LA','D',60,True)]:
             r=primary[case,p];x=float(r['makespan_s'])/3600;y=int(r['affected_samples'])
             ax.scatter(x,y,facecolors=COLORS[p] if filled else 'none',
-                       edgecolors='white' if filled else COLORS[p],linewidths=.7 if filled else 1.9,
+                       edgecolors='black' if filled else COLORS[p],linewidths=1.2 if filled else 1.9,
                        marker=marker,s=size,label=p,zorder=4)
         ax.axvline(24,color='#777',ls=':',lw=1.4)
         ax.text(24.5,218,'24 h',color='#666',fontsize=11)
