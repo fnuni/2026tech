@@ -1,11 +1,11 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{Physical-time stress tests under LB-LA. Event / affected counts use 300 s. Motion variants use separately reconstructed dwell-plus-traverse matrices; auxiliary variants retain the archived matrix and add robot occupation before each pickup. These are uncalibrated scenarios.\label{tab:physical}}
+\caption{Uncalibrated physical-time stress tests under LB-LA; events / affected samples at 300 s.\label{tab:physical}}
 \centering
 \footnotesize
-\begin{tabular}{lrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
 \toprule
-Timing scenario & CS6 (h) & CS6 events / affected & CS8 (h) & CS8 events / affected\\
+ & \multicolumn{2}{c}{CS6} & \multicolumn{2}{c}{CS8}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5} Timing scenario & $C_{\max}$ (h) & Events / affected & $C_{\max}$ (h) & Events / affected\\
 \midrule
 Separate nominal matrices & 21.79 & 113 / 99 & 21.27 & 248 / 146\\
 Empty dwell 0 s & 21.73 & 68 / 68 & 20.22 & 213 / 144\\
@@ -19,6 +19,5 @@ Auxiliary 10 s/transfer & 22.66 & 236 / 160 & 22.47 & 261 / 174\\
 Auxiliary 15 s/transfer & 23.15 & 259 / 180 & 23.30 & 325 / 199\\
 Auxiliary 30 s/transfer & 28.91 & 242 / 165 & 28.75 & 260 / 181\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}

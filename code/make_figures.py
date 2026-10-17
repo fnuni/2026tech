@@ -18,7 +18,7 @@ def save(fig,name):
     plt.close(fig)
 def csvrows(n):return list(csv.DictReader((ROOT/'data'/n).open()))
 def trace(case,policy):return json.loads((ROOT/'validation/corrected_runs'/case/policy/'trace.json').read_text())
-COLORS={'URG':'#245a81','SRPT':'#d17a20','BNA':'#8c564b','LB-LA':'#257343'}
+COLORS={'URG':'#245a81','SRPT':'#257343','BNA':'#ff0000','LB-LA':'#d17a20'}
 stagecolors={6:'#80a9c4',7:'#99c998',8:'#dedede',9:'#4e9b8e',10:'#b28abc',11:'#d7a2b2',12:'#b7cbd6',13:'#6580ae',14:'#9c9c9c'}
 stagenames={6:'De-capper, 1000 mL',7:'Dosing (Pipet A)',8:'Stirring',9:'HC extraction (Pipet B)',10:'SVOC extraction (Pipet C)',11:'Concentration',12:'De-capper, centrifuge',13:'Centrifugation',14:'GC-vial transfer (Pipet D)'}
 r=trace('cs1_nominal','LB-LA');cfg=json.loads((ROOT/'instances/cs1_nominal_config.json').read_text());types={s['id']:s['type'] for s in cfg['samples']}
@@ -56,18 +56,36 @@ ax.set_xscale('log');ax.set_xlim(1,4000);ax.invert_yaxis();ax.set_xlabel('Intern
 ax.grid(axis='x',alpha=.2);ax.legend(loc='lower right',frameon=False);fig.tight_layout();save(fig,'fig_waiting_cs6')
 
 primary={(r['case'],r['policy']):r for r in csvrows('kpi_campaign.csv')};ad=csvrows('admission_sensitivity.csv')
-fig,axes=plt.subplots(1,2,figsize=(9,3.9),sharey=True)
-for ax,case,title in zip(axes,['cs6_fullday','cs8_day180'],['CS6: 375 s releases','CS8: 180 s releases']):
-    subset=[r for r in ad if r['case']==case];xs=[float(r['makespan_s'])/3600 for r in subset];ys=[int(r['affected_samples']) for r in subset]
-    ax.plot(xs,ys,'o--',color=COLORS['BNA'],ms=6,lw=1,label='BNA admission cap')
-    for r,x,y in zip(subset,xs,ys):ax.annotate('q='+r['admission_cap'],(x,y),xytext=(5,7 if r['admission_cap']!='4' else -13),textcoords='offset points',fontsize=8)
-    for p,marker in [('URG','s'),('SRPT','^'),('LB-LA','D')]:
-        r=primary[case,p];x=float(r['makespan_s'])/3600;y=int(r['affected_samples'])
-        ax.scatter(x,y,color=COLORS[p],marker=marker,s=40,label=p,zorder=4)
-    ax.axvline(24,color='#777',ls=':',lw=1.3);ax.text(24.3,218,'24 h',color='#666',fontsize=8)
-    ax.set_title(title,fontsize=11);ax.set_xlabel('Makespan (h)');ax.grid(alpha=.2);ax.set_xlim(19,50);ax.set_ylim(-9,232)
-axes[0].set_ylabel('Distinct affected samples (of 230)');axes[1].legend(fontsize=8,frameon=False,loc='lower left')
-fig.tight_layout();save(fig,'fig_admission_tradeoff')
+# Open, differently sized outlines keep coincident policies visible at their
+# actual coordinates; no jitter or displacement is applied to the results.
+with plt.rc_context({'font.size':13,'axes.labelsize':13,'axes.titlesize':14,
+                     'xtick.labelsize':12,'ytick.labelsize':12}):
+    fig,axes=plt.subplots(1,2,figsize=(10,4.8),sharey=True)
+    for ax,case,title in zip(axes,['cs6_fullday','cs8_day180'],['CS6: 375 s releases','CS8: 180 s releases']):
+        subset=[r for r in ad if r['case']==case]
+        xs=[float(r['makespan_s'])/3600 for r in subset]
+        ys=[int(r['affected_samples']) for r in subset]
+        ax.plot(xs,ys,'o--',color=COLORS['BNA'],ms=8,lw=1.8,
+                markeredgecolor='white',markeredgewidth=.7,label='BNA admission cap')
+        for r,x,y in zip(subset,xs,ys):
+            cap=r['admission_cap']
+            offset={'1':(-4,10),'2':(6,9),'3':(27,-18),'4':(27,14)}[cap]
+            ax.annotate('q='+cap,(x,y),xytext=offset,textcoords='offset points',
+                        fontsize=11,ha='right' if cap=='1' else 'left',arrowprops={'arrowstyle':'-','color':'#777','lw':.6}
+                        if cap=='4' else None)
+        for p,marker,size,filled in [('URG','s',190,False),('SRPT','^',170,False),('LB-LA','D',60,True)]:
+            r=primary[case,p];x=float(r['makespan_s'])/3600;y=int(r['affected_samples'])
+            ax.scatter(x,y,facecolors=COLORS[p] if filled else 'none',
+                       edgecolors='white' if filled else COLORS[p],linewidths=.7 if filled else 1.9,
+                       marker=marker,s=size,label=p,zorder=4)
+        ax.axvline(24,color='#777',ls=':',lw=1.4)
+        ax.text(24.5,218,'24 h',color='#666',fontsize=11)
+        ax.set_title(title,pad=11);ax.set_xlabel('Makespan (h)')
+        ax.grid(alpha=.2);ax.set_xlim(19,50);ax.set_ylim(-9,232)
+    axes[0].set_ylabel('Distinct affected samples (of 230)')
+    axes[0].legend(fontsize=11,frameon=True,facecolor='white',edgecolor='none',
+                   framealpha=.95,loc='upper right',borderpad=.6,labelspacing=.6)
+    fig.tight_layout(w_pad=1.7);save(fig,'fig_admission_tradeoff')
 
 fig,axes=plt.subplots(1,2,figsize=(9,3.2),sharey=True)
 for ax,case,title in zip(axes,['cs6_fullday','cs8_day180'],['CS6, URG','CS8, URG']):

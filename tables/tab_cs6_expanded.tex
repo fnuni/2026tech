@@ -1,17 +1,16 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{Design-day performance at the 300 s budget. Quantiles include all internal stage waits; external waiting is release-to-first-pickup. URG-MECT exactly duplicates URG and is retained as a control in the package.\label{tab:kpi-cs6}}
+\caption{Design-day performance at the 300 s waiting budget.\label{tab:kpi-cs6}}
 \centering
 \footnotesize
-\begin{tabular}{lrrrrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
 \toprule
-Policy & $C_{\max}$ (h) & Events & Affected & Wait $P_{95}$ (s) & External $P_{95}$ (s) & Peak queue & Mean flow (h)\\
+Policy & \shortstack{$C_{\max}$\\(h)} & Events & Affected & \shortstack{Wait\\$P_{95}$ (s)} & \shortstack{External\\$P_{95}$ (s)} & \shortstack{Peak\\queue} & \shortstack{Mean flow\\(h)}\\
 \midrule
 URG & 21.80 & 114 & 102 & 912.8 & 159.1 & 2 & 1.19\\
 SRPT & 21.87 & 103 & 99 & 735.7 & 128.3 & 2 & 1.21\\
 BNA & 27.13 & 25 & 25 & 194.7 & 17,909.8 & 23 & 2.47\\
 LB-LA & 21.80 & 113 & 99 & 672.8 & 135.8 & 2 & 1.17\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}

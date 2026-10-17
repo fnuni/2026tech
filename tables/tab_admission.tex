@@ -1,17 +1,16 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{Admission-cap sensitivity. The cap counts Method-2 jobs admitted upstream of or at Pipet C until extraction completion and pickup to the next stage. The same cap is applied to analytical and QC2 jobs.\label{tab:admission}}
+\caption{BNA admission-cap sensitivity; events / affected samples at 300 s.\label{tab:admission}}
 \centering
 \footnotesize
-\begin{tabular}{rrrrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}rrrrrrr@{}}
 \toprule
-Cap & CS6 (h) & Events / affected & Peak external queue & External $P_{95}$ (h) & CS8 (h) & Events / affected\\
+ & \multicolumn{4}{c}{CS6} & \multicolumn{2}{c}{CS8}\\\cmidrule(lr){2-5}\cmidrule(lr){6-7} Cap & \shortstack{$C_{\max}$\\(h)} & \shortstack{Events /\\affected} & \shortstack{Peak external\\queue} & \shortstack{External\\$P_{95}$ (h)} & \shortstack{$C_{\max}$\\(h)} & \shortstack{Events /\\affected}\\
 \midrule
 1 & 46.16 & 0 / 0 & 62 & 21.86 & 47.70 & 149 / 126\\
 2 & 27.13 & 25 / 25 & 23 & 4.97 & 27.53 & 137 / 130\\
 3 & 22.50 & 86 / 85 & 6 & 0.88 & 22.42 & 137 / 119\\
 4 & 21.81 & 122 / 114 & 3 & 0.30 & 21.71 & 185 / 154\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}

@@ -1,11 +1,11 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{CS6-URG diagnosis by sample class. Affected counts are distinct jobs, event counts may count a job more than once, and waiting quantiles include every internal stage in the class.\label{tab:wait-classes}}
+\caption{CS6-URG waiting and flow metrics by sample class.\label{tab:wait-classes}}
 \centering
 \footnotesize
-\begin{tabular}{lrrrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
 \toprule
-Class & Jobs & Affected & Events & Wait $P_{95}$ (s) & Mean flow (s) & External $P_{95}$ (s)\\
+Class & Jobs & Affected & Events & \shortstack{Wait\\$P_{95}$ (s)} & \shortstack{Mean flow\\(s)} & \shortstack{External\\$P_{95}$ (s)}\\
 \midrule
 Blank & 10 & 0 & 0 & 194.2 & 3,875.3 & 172.2\\
 HC & 100 & 2 & 2 & 170.7 & 3,794.7 & 118.5\\
@@ -14,6 +14,5 @@ QC2 & 10 & 10 & 10 & 989.3 & 4,564.4 & 134.4\\
 SVOC & 70 & 68 & 70 & 1,381.6 & 4,666.5 & 152.1\\
 SVOC$_E$ & 30 & 22 & 32 & 978.5 & 5,203.2 & 166.7\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}

@@ -1,10 +1,12 @@
 # Robotic water-sample preparation cell
 
-Replication package **3.0.0**, released 17 October 2026, for **Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment**, prepared for **Technologies**.
+Replication package **3.0.1**, released 17 October 2026, for **Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment**, prepared for **Technologies**.
 
 Repository: https://github.com/fnuni/2026apsc
 
-Frozen version: https://github.com/fnuni/2026apsc/tree/v3.0.0
+Frozen version: https://github.com/fnuni/2026apsc/tree/v3.0.1
+
+Version 3.0.1 updates figure readability and fits publication tables to the manuscript text width. Experimental inputs, policies, traces, and numerical results are unchanged from 3.0.0.
 
 The study diagnoses a nominal 230-job day that is close to its relaxed operational makespan bound but has substantial internal waiting violations. It compares four distinct rules, includes an equivalent implementation control, and separates internal timing, external delay, and completion time. No chemical recovery, economic return, or sustainability benefit is measured.
 

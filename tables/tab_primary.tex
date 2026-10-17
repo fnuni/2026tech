@@ -1,9 +1,9 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{Paired policy comparisons. Each entry is makespan in hours / violated stage budgets / distinct affected samples. BNA uses admission cap 2.\label{tab:summary}}
+\caption{Policy comparison: makespan (h) / violation events / affected samples.\label{tab:summary}}
 \centering
 \footnotesize
-\begin{tabular}{lrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
 \toprule
 Case & URG & SRPT & BNA & LB-LA\\
 \midrule
@@ -23,6 +23,5 @@ CS13 & 21.70 / 47 / 47 & 21.73 / 46 / 45 & 24.26 / 19 / 18 & 21.69 / 50 / 48\\
 CS14 & 18.04 / 296 / 201 & 24.59 / 338 / 209 & 25.37 / 144 / 137 & 18.23 / 245 / 188\\
 CS15 & 21.49 / 236 / 136 & 28.70 / 440 / 213 & 26.77 / 136 / 129 & 21.35 / 244 / 145\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}

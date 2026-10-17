@@ -1,11 +1,11 @@
 \begin{table}[!htbp]
-\begin{adjustwidth}{-\extralength}{0cm}
-\caption{CS6-URG transitions with violations. Shares refer to the 114 violation events. Waiting quantiles refer to all occurrences of that transition; mean excess refers only to its violations. Module names are given in Table~\ref{tab:modules}.\label{tab:wait-stages}}
+\caption{Violating transitions in CS6-URG; module codes follow Table~\ref{tab:modules}.\label{tab:wait-stages}}
 \centering
 \footnotesize
-\begin{tabular}{lrrrrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
 \toprule
-Transition & Occurrences & Events & Share (\%) & $P_{50}$ (s) & $P_{95}$ (s) & Max (s) & Mean excess (s)\\
+Transition & Count & Events & \shortstack{Share\\(\%)} & \shortstack{$P_{50}$\\(s)} & \shortstack{$P_{95}$\\(s)} & \shortstack{Max\\(s)} & \shortstack{Mean excess\\(s)}\\
 \midrule
 6 $\to$ 7 & 230 & 1 & 0.9 & 43.6 & 226.0 & 315.8 & 15.8\\
 8 $\to$ 10 & 80 & 78 & 68.4 & 1,077.3 & 2,235.8 & 2,371.7 & 850.8\\
@@ -14,6 +14,5 @@ Transition & Occurrences & Events & Share (\%) & $P_{50}$ (s) & $P_{95}$ (s) & M
 12 $\to$ 13 & 30 & 7 & 6.1 & 42.4 & 975.4 & 1,178.5 & 553.1\\
 13 $\to$ 10 & 30 & 22 & 19.3 & 554.1 & 1,688.3 & 1,711.0 & 656.4\\
 \bottomrule
-\end{tabular}
-\end{adjustwidth}
+\end{tabular*}
 \end{table}
