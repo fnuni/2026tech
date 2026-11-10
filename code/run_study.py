@@ -29,7 +29,7 @@ def certificate(inst):
     c=CapacityBound().value(inst);p=ReleasePathBound().value(inst);h=HeadTailBound().value(inst)
     robot=sum(inst.cell.m_min(s.seq[j-1],s.seq[j]) for s in inst.samples for j in range(1,len(s.seq)))
     return {'capacity_lb_s':c,'release_path_lb_s':p,'robot_lb_s':robot,'headtail_lb_s':h,
-            'certificate_lb_s':max(c,p,h,robot)}
+            'certificate_v3_lb_s':max(c,p,h,robot)}
 
 def quant(x,p):return float(np.percentile(x,p)) if x else 0.
 
@@ -136,10 +136,10 @@ def main():
         bound=certificate(inst);best=float('inf')
         for policy in POLICIES:
             result=simulate(inst,policy,trace=False);runs[name,policy]=result
-            values=audit(inst,result);assert values['makespan_s']+1e-5>=bound['certificate_lb_s']
+            values=audit(inst,result);assert values['makespan_s']+1e-5>=bound['certificate_v3_lb_s']
             row={'case':name,**result['kpi'],**bound,
-                 'gap_pct':100*(values['makespan_s']/bound['certificate_lb_s']-1),
-                 'excess_over_bound_s':values['makespan_s']-bound['certificate_lb_s']}
+                 'gap_v3_pct':100*(values['makespan_s']/bound['certificate_v3_lb_s']-1),
+                 'excess_over_v3_bound_s':values['makespan_s']-bound['certificate_v3_lb_s']}
             kpis.append(row);best=min(best,values['makespan_s'])
             path=ROOT/'validation/corrected_runs'/name/policy
             dump(path/'trace.json',result);dump(path/'audit.json',{'timestamp_reconstruction':'passed','recomputed_kpi':values})
@@ -148,7 +148,7 @@ def main():
             print(name,policy,round(values['makespan_s'],2),values['violations'],values['affected_samples'],flush=True)
         assert [(a['sample'],a['destination']) for a in runs[name,'URG']['tasks']]==[(a['sample'],a['destination']) for a in runs[name,'URG-MECT']['tasks']]
         bounds.append({'case':name,**bound,'best_makespan_s':best,
-                       'certified_gap_pct':100*(best/bound['certificate_lb_s']-1)})
+                       'certified_gap_v3_pct':100*(best/bound['certificate_v3_lb_s']-1)})
     for file,rows in [('kpi_campaign.csv',kpis),('lower_bounds.csv',bounds),('waiting_by_transition.csv',stages),
                        ('waiting_by_class.csv',classes),('operating_metrics.csv',operating)]:write_csv(ROOT/'data'/file,rows)
     dump(ROOT/'validation/plot_data.json',plots)

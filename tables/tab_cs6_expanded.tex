@@ -1,16 +1,21 @@
-\begin{table}[!htbp]
-\caption{Design-day performance at the 300 s waiting budget.\label{tab:kpi-cs6}}
+\begin{table}[tbp]
+\caption{Design-day (CS6) performance at the uniform 300~s limit. Events count violating transitions; affected counts distinct samples. Wait $P_{95}$ includes all internal transitions; external waiting runs from release to admission.\label{tab:kpi-cs6}}
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
 \toprule
-Policy & \shortstack{$C_{\max}$\\(h)} & Events & Affected & \shortstack{Wait\\$P_{95}$ (s)} & \shortstack{External\\$P_{95}$ (s)} & \shortstack{Peak\\queue} & \shortstack{Mean flow\\(h)}\\
+Method & \shortstack{$C_{\max}$\\(h)} & Events & Affected & \shortstack{Wait\\$P_{95}$ (s)} & \shortstack{External\\$P_{95}$ (h)} & \shortstack{Peak ext.\\queue} & \shortstack{Mean flow\\(h)}\\
 \midrule
-URG & 21.80 & 114 & 102 & 912.8 & 159.1 & 2 & 1.19\\
-SRPT & 21.87 & 103 & 99 & 735.7 & 128.3 & 2 & 1.21\\
-BNA & 27.13 & 25 & 25 & 194.7 & 17,909.8 & 23 & 2.47\\
-LB-LA & 21.80 & 113 & 99 & 672.8 & 135.8 & 2 & 1.17\\
+URG & 21.80 & 114 & 102 & 913 & 0.04 & 2 & 1.19\\
+SRPT & 21.87 & 103 & 99 & 736 & 0.04 & 2 & 1.21\\
+BNA ($q=2$) & 27.13 & 25 & 25 & 195 & 4.97 & 23 & 2.47\\
+LB-LA & 21.80 & 113 & 99 & 673 & 0.04 & 2 & 1.17\\
+BNA ($q=1$) & 46.16 & 0 & 0 & 118 & 21.86 & 62 & 7.10\\
+\midrule
+RH-CP, operational & 21.90 & 178 & 150 & 601 & 0.21 & 4 & 1.26\\
+RH-CP, hard-wait & 23.82 & 0 & 0 & 271 & 1.97 & 20 & 2.13\\
+CP-REF, hard-wait & 23.20 & 0 & 0 & 298 & 1.43 & 16 & 1.89\\
 \bottomrule
 \end{tabular*}
 \end{table}

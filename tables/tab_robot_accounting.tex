@@ -1,0 +1,19 @@
+\begin{table}[tbp]
+\caption{Common accounting of robot work: modelled tasks versus the industrial movement count (160 analytical jobs, about 5050 movements of 15~s, 88\% robot load).\label{tab:robot-accounting}}
+\centering
+\footnotesize
+\begin{tabular}{p{5.6cm}rrp{3.4cm}}
+\toprule
+Quantity & Model & Industrial & Note\\
+\midrule
+Loaded sample transfers per job & 7 (9 for SVOC$_E$) & -- & Modelled\\
+Movements per analytical job (loaded + empty) & 14.6 & 31.6 & Model vs industrial\\
+Unresolved movements per analytical job & -- & 17.0 & Auxiliary, cleaning, consumables\\
+Robot time for 160 analytical jobs (s) & 35,040 & 75,750 & 15~s per movement\\
+Equivalent auxiliary service $a$ (s per transfer) & 34.85 & -- & Closes the difference\\
+Robot time, 230-job day at that $a$ (\% of 24~h) & 125 & -- & Exceeds the day\\
+Robot bound with empty legs, nominal (s) & 48,686 & -- & Remark~\ref{rem:empty}\\
+Auxiliary service making the robot bound exceed 24~h (s) & 22.58 & -- & Provable infeasibility\\
+\bottomrule
+\end{tabular}
+\end{table}

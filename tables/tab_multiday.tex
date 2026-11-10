@@ -1,0 +1,20 @@
+\begin{table}[tbp]
+\caption{Three consecutive CS6 days with carry-over (stochastic: means over 30 replications). Carry-over: samples released but unfinished at the end of the day; affected samples are attributed to their release day.\label{tab:multiday}}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrrr@{}}
+\toprule
+Setting & Rule & \shortstack{$C_{\max}$\\(h)} & \shortstack{Carry-over\\day 1} & \shortstack{Carry-over\\day 2} & \shortstack{Affected\\day 1} & \shortstack{Affected\\day 2} & \shortstack{Affected\\day 3}\\
+\midrule
+deterministic & URG & 69.80 & 0.0 & 0.0 & 102.0 & 102.0 & 102.0\\
+ & SRPT & 69.87 & 0.0 & 0.0 & 99.0 & 99.0 & 99.0\\
+ & BNA & 79.67 & 14.0 & 23.0 & 25.0 & 26.0 & 19.0\\
+ & LB-LA & 69.80 & 0.0 & 0.0 & 99.0 & 99.0 & 99.0\\
+low variability & URG & 69.84 & 0.0 & 0.0 & 110.2 & 112.0 & 111.8\\
+ & SRPT & 69.93 & 0.0 & 0.0 & 106.8 & 107.5 & 108.8\\
+ & BNA & 79.03 & 13.3 & 22.4 & 29.4 & 30.9 & 32.1\\
+ & LB-LA & 69.81 & 0.0 & 0.0 & 109.2 & 111.3 & 112.3\\
+\bottomrule
+\end{tabular*}
+\end{table}

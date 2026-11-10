@@ -100,4 +100,39 @@ class AuditTamperTests(unittest.TestCase):
         self.assertAlmostEqual(r['kpi']['robot_auxiliary_s'],5*r['kpi']['robot_tasks'])
         self.assertTrue(r['kpi']['hard_wait_feasible'])
 
+    def test_uniform_budget_profile_reproduces_scalar_limit(self):
+        cell=Cell(ROOT/'instances/cs2_medium_config.json');inst=Instance(cell,cell.cfg['samples'])
+        a=simulate(inst,'LB-LA',trace=False)
+        b=simulate(Instance(cell,cell.cfg['samples']),'LB-LA',trace=False,wait_budget={k:300. for k in range(6,15)})
+        self.assertEqual([(x['sample'],x['destination']) for x in a['tasks']],[(x['sample'],x['destination']) for x in b['tasks']])
+        self.assertEqual(a['kpi']['violations'],b['kpi']['violations'])
+
+    def test_stochastic_execution_is_audited_and_reproducible(self):
+        from revision_study import LognormalPerturbation,ScenarioBuilder
+        cell=Cell(ROOT/'instances/cs2_medium_config.json')
+        runs=[simulate(ScenarioBuilder.instance(cell,cell.cfg['samples'],seed=7),'URG',trace=False,
+                       perturbation=LognormalPerturbation(7,.1,.05))['kpi']['makespan_s'] for _ in range(2)]
+        self.assertEqual(runs[0],runs[1])
+
+    def test_conservative_cp_schedule_is_hard_wait_feasible(self):
+        from cp_reference import TransferGraph,TimeLagInsertion,ScheduleReconstructor
+        cell=Cell(ROOT/'instances/cs1_nominal_config.json');inst=Instance(cell,cell.cfg['samples'])
+        g=TransferGraph(inst,300.);pk=TimeLagInsertion(g,hard_wait=True).run()
+        r=ScheduleReconstructor(g).trace(pk,hard_wait=True)
+        self.assertEqual(r['kpi']['violations'],0)
+        lb=max(b.value(inst) for b in [CapacityBound(),ReleasePathBound(),HeadTailBound()])
+        self.assertGreaterEqual(r['kpi']['makespan_s']+1e-6,lb)
+
+    def test_conservative_cp_includes_initial_robot_travel(self):
+        # Regression: QC1 released at 0 s enters away from the robot's initial position.
+        from cp_reference import TransferGraph,ConservativeCpModel,ScheduleReconstructor
+        cell=Cell(ROOT/'instances/cs1_nominal_config.json');inst=Instance(cell,[('QC1',0.)])
+        g=TransferGraph(inst,300.);res=ConservativeCpModel(g,hard_wait=True,horizon_s=86400.).solve(3,1,1)
+        rec=ScheduleReconstructor(g)
+        raw=rec.trace(res.pickups,hard_wait=True,tighten=False)   # same pickups, audited
+        retimed=rec.trace(res.pickups,hard_wait=True,tighten=True)
+        self.assertGreaterEqual(min(res.pickups.values())/100,cell.empty(cell.initial_robot,cell.by_k[2][0])-1e-9)
+        self.assertLessEqual(retimed['kpi']['makespan_s'],res.objective_s+1e-6)
+        self.assertEqual(raw['kpi']['violations'],0)
+
 if __name__=='__main__':unittest.main()

@@ -4,8 +4,12 @@ from pathlib import Path
 
 def write_csv(path,rows):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    fields=[]
+    for row in rows:
+        for key in row:
+            if key not in fields:fields.append(key)
     with path.open('w',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=list(rows[0]))
+        writer=csv.DictWriter(f,fieldnames=fields,restval='')
         writer.writeheader();writer.writerows(rows)
 
 def main():

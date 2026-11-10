@@ -1,0 +1,29 @@
+\begin{table}[tbp]
+\caption{Single-day stochastic runs: 30 replications with common random numbers; means $\pm$ approximate 95\% half-widths (normal approximation, exploratory, no correction for multiple comparisons). Paired differences in affected samples refer to URG and, for the variant without overshoot penalty, to the default LB-LA in the same replication. Low and high CV: coefficients of variation of 10\%/5\% and 20\%/10\% for processing/movement times. Pipet C share: violation events before Pipet C. Within 24~h: observed share of replications.\label{tab:stochastic}}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrrr@{}}
+\toprule
+Setting & Rule & $C_{\max}$ (h) & Affected & \shortstack{Affected\\vs URG} & \shortstack{Affected vs\\LB-LA} & \shortstack{Pipet C\\share (\%)} & \shortstack{Within\\24 h (\%)}\\
+\midrule
+CS6, low CV & URG & 21.84 $\pm$ 0.03 & 110.2 $\pm$ 2.2 & -- & -- & 77 & 100\\
+ & SRPT & 21.93 $\pm$ 0.04 & 106.8 $\pm$ 2.0 & -3.4 $\pm$ 2.0 & -- & 82 & 100\\
+ & BNA & 26.86 $\pm$ 0.18 & 29.5 $\pm$ 1.4 & -80.7 $\pm$ 2.7 & -- & 60 & 0\\
+ & LB-LA & 21.83 $\pm$ 0.02 & 109.3 $\pm$ 2.9 & -0.8 $\pm$ 2.3 & -- & 75 & 100\\
+ & LB-LA ($w_{over}=0$) & 21.83 $\pm$ 0.03 & 108.2 $\pm$ 2.4 & -2.0 $\pm$ 2.0 & -1.2 $\pm$ 1.6 & 78 & 100\\
+\midrule
+CS6, high CV & URG & 21.93 $\pm$ 0.06 & 132.0 $\pm$ 3.2 & -- & -- & 58 & 100\\
+ & SRPT & 22.02 $\pm$ 0.08 & 127.2 $\pm$ 3.2 & -4.8 $\pm$ 2.7 & -- & 61 & 100\\
+ & BNA & 27.02 $\pm$ 0.19 & 54.6 $\pm$ 1.9 & -77.4 $\pm$ 3.5 & -- & 35 & 0\\
+ & LB-LA & 21.90 $\pm$ 0.04 & 134.6 $\pm$ 3.1 & +2.6 $\pm$ 2.6 & -- & 53 & 100\\
+ & LB-LA ($w_{over}=0$) & 21.91 $\pm$ 0.05 & 131.2 $\pm$ 3.5 & -0.8 $\pm$ 2.2 & -3.3 $\pm$ 3.0 & 56 & 100\\
+\midrule
+CS8, low CV & URG & 21.52 $\pm$ 0.07 & 162.2 $\pm$ 2.5 & -- & -- & 40 & 100\\
+ & SRPT & 29.59 $\pm$ 0.09 & 218.1 $\pm$ 1.0 & +55.9 $\pm$ 2.7 & -- & 25 & 0\\
+ & BNA & 27.32 $\pm$ 0.18 & 139.3 $\pm$ 1.8 & -22.9 $\pm$ 3.2 & -- & 10 & 0\\
+ & LB-LA & 21.30 $\pm$ 0.07 & 166.4 $\pm$ 2.6 & +4.2 $\pm$ 3.3 & -- & 40 & 100\\
+ & LB-LA ($w_{over}=0$) & 21.32 $\pm$ 0.06 & 162.2 $\pm$ 2.2 & -0.0 $\pm$ 2.9 & -4.2 $\pm$ 3.0 & 48 & 100\\
+\bottomrule
+\end{tabular*}
+\end{table}

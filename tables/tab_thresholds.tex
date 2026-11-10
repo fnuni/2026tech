@@ -1,15 +1,16 @@
-\begin{table}[!htbp]
-\caption{CS6 threshold sensitivity. Fixed schedules are evaluated against each threshold without changing actions; rerun LB-LA also uses the new threshold in its score. Entries are events / affected samples.\label{tab:thresholds}}
+\begin{table}[tbp]
+\caption{CS6 waiting-limit sensitivity: events / affected samples. ``Fixed re-classifies the unchanged 300~s URG schedule; reruns use the new limits in the controllers.\label{tab:thresholds}}
 \centering
 \footnotesize
-\begin{tabular}{rrrr}
+\begin{tabular}{lrrrr}
 \toprule
-Budget (s) & Fixed URG & Fixed LB-LA & Rerun LB-LA\\
+Limits (s) & Fixed URG & Rerun URG & Rerun LB-LA & Rerun BNA\\
 \midrule
-150 & 216 / 155 & 223 / 156 & 210 / 146\\
-300 & 114 / 102 & 113 / 99 & 113 / 99\\
-600 & 86 / 80 & 81 / 78 & 74 / 72\\
-900 & 73 / 70 & 53 / 52 & 54 / 54\\
+Uniform 150 & 216 / 155 & 216 / 155 & 210 / 146 & 116 / 101\\
+Uniform 300 & 114 / 102 & 114 / 102 & 113 / 99 & 25 / 25\\
+Uniform 600 & 86 / 80 & 86 / 80 & 74 / 72 & 16 / 16\\
+Uniform 900 & 73 / 70 & 73 / 70 & 54 / 54 & 0 / 0\\
+Profile A & 155 / 127 & 145 / 117 & 141 / 117 & 66 / 61\\
 \bottomrule
 \end{tabular}
 \end{table}

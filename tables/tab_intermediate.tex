@@ -1,0 +1,27 @@
+\begin{table}[tbp]
+\caption{Intermediate instances on the full layout, CP-SAT with a 120~s limit per model and two workers (no model was solved to proven optimality). $LB$: certificate~\eqref{eq:cert}; the relaxed-model bound is valid by Proposition~\ref{prop:cpdual}; the CP primal value is an audited conservative-model schedule. Bound gap: best upper bound over best lower bound; rule excess: best rule over best upper bound.\label{tab:intermediate}}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrlrrrrrr@{}}
+\toprule
+Instance & $n$ & Problem & $LB$ & \shortstack{Relaxed CP\\bound} & \shortstack{CP\\primal} & \shortstack{Best\\rule} & \shortstack{Bound\\gap (\%)} & \shortstack{Rule\\excess (\%)}\\
+\midrule
+CS1 & 23 & oper. & 10,394 & 10,394 & 10,785 & 11,106 & 3.76 & 2.98\\
+CS1 & 23 & hard-wait & 10,394 & 10,394 & 10,902 & -- & 4.89 & --\\
+CS2 & 23 & oper. & 10,033 & 10,033 & 10,522 & 10,909 & 4.88 & 3.68\\
+CS2 & 23 & hard-wait & 10,033 & 10,033 & 10,566 & -- & 5.32 & --\\
+CS3 & 23 & oper. & 9524 & 9524 & 10,524 & 10,475 & 9.99 & 0.00\\
+CS3 & 23 & hard-wait & 9524 & 9524 & 10,554 & -- & 10.82 & --\\
+CS4 & 23 & oper. & 9404 & 9404 & 9891 & 10,222 & 5.18 & 3.35\\
+CS4 & 23 & hard-wait & 9404 & 9404 & 10,347 & -- & 10.03 & --\\
+CS7 & 23 & oper. & 8713 & 8713 & 9415 & 9605 & 8.06 & 2.02\\
+CS7 & 23 & hard-wait & 8713 & 8713 & 10000 & -- & 14.78 & --\\
+CS5 & 46 & oper. & 16,274 & 16,274 & 17,950 & 18,201 & 10.30 & 1.40\\
+CS5 & 46 & hard-wait & 16,274 & 16,274 & 19,054 & -- & 17.08 & --\\
+CS8[1:69] & 69 & oper. & 24,164 & 24,164 & 26,972 & 26,725 & 10.60 & 0.00\\
+CS8[1:69] & 69 & hard-wait & 24,164 & 24,164 & 28,026 & -- & 15.98 & --\\
+CS8[1:115] & 115 & oper. & 36,164 & 36,164 & 40,829 & 39,994 & 10.59 & 0.00\\
+\bottomrule
+\end{tabular*}
+\end{table}

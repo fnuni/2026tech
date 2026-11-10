@@ -40,8 +40,8 @@ def main():
     table('tab_primary.tex','Policy comparison: makespan (h) / violation events / affected samples.','tab:summary','lrrrr','Case & URG & SRPT & BNA & LB-LA',b,True)
     b=[]
     for r in rows('lower_bounds.csv'):
-        excess=float(r['best_makespan_s'])-float(r['certificate_lb_s'])
-        b.append([labels[r['case']],num(r,'capacity_lb_s'),num(r,'robot_lb_s'),num(r,'release_path_lb_s'),num(r,'headtail_lb_s'),num(r,'best_makespan_s'),f'{excess:,.0f}',num(r,'certified_gap_pct',2)])
+        excess=float(r['best_makespan_s'])-float(r['certificate_v3_lb_s'])
+        b.append([labels[r['case']],num(r,'capacity_lb_s'),num(r,'robot_lb_s'),num(r,'release_path_lb_s'),num(r,'headtail_lb_s'),num(r,'best_makespan_s'),f'{excess:,.0f}',num(r,'certified_gap_v3_pct',2)])
     table('tab_gaps_expanded.tex','Operational certificate components and best-policy gaps; times in seconds.','tab:gaps','lrrrrrrr','Case & Machine & \\shortstack{Loaded\\\\robot} & Path & Head/tail & \\shortstack{Best\\\\$C_{\\max}$} & Excess & \\shortstack{Gap\\\\(\\%)}',b,True)
     b=[]
     for r in rows('waiting_by_transition.csv'):

@@ -1,0 +1,15 @@
+\begin{table}[tbp]
+\caption{Targeted hard-wait feasibility search on CS6. All schedules have zero violation events and pass the timestamp audit. The gap refers to the certificate (78,177.52~s); the relaxed CP model reaches 77,893.8~s within 120~s. Wall-clock times include the preceding phases.\label{tab:targeted}}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
+\toprule
+Method & \shortstack{$C_{\max}$\\(h)} & \shortstack{Max wait\\(s)} & \shortstack{Mean ext.\\(h)} & \shortstack{Ext. $P_{95}$\\(h)} & \shortstack{Peak ext.\\queue} & \shortstack{Gap\\(\%)} & \shortstack{Wall\\(s)}\\
+\midrule
+Time-lag insertion & 24.69 & 300.0 & 1.49 & 2.80 & 28 & 13.67 & 2\\
+RH-CP (40 s per window) & 23.40 & 300.0 & 0.94 & 1.62 & 18 & 7.75 & 602\\
+CP-REF (RH-CP + polishing) & 23.20 & 300.0 & 0.81 & 1.43 & 16 & 6.82 & 1502\\
+\bottomrule
+\end{tabular*}
+\end{table}

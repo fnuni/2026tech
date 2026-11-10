@@ -1,0 +1,7 @@
+case,alternative,problem,makespan_s,violations,certificate_v3_lb_s,certificate_lb_s,wall_s
+cs6_fullday,second_pipet_c,hard_wait,78145.68999999999,0,77848.8,77893.79999999999,225.40340614318848
+cs6_fullday,second_pipet_c_and_d,hard_wait,77921.54999999999,0,77848.8,77848.8,225.32755279541016
+cs8_day180,second_pipet_c,hard_wait,75256.37999999999,0,44683.8,48685.55,231.29242658615112
+cs8_day180,second_pipet_c_and_d,hard_wait,73831.5,0,44443.799999999996,48685.55,230.14585638046265
+cs12_m2heavy,second_pipet_c,hard_wait,78430.34,0,48163.8,49374.59,232.1633653640747
+cs12_m2heavy,second_pipet_c_and_d,hard_wait,76264.76,0,48163.8,49374.59,230.59214448928833

@@ -1,0 +1,16 @@
+case,instance,input_file,provenance,change,jobs,first_release_s,last_release_s,pipc_s
+CS1,cs1_nominal,instances/cs1_nominal_config.json,"generator, seed 42, scale 0.1","375 s analytical cadence; 23 jobs (10 HC, 7 SVOC, 3 SVOC_E, QC1, QC2, Blank)",23,0.0,7125.0,600.0
+CS2,cs2_medium,instances/cs2_medium_config.json,"generator, seed 42, scale 0.1",CS1 sequence at 180 s cadence,23,0.0,3420.0,600.0
+CS3,cs3_high,instances/cs3_high_config.json,"generator, seed 42, scale 0.1",CS1 sequence at 60 s cadence,23,0.0,1140.0,600.0
+CS4,cs4_medium_s99,instances/cs4_medium_s99_config.json,"generator, seed 99, scale 0.1","CS2 release instants; seed 99 places emulsions on Method-2 slots 4, 7, 10 (CS2: 1, 2, 5) and swaps QC1/Blank",23,0.0,3420.0,600.0
+CS5,cs5_double,instances/cs5_double_config.json,"generator, seed 42, scale 0.2",46 jobs at 150 s cadence,46,0.0,5850.0,600.0
+CS6,cs6_fullday,instances/cs6_fullday_config.json,"generator, seed 42, scale 1.0","design day: 230 jobs, 375 s analytical cadence",230,0.0,74625.0,600.0
+CS7,cs7_pipc480,instances/cs7_pipc480_config.json,"generator, seed 42, scale 0.1",CS2 with Pipet C 480 s,23,0.0,3420.0,480.0
+CS8,cs8_day180,instances/cs8_day180_config.json,derived from CS6,CS6 release times x 180/375,230,0.0,35820.0,600.0
+CS9,cs9_day60,instances/cs9_day60_config.json,derived from CS6,CS6 release times x 60/375,230,0.0,11940.0,600.0
+CS10,cs10_m2first,instances/cs10_m2first_config.json,derived from CS8,Method-2 analytical routes first at CS8 instants,230,0.0,35820.0,600.0
+CS11,cs11_hcfirst,instances/cs11_hcfirst_config.json,derived from CS8,HC routes first at CS8 instants,230,0.0,35820.0,600.0
+CS12,cs12_m2heavy,instances/cs12_m2heavy_config.json,derived from CS8,40 HC slots replaced by 28 SVOC + 12 SVOC_E,230,0.0,35820.0,600.0
+CS13,cs13_day480,instances/cs13_day480_config.json,derived from CS6,CS6 with Pipet C 480 s,230,0.0,74625.0,480.0
+CS14,cs14_day180_480,instances/cs14_day180_480_config.json,derived from CS8,CS8 with Pipet C 480 s,230,0.0,35820.0,480.0
+CS15,cs15_tiled180,instances/cs15_tiled180_config.json,derived from CS2,ten CS2 blocks at 3600 s offsets (= 20 x 180 s),230,0.0,35820.0,600.0

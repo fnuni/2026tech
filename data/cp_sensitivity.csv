@@ -1,0 +1,5 @@
+case,variant,problem,makespan_s,violations,robot_util_pct,wall_s
+cs6_fullday,auxiliary_5s,hard_wait,90797.59,0,63.587150275684635,230.07613897323608
+cs6_fullday,auxiliary_10s,hard_wait,100115.62,0,65.8018099473389,229.49697637557983
+cs6_fullday,auxiliary_15s,hard_wait,105692.25,0,70.18568532697525,227.80799794197083
+cs6_fullday,profile_A,hard_wait,86884.93000099999,0,56.87509905277159,228.7811484336853

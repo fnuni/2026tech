@@ -16,6 +16,49 @@ from functools import lru_cache
 
 PRIORITY = {'Blank': 0, 'QC2': 1, 'QC1': 2, 'HC': 3, 'SVOC': 3, 'SVOC_E': 3}
 
+
+class Budget:
+    """Completion-to-pickup budget: uniform, or keyed by the origin module type.
+
+    A uniform float reproduces the original study exactly. A mapping
+    ``{origin_type_k: seconds}`` defines stage-specific budgets; types that are
+    not listed use ``default``.
+    """
+
+    def __init__(self, budget=300., default=300.):
+        if isinstance(budget, Budget):
+            self.by_type, self.default = dict(budget.by_type), budget.default
+        elif isinstance(budget, dict):
+            self.by_type = {int(k): float(v) for k, v in budget.items()}
+            self.default = float(default)
+        else:
+            self.by_type, self.default = {}, float(budget)
+        assert self.default > 0 and all(v > 0 for v in self.by_type.values())
+
+    def __call__(self, origin_type):
+        return self.by_type.get(int(origin_type), self.default)
+
+    @property
+    def uniform(self):
+        return not self.by_type
+
+
+class Perturbation:
+    """Nominal (deterministic) execution: realised durations equal nominal ones.
+
+    Subclasses return realised processing and movement durations. Dispatching
+    rules always rank actions with nominal durations; the realised values are
+    revealed only by execution.
+    """
+
+    stochastic = False
+
+    def processing(self, sid, stage, nominal):
+        return nominal
+
+    def move(self, kind, sid, stage, nominal):
+        return nominal
+
 class Cell:
     def __init__(self, config_path, multiplicities=None, *, empty_dwell_s=None,
                  loaded_dwell_s=None, empty_speed_m_s=1.5, loaded_speed_m_s=1.5,
@@ -71,6 +114,7 @@ class Sample:
     release: float
     seq: list[int] = field(default_factory=list)
     p: list[float] = field(default_factory=list)
+    reveal: tuple | None = None   # (stage index, true route, true times, true type)
 
 class Instance:
     def __init__(self, cell, spec, pipc=None):
@@ -95,7 +139,7 @@ def sid_key(sid):
 def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
              gamma_qc=1., delta_qc=3, trace=True, wait_budget=300.,
              starvation=True, slack_band=True, self_wait=False, admission_cap=2,
-             counterfactuals=None):
+             counterfactuals=None, perturbation=None):
     """Execute a dispatch/admission rule and return a complete event trace.
 
     URG-MECT uses the same pending key as URG. MECT reduces exactly to
@@ -103,7 +147,9 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
     admission term is the explicitly defined QC anticipation boost.
     """
     assert policy in ('URG','URG-MECT','LB-ROLL','LB-LA','SRPT','BNA')
-    assert wait_budget > 0 and beta > 0 and admission_cap >= 1
+    budget = Budget(wait_budget)
+    assert beta > 0 and admission_cap >= 1
+    perturbation = perturbation or Perturbation()
     cell = inst.cell
     samples = {s.sid: s for s in inst.samples}
     stage = {s.sid: 0 for s in inst.samples}
@@ -119,6 +165,11 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
     while len(done) < inst.n:
         waiting = [s.sid for s in inst.samples if s.sid not in done
                    and ready[s.sid] <= t + 1e-8]
+        for sid in waiting:  # route information revealed at operation completion
+            s = samples[sid]
+            if s.reveal is not None and stage[sid] == s.reveal[0]:
+                _, s.seq, s.p, s.stype = s.reveal
+                s.reveal = None
         actions = []
         upstream_m2 = sum(1 for sid,s in samples.items() if sid not in done
                           and 10 in s.seq and 0 < stage[sid] <= s.seq.index(10))
@@ -169,7 +220,7 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
                  self_wait=self_wait, w_viol=w_viol, w_over=w_over):
             sid = a['sid']; s = samples[sid]
             wait = t - ready[sid]
-            slack = wait_budget - wait
+            slack = budget(s.seq[stage[sid]]) - wait
             priority = PRIORITY[s.stype]
             if not pending and policy != 'URG' and s.stype in ('QC1','QC2','Blank'):
                 rho = completed_m1 % 10
@@ -202,12 +253,14 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
                 if other == sid or stage[other] == 0:
                     continue
                 w = t - ready[other]
-                nv += int(w <= wait_budget < w + dur)
-                ov += max(0., w + dur - wait_budget) / wait_budget
+                wb = budget(samples[other].seq[stage[other]])
+                nv += int(w <= wb < w + dur)
+                ov += max(0., w + dur - wb) / wb
             if self_wait and stage[sid] > 0:
                 own = wait + cell.auxiliary_s + a['empty']
-                nv += int(wait <= wait_budget < own)
-                ov += max(0., own-wait_budget)/wait_budget
+                wb = budget(s.seq[stage[sid]])
+                nv += int(wait <= wb < own)
+                ov += max(0., own-wb)/wb
             z = dur + score_lb + w_viol * nv + w_over * ov
             return (((math.floor(slack / beta), z, slack) if slack_band else (z, slack))
                     if pending else (priority, slack, z)) + final
@@ -215,6 +268,9 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
         a = min(tier, key=rank)
         timings.append(1e3 * (time.perf_counter() - start))
         sid = a['sid']; s = samples[sid]; old = stage[sid]
+        a = dict(a)
+        a['empty'] = perturbation.move('empty', sid, a['next'], a['empty'])
+        a['loaded'] = perturbation.move('loaded', sid, a['next'], a['loaded'])
         pickup = t + cell.auxiliary_s + a['empty']; arrival = pickup + a['loaded']
         wait = pickup - ready[sid] if old > 0 else 0.
         external_wait = pickup - s.release if old == 0 else 0.
@@ -229,10 +285,13 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
             occupied[loc[sid]] = None
             ops[sid][-1]['clearance_s'] = pickup
         next_j = a['next']
-        completion = arrival + s.p[next_j]
+        duration = perturbation.processing(sid, next_j, s.p[next_j])
+        completion = arrival + duration
         ops[sid].append({'stage': next_j, 'type_k': s.seq[next_j],
                          'station': a['dest'], 'start_s': arrival,
                          'completion_s': completion, 'clearance_s': completion})
+        if perturbation.stochastic:
+            ops[sid][-1]['duration_s'] = duration
         tasks.append(task)
         if trace or counterfactuals:
             decisions.append({'epoch': len(tasks), 'time_s': t,
@@ -256,10 +315,12 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
         robot = a['dest']; t = arrival
     makespan = max(done.values())
     waits = [a['technological_wait_s'] for a in tasks if a['from_stage'] > 0]
-    bad = {a['sample'] for a in tasks if a['technological_wait_s'] > wait_budget + 1e-8}
+    limits = [budget(samples[a['sample']].seq[a['from_stage']]) for a in tasks if a['from_stage'] > 0]
+    bad = {a['sample'] for a in tasks if a['from_stage'] > 0 and
+           a['technological_wait_s'] > budget(samples[a['sample']].seq[a['from_stage']]) + 1e-8}
     loaded = sum(a['loaded_s'] for a in tasks); empty = sum(a['empty_s'] for a in tasks)
     kpi = {'policy': policy, 'n_samples': inst.n, 'makespan_s': makespan,
-           'violations': sum(w > wait_budget + 1e-8 for w in waits),
+           'violations': sum(w > b + 1e-8 for w, b in zip(waits, limits)),
            'affected_samples': len(bad), 'budget_compliant_samples': inst.n-len(bad),
            'max_wait_s': max(waits, default=0.), 'mean_wait_s': sum(waits)/len(waits),
            'mean_flow_s': sum(done[s.sid]-s.release for s in inst.samples)/inst.n,
@@ -269,13 +330,14 @@ def simulate(inst, policy='URG', *, beta=1e6, w_viol=600., w_over=120.,
            'decision_count': len(timings), 'mean_decision_ms': sum(timings)/len(timings),
            'max_decision_ms': max(timings), 'hard_wait_feasible': not bad}
     result = {'kpi': kpi, 'tasks': tasks, 'operations': ops, 'decisions': decisions,
-              'completions': done, 'parameters': {'wait_budget_s':wait_budget,
+              'completions': done, 'parameters': {'wait_budget_s':budget.default,
+              'wait_budget_by_origin_type':budget.by_type,
               'starvation':starvation,'slack_band':slack_band,'self_wait':self_wait,
               'beta':beta,'w_viol':w_viol,'w_over':w_over,'admission_cap':admission_cap}}
-    audit(inst, result, wait_budget=wait_budget)
+    audit(inst, result, wait_budget=budget, stochastic=perturbation.stochastic)
     return result
 
-def audit(inst, result, *, wait_budget=None):
+def audit(inst, result, *, wait_budget=None, stochastic=False):
     """Reconstruct every wait and physical KPI from timestamps, without scores.
 
     This validates a trace, not the optimality or choice rule of a controller.
@@ -293,16 +355,19 @@ def audit(inst, result, *, wait_budget=None):
     for a in tasks:
         assert a['sample'] in samples
         assert a['start_s'] >= robot_free-eps
-        equal(a['empty_s'],cell.empty(robot_at,a['origin']))
-        equal(a['loaded_s'],cell.m(a['origin'],a['destination']))
+        if stochastic:  # realised durations are recorded, not tabulated
+            assert a['empty_s'] >= 0 and a['loaded_s'] > 0
+        else:
+            equal(a['empty_s'],cell.empty(robot_at,a['origin']))
+            equal(a['loaded_s'],cell.m(a['origin'],a['destination']))
         equal(a.get('auxiliary_s',0.),cell.auxiliary_s)
         equal(a['pickup_s']-a['start_s'],a['empty_s']+cell.auxiliary_s)
         equal(a['delivery_s']-a['pickup_s'],a['loaded_s'])
         robot_at=a['destination'];robot_free=a['delivery_s']
         by_sample[a['sample']].append(a)
     occupancy=defaultdict(list); waits=[]; bad=set(); external=[]; flow=[]
-    W=inst.cell.cfg.get('W_max_s',300.) if wait_budget is None else wait_budget
-    equal(result.get('parameters',{}).get('wait_budget_s',W),W)
+    W=Budget(inst.cell.cfg.get('W_max_s',300.) if wait_budget is None else wait_budget)
+    equal(result.get('parameters',{}).get('wait_budget_s',W.default),W.default)
     for s in inst.samples:
         ts=by_sample[s.sid]; ops=result['operations'][s.sid]
         assert len(ts)==len(ops)==len(s.seq)-1
@@ -314,15 +379,15 @@ def audit(inst, result, *, wait_budget=None):
             assert op['stage']==j and op['type_k']==s.seq[j]
             assert a['destination']==op['station']
             equal(op['start_s'],a['delivery_s'])
-            equal(op['completion_s'],op['start_s']+s.p[j])
+            equal(op['completion_s'],op['start_s']+(op['duration_s'] if stochastic else s.p[j]))
             if j>1:
                 previous=ops[j-2]
                 assert a['origin']==previous['station']
                 assert a['pickup_s'] >= previous['completion_s']-eps
                 equal(previous['clearance_s'],a['pickup_s'])
                 wait=a['pickup_s']-previous['completion_s']
-                waits.append(wait)
-                if wait>W+1e-8: bad.add(s.sid)
+                waits.append((wait,W(s.seq[j-1])))
+                if wait>W(s.seq[j-1])+1e-8: bad.add(s.sid)
                 equal(a['technological_wait_s'],wait)
                 equal(a['external_wait_s'],0.)
             else:
@@ -343,9 +408,9 @@ def audit(inst, result, *, wait_budget=None):
     loaded=sum(a['loaded_s'] for a in tasks);empty=sum(a['empty_s'] for a in tasks)
     aux=cell.auxiliary_s*len(tasks)
     metrics={'n_samples':inst.n,'makespan_s':makespan,
-             'violations':sum(w>W+1e-8 for w in waits),'affected_samples':len(bad),
+             'violations':sum(w>b+1e-8 for w,b in waits),'affected_samples':len(bad),
              'budget_compliant_samples':inst.n-len(bad),
-             'max_wait_s':max(waits,default=0.),'mean_wait_s':sum(waits)/len(waits),
+             'max_wait_s':max((w for w,_ in waits),default=0.),'mean_wait_s':sum(w for w,_ in waits)/len(waits),
              'mean_flow_s':sum(flow)/inst.n,'robot_loaded_s':loaded,'robot_empty_s':empty,
              'robot_util_pct':100*(loaded+empty+aux)/makespan,'robot_tasks':len(tasks),
              'hard_wait_feasible':not bad}

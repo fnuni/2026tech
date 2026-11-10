@@ -358,6 +358,8 @@ def main():
         spec = families[name]
         inst = Instance(cell, spec)
         lb0, lb1 = cert.value(inst), ht.value(inst)
+        from revision_study import StrengthenedCertificate
+        lb4 = StrengthenedCertificate.components(inst)['certificate_lb_s']
         heur = urg.simulate(inst)
         started = time.perf_counter()
         proof_dir = args.output.parent.parent / "validation" / "exact"
@@ -380,10 +382,12 @@ def main():
             "mix": labels[name][0],
             "pacing_s": labels[name][1],
             "lb_cap_path_s": round(lb0, 2),
-            "lb_certificate_s": round(lb1, 2),
+            "certificate_v3_lb_s": round(lb1, 2),
+            "certificate_lb_s": round(lb4, 2),
             "opt_makespan_s": round(opt, 2),
             "urg_makespan_s": round(heur, 2),
-            "certificate_slack_pct": round(100 * (opt - lb1) / opt, 2),
+            "certificate_v3_slack_pct": round(100 * (opt - lb1) / opt, 2),
+            "certificate_slack_pct": round(100 * (opt - lb4) / opt, 2),
             "urg_excess_pct": round(100 * (heur - opt) / opt, 2),
             "solver": args.solver.upper(),
             "milp_status": status,

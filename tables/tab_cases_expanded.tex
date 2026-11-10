@@ -1,26 +1,26 @@
-\begin{table}[!htbp]
-\caption{Deterministic case design. All cases use the same layout. CS8--CS15 contain 230 jobs; only the indicated input factor changes from the paired reference.\label{tab:cases}}
+\begin{table}[tbp]
+\caption{Deterministic scenarios. Cadence is the analytical release interval; controls are released 5~s after an analytical release. Each row states the input that distinguishes the scenario from its reference.\label{tab:cases}}
 \centering
 \footnotesize
-\begin{tabular}{lrrlr}
+\begin{tabular}{lrrp{8.6cm}r}
 \toprule
-Case & Jobs & Interval (s) & Release order / mix & Pipet C (s)\\
+Case & Jobs & \shortstack{Cadence\\(s)} & Release list and distinguishing change & \shortstack{Pipet C\\(s)}\\
 \midrule
-CS1 & 23 & 375 & released sequence & 600\\
-CS2 & 23 & 180 & released sequence & 600\\
-CS3 & 23 & 60 & released sequence & 600\\
-CS4 & 23 & 180 & released sequence & 600\\
-CS5 & 46 & 150 & released sequence & 600\\
-CS6 & 230 & 375 & released sequence & 600\\
-CS7 & 23 & 180 & released sequence & 480\\
-CS8 & 230 & 180 & alternating & 600\\
-CS9 & 230 & 60 & alternating & 600\\
-CS10 & 230 & 180 & M2 first & 600\\
-CS11 & 230 & 180 & HC first & 600\\
-CS12 & 230 & 180 & alternating; M2-heavy & 600\\
-CS13 & 230 & 375 & alternating & 480\\
-CS14 & 230 & 180 & alternating & 480\\
-CS15 & 230 & 180 & 10 replicated CS2 blocks & 600\\
+CS1 & 23 & 375 & Generator, seed 42; 10 HC, 7 SVOC, 3 SVOC$_E$, QC1, QC2, blank & 600\\
+CS2 & 23 & 180 & CS1 sequence at 180~s cadence & 600\\
+CS3 & 23 & 60 & CS1 sequence at 60~s cadence & 600\\
+CS4 & 23 & 180 & CS2 instants and mix; seed 99: emulsions on Method-2 slots 4, 7, 10 (CS2: 1, 2, 5), QC1 and blank swapped & 600\\
+CS5 & 46 & 150 & Generator, seed 42, double CS1 volume & 600\\
+CS6 & 230 & 375 & Design day: generator, seed 42, full project mix & 600\\
+CS7 & 23 & 180 & CS2 with Pipet C 480~s & 480\\
+CS8 & 230 & 180 & CS6 release times $\times180/375$ & 600\\
+CS9 & 230 & 60 & CS6 release times $\times60/375$ & 600\\
+CS10 & 230 & 180 & CS8 instants; Method-2 analytical routes first & 600\\
+CS11 & 230 & 180 & CS8 instants; HC routes first & 600\\
+CS12 & 230 & 180 & CS8 instants; 40 HC replaced by 28 SVOC and 12 SVOC$_E$ & 600\\
+CS13 & 230 & 375 & CS6 with Pipet C 480~s & 480\\
+CS14 & 230 & 180 & CS8 with Pipet C 480~s & 480\\
+CS15 & 230 & 180 & Ten CS2 blocks at 3600~s offsets (continuous 180~s cadence) & 600\\
 \bottomrule
 \end{tabular}
 \end{table}

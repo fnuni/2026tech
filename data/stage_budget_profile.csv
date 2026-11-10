@@ -1,0 +1,9 @@
+case,policy,uniform_violations,uniform_affected,profile_fixed_violations,profile_fixed_affected,profile_fixed_events_before_pipc,profile_fixed_events_from_concentrator,profile_fixed_events_from_centrifuge,profile_rerun_makespan_s,profile_rerun_violations,profile_rerun_affected
+cs6_fullday,URG,114,102,155,127,89,58,24,78443.50000000006,145,117
+cs6_fullday,SRPT,103,99,151,132,104,47,28,78731.76999999999,151,132
+cs6_fullday,BNA,25,25,64,62,21,43,13,98149.68,66,61
+cs6_fullday,LB-LA,113,99,154,120,83,64,21,78553.58000000002,141,117
+cs8_day180,URG,262,144,278,169,107,117,30,76722.14999999992,272,168
+cs8_day180,SRPT,435,216,345,214,108,20,29,103038.93999999987,345,214
+cs8_day180,BNA,137,130,171,132,23,54,18,99189.70000000017,197,148
+cs8_day180,LB-LA,250,150,271,176,109,104,30,77014.87000000004,225,151

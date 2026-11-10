@@ -30,7 +30,7 @@ def main():
     for row in read('kpi_campaign.csv'):
         name=row['case'];policy=row['policy'];inst=instance(name)
         r=load(ROOT/'validation/corrected_runs'/name/policy/'trace.json');m=audit(inst,r);compare(row,m)
-        assert float(row['makespan_s'])+1e-5>=float(row['certificate_lb_s'])
+        assert float(row['makespan_s'])+1e-5>=float(row['certificate_v3_lb_s'])
         checked.append({'family':'primary','case':name,'policy':policy,'operational_audit':'passed','hard_wait_feasible':m['hard_wait_feasible']});results[name,policy]=r
     # Recalculate certificate components directly from explicit routes and
     # movement minima, independently of the bound-class implementation.
@@ -50,7 +50,7 @@ def main():
         cap=max(w/len(inst.cell.by_k[k]) for k,w in work.items())
         ht=max(heads[k]+w/len(inst.cell.by_k[k])+tails[k] for k,w in work.items())
         compare(row,{'capacity_lb_s':cap,'release_path_lb_s':path,'robot_lb_s':robot,
-                     'headtail_lb_s':ht,'certificate_lb_s':max(cap,path,robot,ht)})
+                     'headtail_lb_s':ht,'certificate_v3_lb_s':max(cap,path,robot,ht)})
     for name in {r['case'] for r in read('kpi_campaign.csv')}:
         a=results[name,'URG'];b=results[name,'URG-MECT']
         assert [(x['sample'],x['destination'],x['pickup_s']) for x in a['tasks']]==[(x['sample'],x['destination'],x['pickup_s']) for x in b['tasks']]
