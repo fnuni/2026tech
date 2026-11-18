@@ -127,8 +127,8 @@ def t_cs6():
     body.append(['BNA ($q=1$)', h(a['makespan_s']), a['violations'], a['affected_samples'], f(a['p95_wait_s']),
                  h(a['p95_external_s']), a['max_external_backlog'], h(a['mean_flow_s'])])
     body.append('\\midrule')
-    for path, lab in [('operational_rhcp', 'RH-CP, operational'), ('hard_wait_rhcp', 'RH-CP, hard-wait'),
-                      ('targeted_cp-ref', 'CP-REF, hard-wait')]:
+    for path, lab in [('operational_rhcp', 'RH-CP, operational'), ('hard_wait_rhcp', 'RH-CP, hard-wait-constrained'),
+                      ('targeted_cp-ref', 'CP-REF, hard-wait-constrained')]:
         tp = ROOT / 'validation/cp/cs6_fullday' / f'{path}_trace.json'
         if not tp.exists():
             continue
@@ -177,7 +177,25 @@ def t_primary():
         row.append(h(lb[n]['certificate_lb_s']))
         body.append(row)
     table('tab_primary.tex', 'Scenario comparison: makespan (h) / violation events / affected samples. RH-CP solves the operational problem or the hard-wait-constrained problem (whose schedules have no event); $LB$ is the certificate~\\eqref{eq:cert}, valid for both problems.',
-          'tab:summary', 'lrrrrrrr', 'Case & URG & SRPT & BNA & LB-LA & RH-CP, operational & \\shortstack{RH-CP,\\\\hard-wait} & \\shortstack{$LB$\\\\(h)}', body, full=True)
+          'tab:summary', 'lrrrrrrr', 'Case & URG & SRPT & BNA & LB-LA & RH-CP, operational & \\shortstack{RH-CP,\\\\hard-wait-\\\\constrained} & \\shortstack{$LB$\\\\(h)}', body, full=True)
+
+
+def t_rollout():
+    ro = {(r['case'], r['cost'], r['hold_option']): r for r in rows('rollout_results.csv')}
+    cp = {(r['case'], r['problem'], r['method']): r for r in rows('cp_reference.csv')}
+    cell = lambda m, v, a: f"{h(m)} / {v} / {a}"
+    body = []
+    for n in CASES:
+        m = ro[n, 'makespan', 'False']
+        row = [LABEL[n], m['base_rule'], cell(m['base_makespan_s'], m['base_violations'], m['base_affected_samples'])]
+        for key in [('makespan', 'False'), ('violations-first', 'False'), ('violations-first', 'True')]:
+            r = ro[(n,) + key]
+            row.append(cell(r['makespan_s'], r['violations'], r['affected_samples']))
+        w = cp.get((n, 'hard_wait', 'RH-CP'))
+        row.append(h(w['makespan_s']) if w else '--')
+        body.append(row)
+    table('tab_rollout.tex', 'Rollout with the shortest-makespan rule of each scenario as base policy: makespan (h) / violation events / affected samples. RO-M minimises the makespan; RO-V minimises the violation events with the makespan as tie-breaker; RO-VH adds the option to delay an admission until the next event. All rollout schedules pass the timestamp audit; RH-CP, hard-wait-constrained is repeated from Table~\\ref{tab:summary} for reference.',
+          'tab:rollout', 'llrrrrr', 'Case & \\shortstack{Base\\\\rule} & Base rule & RO-M & RO-V & RO-VH & \\shortstack{RH-CP,\\\\hard-wait-\\\\constrained}', body, full=True)
 
 
 def t_gaps():
@@ -197,7 +215,7 @@ def t_gaps():
                      f'{100 * (best_rule / cert - 1):.2f}', f'{100 * (ub / cert - 1):.2f}',
                      f(w['makespan_s']) if w else '--', f"{100 * (float(w['makespan_s']) / cert - 1):.2f}" if w else '--'])
     table('tab_gaps_expanded.tex', 'Lower bounds and gaps (times in s). $LB_{\\mathrm{v1}}$: certificate of the first version (head/tail term on complete operation sets); $LB$: certificate~\\eqref{eq:cert} with nested subsets and mandatory empty legs, valid for both problems; binding term with module type. UB: best operational upper bound among the rules and both RH-CP schedules (a hard-wait-feasible schedule is also operationally feasible); the monolithic CP schedules of Table~\\ref{tab:intermediate} are shorter on CS1, CS2, CS4, CS5 and CS7 (e.g., CS1: 10,785~s), and on CS6 the best hard-wait-feasible schedule is CP-REF (23.20~h, gap 6.82\\%, Table~\\ref{tab:targeted}).',
-          'tab:gaps', 'lrrlrrrrr', 'Case & $LB_{\\mathrm{v1}}$ & $LB$ & Binding & \\shortstack{Best\\\\rule} & \\shortstack{Rule\\\\gap (\\%)} & \\shortstack{UB\\\\gap (\\%)} & \\shortstack{RH-CP\\\\hard-wait} & \\shortstack{Hard-wait\\\\gap (\\%)}', body, wide=True)
+          'tab:gaps', 'lrrlrrrrr', 'Case & $LB_{\\mathrm{v1}}$ & $LB$ & Binding & \\shortstack{Best\\\\rule} & \\shortstack{Rule\\\\gap (\\%)} & \\shortstack{UB\\\\gap (\\%)} & \\shortstack{RH-CP,\\\\hard-wait-\\\\constrained} & \\shortstack{Hard-wait\\\\gap (\\%)}', body, wide=True)
 
 
 def t_intermediate():
@@ -217,7 +235,7 @@ def t_intermediate():
         cert = cache[key]
         rb = float(r['relaxed_cp_bound_s']) if r['relaxed_cp_bound_s'] not in ('', 'None') else 0.
         lb = max(cert, rb)
-        prob = 'oper.' if r['problem'] == 'operational' else 'hard-wait'
+        prob = 'operational' if r['problem'] == 'operational' else 'hard-wait-constrained'
         best_rule = min(float(r[f'{p}_makespan_s']) for p in POLICIES)
         prim = float(r['primal_s'])
         ub = min(prim, best_rule) if r['problem'] == 'operational' else prim
@@ -253,7 +271,7 @@ def t_design():
         if case != 'cs12_m2heavy':
             body.append('\\midrule')
     table('tab_design.tex', 'Structural alternatives: makespan (h) / affected samples under the dispatching rules, hard-wait-feasible RH-CP makespan (h) and certificate~\\eqref{eq:cert} (h).',
-          'tab:design', 'llrrrrrr', 'Case & Alternative & URG & SRPT & BNA & LB-LA & \\shortstack{RH-CP,\\\\hard-wait} & \\shortstack{$LB$\\\\(h)}', body, wide=True)
+          'tab:design', 'llrrrrrr', 'Case & Alternative & URG & SRPT & BNA & LB-LA & \\shortstack{RH-CP,\\\\hard-wait-\\\\constrained} & \\shortstack{$LB$\\\\(h)}', body, wide=True)
 
 
 def t_stochastic():
@@ -322,7 +340,7 @@ def t_robot():
         row.append(h(cps[key]['makespan_s']) if key in cps else ('--'))
         body.append(row)
     table('tab_robot.tex', 'CS6 with auxiliary robot service $a$ before every pickup: makespan (h) / affected samples, URG robot utilisation, share of URG violation events before Pipet C, and best hard-wait-feasible RH-CP makespan (h) where computed. The last row uses the industrial-equivalent value.',
-          'tab:robot', 'rrrrrrr', '$a$ (s) & URG & BNA & LB-LA & \\shortstack{Robot\\\\util. (\\%)} & \\shortstack{Pipet C\\\\share (\\%)} & \\shortstack{RH-CP,\\\\hard-wait}', body, wide=True)
+          'tab:robot', 'rrrrrrr', '$a$ (s) & URG & BNA & LB-LA & \\shortstack{Robot\\\\util. (\\%)} & \\shortstack{Pipet C\\\\share (\\%)} & \\shortstack{RH-CP,\\\\hard-wait-\\\\constrained}', body, wide=True)
 
 
 def t_thresholds():
@@ -423,7 +441,7 @@ if __name__ == '__main__':
     ap.add_argument('--paper-dir', type=Path)
     args = ap.parse_args()
     for fn in [t_cases, t_cs6, t_wait, t_primary, t_gaps, t_intermediate, t_design, t_stochastic, t_robot,
-               t_thresholds, t_weights, t_admission, t_physical, t_hard_wait_milp, t_targeted]:
+               t_thresholds, t_weights, t_admission, t_physical, t_hard_wait_milp, t_targeted, t_rollout]:
         try:
             fn()
         except (FileNotFoundError, KeyError, StopIteration) as e:

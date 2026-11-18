@@ -1,0 +1,29 @@
+\begin{table}[tbp]
+\begin{adjustwidth}{-\extralength}{0cm}
+\caption{Rollout with the shortest-makespan rule of each scenario as base policy: makespan (h) / violation events / affected samples. RO-M minimises the makespan; RO-V minimises the violation events with the makespan as tie-breaker; RO-VH adds the option to delay an admission until the next event. All rollout schedules pass the timestamp audit; RH-CP, hard-wait-constrained is repeated from Table~\ref{tab:summary} for reference.\label{tab:rollout}}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\fulllength}{@{\extracolsep{\fill}}llrrrrr@{}}
+\toprule
+Case & \shortstack{Base\\rule} & Base rule & RO-M & RO-V & RO-VH & \shortstack{RH-CP,\\hard-wait-\\constrained}\\
+\midrule
+CS1 & URG & 3.09 / 10 / 10 & 3.07 / 7 / 7 & 3.09 / 5 / 5 & 3.07 / 5 / 5 & 3.17\\
+CS2 & LB-LA & 3.03 / 10 / 10 & 3.01 / 11 / 11 & 3.03 / 7 / 7 & 3.02 / 6 / 6 & 3.06\\
+CS3 & SRPT & 2.91 / 14 / 14 & 2.90 / 11 / 10 & 2.90 / 5 / 5 & 2.90 / 7 / 7 & 3.11\\
+CS4 & LB-LA & 2.84 / 11 / 10 & 2.83 / 9 / 9 & 2.85 / 6 / 6 & 2.85 / 5 / 5 & 3.16\\
+CS5 & URG & 5.06 / 29 / 25 & 5.02 / 29 / 24 & 5.06 / 20 / 18 & 5.04 / 19 / 19 & 5.34\\
+CS6 & URG & 21.80 / 114 / 102 & 21.78 / 107 / 98 & 21.78 / 82 / 76 & 21.78 / 76 / 71 & 23.82\\
+CS7 & LB-LA & 2.67 / 9 / 9 & 2.64 / 11 / 10 & 2.67 / 7 / 7 & 2.67 / 6 / 6 & 3.00\\
+CS8 & LB-LA & 21.32 / 250 / 150 & 21.19 / 251 / 145 & 21.27 / 199 / 133 & 21.33 / 183 / 122 & 23.91\\
+CS9 & LB-LA & 21.25 / 284 / 164 & 21.13 / 294 / 165 & 21.29 / 204 / 137 & 21.28 / 181 / 125 & 23.55\\
+CS10 & BNA & 27.03 / 128 / 121 & 25.76 / 102 / 99 & 25.72 / 51 / 51 & 25.88 / 42 / 42 & 25.86\\
+CS11 & SRPT & 28.79 / 437 / 216 & 28.26 / 419 / 210 & 28.54 / 381 / 203 & 28.18 / 373 / 195 & 31.29\\
+CS12 & LB-LA & 28.53 / 471 / 211 & 28.41 / 457 / 208 & 28.45 / 406 / 202 & 28.59 / 395 / 195 & 28.48\\
+CS13 & LB-LA & 21.69 / 50 / 48 & 21.68 / 46 / 46 & 21.69 / 30 / 30 & 21.68 / 25 / 25 & 22.87\\
+CS14 & URG & 18.04 / 296 / 201 & 17.89 / 308 / 208 & 18.16 / 114 / 98 & 18.08 / 78 / 72 & 22.37\\
+CS15 & LB-LA & 21.35 / 244 / 145 & 21.20 / 247 / 140 & 21.32 / 201 / 133 & 21.40 / 193 / 126 & 23.34\\
+\bottomrule
+\end{tabular*}
+\end{adjustwidth}
+\end{table}

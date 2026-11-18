@@ -1,9 +1,11 @@
 # Robotic water-sample preparation cell
 
-Replication package **4.1.0**, released 10 November 2026, for **Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment** (Technologies, revised manuscript).
+Replication package **4.2.0**, released 16 November 2026, for **Design and Scheduling of an Automated Water-Sample Preparation Cell: Capacity Diagnosis and Pre-Commissioning Assessment** (Technologies, revised manuscript).
 
 Repository: https://github.com/fnuni/2026tech
-Frozen version: https://github.com/fnuni/2026tech/tree/v4.1.0
+Frozen version: https://github.com/fnuni/2026tech/tree/v4.2.0
+
+Version 4.2.0 (third-round revision) adds a fortified rollout controller (`code/rollout.py`) that completes the schedule with the shortest-makespan dispatching rule of each scenario as base policy, in three variants (RO-M: makespan; RO-V: violation events, then makespan; RO-VH: RO-V with the option to delay an admission until the next event). `rollout.py --validate` checks that its base rules reproduce the action sequences of `cell_model.simulate`; results are in `data/rollout_results.csv` and the audited traces in `validation/rollout/`. The complete CS1 schedules under URG and under the hard-wait-feasible conservative CP schedule are shown in `figures/fig_gantt_cs1_hw.pdf`. All earlier inputs, traces and results are unchanged.
 
 Version 4.0.0 adds the second-round analyses requested during peer review: constraint-programming (CP-SAT) reference schedules with completion-to-pickup time lags and relaxation bounds, a rolling-horizon optimiser (RH-CP), a targeted hard-wait feasibility search on the design day, intermediate instances with primal and dual bounds, structural design alternatives, stochastic and three-day runs, robot-workload accounting, stage-specific waiting limits and an LB-LA weight grid. All inputs, traces and results of version 3.0.2 are retained unchanged; `code/cell_model.py` keeps bit-identical behaviour for every 3.0.2 setting.
 
@@ -57,6 +59,7 @@ python code/reproduce.py --revision-only
 | Stochastic and three-day runs | `python code/revision_study.py stochastic` | `data/stochastic_replications.csv`, `data/stochastic_summary.csv` |
 | Robot accounting and workload sweep | `python code/revision_study.py robot`; `python code/cp_study.py sensitivity --step 15` | `data/robot_accounting.csv`, `data/robot_load_sensitivity.csv`, `data/cp_sensitivity.csv` |
 | Stage-specific waiting limits | `python code/revision_study.py profile` | `data/stage_budget_profile.csv` |
+| Rollout control on CS1–CS15 (RO-M, RO-V, RO-VH) | `python code/rollout.py --study <cases>` (the fifteen case names of the scenario map, e.g. `cs6_fullday`); validation: `python code/rollout.py --validate <cases>` | `data/rollout_results.csv`, `validation/rollout/` |
 | Strengthened certificate (subset head/tail, mandatory empty legs) | `python code/revision_study.py bounds` | `data/lower_bounds_v4.csv` |
 | LB-LA weight grid | `python code/revision_study.py weights` | `data/weight_sensitivity.csv` |
 | Scenario map, CS15 timeline | `python code/revision_study.py scenarios` | `data/scenario_map.csv`, `data/cs15_timeline.csv` |
@@ -71,6 +74,7 @@ Simulations are deterministic and reproduce bit for bit. CP-SAT runs are wall-cl
 
 - **Dispatching rules:** URG, SRPT, BNA (bottleneck-aware admission, cap 2; caps 1–4 as sensitivity) and LB-LA (lower-bound-guided one-step lookahead; legacy alias LB-ROLL). URG-MECT duplicates URG by construction and is reported only as an implementation-equivalence control.
 - **CP models** (`code/cp_reference.py`): the conservative interval model reserves the longest admissible empty and loaded movements and the longest initial robot travel to the first pickup; its solutions are re-timed with the true movement matrix and audited (primal schedules). The relaxed model reserves only the shortest loaded movement and the mandatory empty-leg separation; its proven bound is a valid makespan lower bound. Completion-to-pickup limits are maximum time lags.
+- **Rollout** (`code/rollout.py`): at every decision epoch the five candidate transfers ranked best by the base rule are each executed in a copy of the model and the schedule is completed with the base rule; the candidate with the lowest cost of the completed schedule is executed (fortified: the best complete schedule found so far is retained). Base rule: shortest deterministic makespan of each scenario.
 - **RH-CP:** release-ordered rolling horizon (window 30, commit 15, 15 s per window, warm start by a time-lag insertion heuristic). Each window minimises n·Cmax + ΣCj (n jobs in the window), a weighted, not lexicographic, objective. It uses the planned release list of the look-ahead window.
 - **CP-REF:** RH-CP with 40 s per window, followed by 600 s of monolithic CP-SAT makespan polishing, 300 s of flow-time polishing at no larger makespan, and a repair step that re-inserts samples whose admission was deferred by more than 3 h at their earliest feasible admission (design day; `cp_study.py targeted`, `flow`, `repair`).
 

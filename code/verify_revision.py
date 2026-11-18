@@ -1,4 +1,4 @@
-"""Independent audit of the second-round artifacts (package 4.1.0).
+"""Independent audit of the second-round artifacts (package 4.2.0).
 
 * every CP schedule (RH-CP, CP-REF, intermediate, design, sensitivity) is
   re-audited from its timestamps with ``cell_model.audit``;
@@ -7,7 +7,8 @@
   initial robot travel (auxiliary service plus the longest empty movement
   from the initial robot position to a station of the origin type);
 * the CS15 analytical cadence is continuous at 180 s (no block overlap);
-* URG and URG-MECT action sequences are identical in all fifteen scenarios.
+* URG and URG-MECT action sequences are identical in all fifteen scenarios;
+* every rollout schedule is re-audited and matches data/rollout_results.csv.
 """
 import csv
 import json
@@ -58,6 +59,21 @@ def initial_travel_ok(inst, tr):
     return float(first['pickup_s']) + 1e-6 >= lead
 
 
+def audit_rollouts():
+    rows = {(r['case'], r['method']): r for r in csv.DictReader((ROOT / 'data/rollout_results.csv').open())}
+    n = 0
+    for path in sorted((ROOT / 'validation/rollout').glob('*_trace.json')):
+        case, label = path.name.replace('_trace.json', '').split('__')
+        cell = Cell(ROOT / 'instances' / f'{case}_config.json')
+        m = audit(Instance(cell, cell.cfg['samples']), json.loads(path.read_text()), wait_budget=300.)
+        r = rows[(case, label)]
+        assert abs(m['makespan_s'] - float(r['makespan_s'])) < 1e-4, path
+        assert (m['violations'], m['affected_samples']) == (int(r['violations']), int(r['affected_samples'])), path
+        n += 1
+    assert n == len(rows), (n, len(rows))
+    return n
+
+
 def main():
     n = 0
     for path in sorted((ROOT / 'validation/cp').rglob('*_trace.json')):
@@ -79,7 +95,8 @@ def main():
         a = simulate(inst, 'URG', trace=False)
         b = simulate(inst, 'URG-MECT', trace=False)
         assert [(x['sample'], x['destination']) for x in a['tasks']] == [(x['sample'], x['destination']) for x in b['tasks']]
-    print(f'Audited {n} CP schedules (initial travel included); CS15 cadence continuous; URG = URG-MECT on 15 scenarios')
+    nr = audit_rollouts()
+    print(f'Audited {n} CP schedules (initial travel included) and {nr} rollout schedules; CS15 cadence continuous; URG = URG-MECT on 15 scenarios')
 
 
 if __name__ == '__main__':

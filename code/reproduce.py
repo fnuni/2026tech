@@ -11,6 +11,9 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CASES = ['cs1_nominal', 'cs2_medium', 'cs3_high', 'cs4_medium_s99', 'cs5_double', 'cs6_fullday', 'cs7_pipc480',
+         'cs8_day180', 'cs9_day60', 'cs10_m2first', 'cs11_hcfirst', 'cs12_m2heavy', 'cs13_day480',
+         'cs14_day180_480', 'cs15_tiled180']
 ORIGINAL = [['test_model.py'], ['run_study.py'], ['exact_study.py'], ['run_hard_wait.py'],
             ['make_tables.py'], ['make_figures.py'], ['verify_package.py']]
 REVISION = [['revision_study.py', 'scenarios', 'bounds', 'weights', 'stochastic', 'design', 'robot', 'profile'],
@@ -21,6 +24,7 @@ REVISION = [['revision_study.py', 'scenarios', 'bounds', 'weights', 'stochastic'
             ['cp_study.py', 'intermediate', '--limit', '120'],
             ['cp_study.py', 'design', '--step', '15'],
             ['cp_study.py', 'sensitivity', '--step', '15'],
+            ['rollout.py', '--study', *CASES],
             ['make_revision_tables.py'], ['make_revision_figures.py'], ['verify_revision.py']]
 
 

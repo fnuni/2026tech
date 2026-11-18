@@ -33,16 +33,13 @@ def rows(name):
     return list(csv.DictReader((ROOT / 'data' / name).open()))
 
 
-def gantt_cs6_detail(first_release=36000., last_release=40200.):
-    cfg = json.loads((ROOT / 'instances/cs6_fullday_config.json').read_text())
+def gantt_pair(case, ids, traces, titles, name, size=(9.2, 7.6), top=.86):
+    cfg = json.loads((ROOT / f'instances/{case}_config.json').read_text())
     rel = {s['id']: s['release_s'] for s in cfg['samples']}
     types = {s['id']: s['type'] for s in cfg['samples']}
-    ids = [s['id'] for s in cfg['samples'] if first_release <= s['release_s'] <= last_release]
-    urg = json.loads((ROOT / 'validation/corrected_runs/cs6_fullday/URG/trace.json').read_text())
-    cp = json.loads((ROOT / 'validation/cp/cs6_fullday/targeted_cp-ref_trace.json').read_text())
-    fig, axes = plt.subplots(2, 1, figsize=(9.2, 7.6), sharex=True)
-    for ax, r, title in zip(axes, [urg, cp], ['URG (operational problem)',
-                                             'CP-REF (hard-wait-constrained problem)']):
+    runs = [json.loads((ROOT / t).read_text()) for t in traces]
+    fig, axes = plt.subplots(2, 1, figsize=size, sharex=True)
+    for ax, r, title in zip(axes, runs, titles):
         for i, sid in enumerate(ids):
             first = next(a for a in r['tasks'] if a['sample'] == sid and a['from_stage'] == 0)
             ext = first['pickup_s'] - rel[sid]
@@ -72,8 +69,26 @@ def gantt_cs6_detail(first_release=36000., last_release=40200.):
                 Patch(facecolor='#ffdf66', edgecolor='#b99a35', label='Internal wait $\\leq$ 300 s'),
                 Patch(facecolor='#ffdf66', edgecolor='#b22222', linewidth=2, label='Internal wait > 300 s')]
     fig.legend(handles=handles, loc='upper center', ncol=3, fontsize=8, frameon=False)
-    fig.tight_layout(rect=[0, 0, 1, .86])
-    save(fig, 'fig_gantt_cs6_detail')
+    fig.tight_layout(rect=[0, 0, 1, top])
+    save(fig, name)
+
+
+def gantt_cs6_detail(first_release=36000., last_release=40200.):
+    cfg = json.loads((ROOT / 'instances/cs6_fullday_config.json').read_text())
+    ids = [s['id'] for s in cfg['samples'] if first_release <= s['release_s'] <= last_release]
+    gantt_pair('cs6_fullday', ids, ['validation/corrected_runs/cs6_fullday/URG/trace.json',
+                                    'validation/cp/cs6_fullday/targeted_cp-ref_trace.json'],
+               ['URG (operational problem)', 'CP-REF (hard-wait-constrained problem)'], 'fig_gantt_cs6_detail')
+
+
+def gantt_cs1():
+    cfg = json.loads((ROOT / 'instances/cs1_nominal_config.json').read_text())
+    ids = [s['id'] for s in cfg['samples']]
+    gantt_pair('cs1_nominal', ids, ['validation/corrected_runs/cs1_nominal/URG/trace.json',
+                                    'validation/cp/intermediate/cs1_nominal_hard_wait_trace.json'],
+               ['URG (operational problem): 10 violation events, 3.09 h',
+                'Conservative CP schedule (hard-wait-constrained problem): no violation event, 3.03 h'],
+               'fig_gantt_cs1_hw', size=(9.2, 9.6), top=.905)
 
 
 def admission_tradeoff():
@@ -157,7 +172,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--only', nargs='*')
     args = ap.parse_args()
-    figs = {'gantt': gantt_cs6_detail, 'admission': admission_tradeoff, 'robot': robot_load}
+    figs = {'gantt': gantt_cs6_detail, 'gantt_cs1': gantt_cs1, 'admission': admission_tradeoff, 'robot': robot_load}
     for name, fn in figs.items():
         if not args.only or name in args.only:
             fn()

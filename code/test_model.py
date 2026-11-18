@@ -135,4 +135,20 @@ class AuditTamperTests(unittest.TestCase):
         self.assertLessEqual(retimed['kpi']['makespan_s'],res.objective_s+1e-6)
         self.assertEqual(raw['kpi']['violations'],0)
 
+    def test_rollout_base_rules_reproduce_simulation(self):
+        from rollout import RULES,Validation
+        cell=Cell(ROOT/'instances/cs1_nominal_config.json');inst=Instance(cell,cell.cfg['samples'])
+        for rule in RULES.values():
+            self.assertEqual(Validation.check(inst,rule()),167)
+
+    def test_rollout_is_audited_and_never_worse_than_base(self):
+        from rollout import RULES,COSTS,RolloutPolicy
+        cell=Cell(ROOT/'instances/cs1_nominal_config.json');inst=Instance(cell,cell.cfg['samples'])
+        base=simulate(inst,'URG',trace=False)['kpi']
+        for hold in (False,True):
+            r=RolloutPolicy(RULES['URG'](),COSTS['violations-first'](),hold=hold).run(inst)['kpi']
+            self.assertLessEqual((r['violations'],round(r['makespan_s'],6)),(base['violations'],round(base['makespan_s'],6)))
+        r=RolloutPolicy(RULES['URG'](),COSTS['makespan']()).run(inst)['kpi']
+        self.assertLessEqual(r['makespan_s'],base['makespan_s']+1e-6)
+
 if __name__=='__main__':unittest.main()
